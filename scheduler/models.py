@@ -34,4 +34,4 @@ class Workload(models.Model):
         ordering = ['test_date']
 
     def __str__(self):
-        return f"{self.test_date},{self.analyst},{self.test}"
+        return f"{self.analyst} to test {self.test} on {self.test_date}"

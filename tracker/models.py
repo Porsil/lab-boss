@@ -10,7 +10,7 @@ MATERIAL_STATUS = (("Active", "Active"), ("Inactive", "Inactive"))
 
 class Material(models.Model):
     name = models.CharField(max_length=25, unique=True)
-    status = models.TextField(choices=AVAILABLE_STATUS, default="Active")
+    status = models.TextField(choices=MATERIAL_STATUS, default="Active")
 
     def __str__(self):
         return self.name
