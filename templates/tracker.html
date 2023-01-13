@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <h2>Batch Tracker</h2>
+    {% for batch in batch_list %}
+    <p>{{ batch.priority }}</p>
+    <p>{{ batch.batch }}</p>
+    <p>{{ batch.material }}</p>
+    <p>{{ batch.booked_in }}</p>
+    <p>{{ batch.due_date }}</p>
+    <p>{{ batch.comments }}</p>
+    <p>{{ batch.status }}</p>
+    {% endfor %}
+</div>
+
+{%endblock%}
