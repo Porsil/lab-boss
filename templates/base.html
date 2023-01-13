@@ -20,17 +20,62 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
         integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/dzgzb3yx8/image/upload/v1673642286/lab-boss/favicon_laaolq.png">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <title>Lab Boss</title>
 </head>
 
 <body>
-
     <!-- Header -->
-    <h1>BASE HEADER TEST</h1>
     <header>
         <!-- NavBar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="https://res.cloudinary.com/dzgzb3yx8/image/upload/v1673642246/lab-boss/logo_jjwvat.png"
+                        alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <!-- if user is authenticated -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'tracker' %}">Batch Tracker</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Scheduler</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Data Management
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'materials' %}">Materials</a></li>
+                                <li><a class="dropdown-item" href="#">Analysts</a></li>
+                                <li><a class="dropdown-item" href="#">Tests</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
+                        <!-- if user is not authenticated -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main>
@@ -38,9 +83,24 @@
         <!-- Page Content -->
         {% endblock content %}
     </main>
+
     <!-- Footer -->
     <footer>
-        <h1>BASE FOOTER TEST</h1>
+        <div class="container footer-container">
+            <div class="row">
+                <div class="col-3">
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="col-6 text-center">
+                    Logo attributed to <a
+                        href="https://www.freepik.com/free-vector/polygonal-hexagon-logo_1112748.htm#page=2&query=science%20logo&position=35&from_view=search&track=sph">Image
+                        by 3ab2ou</a> on Freepik
+                </div>
+                <div class="col-3 text-end">
+                    &copy; 2022 Helen Brown
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Bootstrap -->
