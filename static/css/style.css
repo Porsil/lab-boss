@@ -1,5 +1,7 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Russo+One&display=swap');
+
 
 /* Global Styles */
 
@@ -8,7 +10,7 @@ body {
     font-weight: 600;
     color: rgb(13, 74, 115);
     text-decoration: none;
-    background-color: rgba(158, 215, 240, 0.082);
+    background-color: rgb(252, 254, 255);
 }
 
 /* navbar */
@@ -24,6 +26,16 @@ body {
 }
 
 .nav-link:hover {
+    color: rgb(21, 159, 219);
+}
+
+.dropdown-item {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: rgb(13, 74, 115);
+}
+
+.dropdown-item:hover {
     color: rgb(21, 159, 219);
 }
 
@@ -54,4 +66,47 @@ footer {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     color: rgba(158, 215, 240, 0.5);
+}
+
+/* home page */
+
+.hero-image {
+    width: 100%;
+    height: 750px;
+    background: url('https://res.cloudinary.com/dzgzb3yx8/image/upload/v1673722786/lab-boss/hero_cmurhw.png') no-repeat center center;
+    background-size: cover;
+}
+
+.hero-text {
+    font-family: 'Russo One', sans-serif;
+    margin-top: 150px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 700%;
+}
+
+.tagline {
+    font-family: 'Russo One', sans-serif;
+    font-size: 200%;
+}
+
+.home-option {
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 150%;
+}
+
+.home-option a {
+    background-color: rgb(13, 74, 115);
+    color: rgb(252, 254, 255);
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.home-option a:hover {
+    background-color: rgb(252, 254, 255);
+    border-color: rgb(13, 74, 115);
+    color: rgb(13, 74, 115);
 }
