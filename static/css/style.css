@@ -1,0 +1,57 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+/* Global Styles */
+
+body {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: rgb(13, 74, 115);
+    text-decoration: none;
+    background-color: rgba(158, 215, 240, 0.082);
+}
+
+/* navbar */
+
+.navbar {
+    margin-right: 25px;
+}
+
+.nav-link {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: rgb(13, 74, 115);
+}
+
+.nav-link:hover {
+    color: rgb(21, 159, 219);
+}
+
+.logo {
+    height: 100px;
+    margin-left: 25px;
+}
+
+/* footer */
+
+footer {
+    height: 50px;
+}
+
+.footer-link {
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: rgb(13, 74, 115);
+}
+
+.footer-link:hover {
+    color: rgb(21, 159, 219);
+}
+
+.attribute-link, a {
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: rgba(158, 215, 240, 0.5);
+}
