@@ -45,7 +45,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <!-- if user is authenticated -->
+                        {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'tracker' %}">Batch Tracker</a>
                         </li>
@@ -64,15 +64,16 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
+                            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                         </li>
-                        <!-- if user is not authenticated -->
+                        {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Login</a>
+                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -92,8 +93,8 @@
                 <div class="col-3">
                     <a class="footer-link" href="#">Contact Us</a>
                 </div>
-                <div class="col-6 text-center attribute-link">
-                    Logo attributed to <a target="_blank" rel="noopener"
+                <div class="col-6 text-center image-attribute">
+                    Logo attributed to <a class="attribute-link" target="_blank" rel="noopener"
                         href="https://www.freepik.com/free-vector/polygonal-hexagon-logo_1112748.htm#page=2&query=science%20logo&position=35&from_view=search&track=sph">Image
                         by 3ab2ou</a> on Freepik
                 </div>

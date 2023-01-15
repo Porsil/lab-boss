@@ -10,15 +10,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 text-center home-option">
-            <!-- if user is authenticated -->
+        <div class="col-12 text-center home-text">
+            {% if user.is_authenticated %}
+            <p>Please select the option you require</p>
+            <a class="btn button" href="{% url 'tracker' %}" role="button">Batch Tracker</a>
+            <a class="btn button" href="#" role="button">Scheduler</a>
+            {% else %}
             <p>Please login or register to connect to your laboratory</p>
-            <a class="btn" href="#" role="button">Login</a>
-            <a class="btn" href="#" role="button">Register</a>
-            <!-- if user is not authenticated -->
-            <p>Please select the page you require</p>
-            <a class="btn" href="{% url 'tracker' %}" role="button">Batch Tracker</a>
-            <a class="btn" href="#" role="button">Scheduler</a>
+            <a class="btn button" href="{% url 'account_login' %}" role="button">Login</a>
+            <a class="btn button" href="{% url 'account_signup' %}" role="button">Register</a>
+            {% endif %}
         </div>
     </div>
 </div>

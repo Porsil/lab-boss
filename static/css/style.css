@@ -26,7 +26,7 @@ body {
 }
 
 .nav-link:hover {
-    color: rgb(21, 159, 219);
+    color: rgb(103, 199, 237);
 }
 
 .dropdown-item {
@@ -36,7 +36,7 @@ body {
 }
 
 .dropdown-item:hover {
-    color: rgb(21, 159, 219);
+    color: rgb(103, 199, 237);
 }
 
 .logo {
@@ -58,14 +58,22 @@ footer {
 }
 
 .footer-link:hover {
-    color: rgb(21, 159, 219);
+    color: rgb(103, 199, 237);
 }
 
-.attribute-link, a {
+.image-attribute {
     text-decoration: none;
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     color: rgba(158, 215, 240, 0.5);
+}
+
+.attribute-link {
+    color: rgba(158, 215, 240, 0.5);
+}
+
+.attribute-link:hover {
+    color: rgba(103, 199, 237, 0.5);
 }
 
 /* home page */
@@ -82,21 +90,21 @@ footer {
     margin-top: 150px;
     text-transform: uppercase;
     font-weight: 800;
-    font-size: 700%;
+    font-size: 600%;
 }
 
 .tagline {
     font-family: 'Russo One', sans-serif;
-    font-size: 200%;
+    font-size: 175%;
 }
 
-.home-option {
-    margin-top: 50px;
+.home-text{
+    margin-top: 25px;
+}
+
+.button {
     font-weight: 700;
-    font-size: 150%;
-}
-
-.home-option a {
+    font-size: 100%;
     background-color: rgb(13, 74, 115);
     color: rgb(252, 254, 255);
     margin-left: 20px;
@@ -105,8 +113,29 @@ footer {
     padding-right: 20px;
 }
 
-.home-option a:hover {
+.button:hover {
     background-color: rgb(252, 254, 255);
     border-color: rgb(13, 74, 115);
     color: rgb(13, 74, 115);
+}
+
+/* account forms */
+
+.page-title {
+    font-family: 'Russo One', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.url-link {
+    color: rgb(27, 139, 204);
+    text-decoration: none;
+}
+
+.url-link:hover {
+    color: rgb(103, 199, 237);
+}
+
+.login {
+    margin-top: 25px;
 }
