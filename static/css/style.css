@@ -65,7 +65,9 @@ footer {
     text-decoration: none;
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
+    font-size: 75%;
     color: rgba(158, 215, 240, 0.5);
+    margin-top: 7px;
 }
 
 .attribute-link {
