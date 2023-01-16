@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %}Lab Boss - Register{% endblock %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
@@ -8,7 +8,7 @@
 <div class="container-fluid form-image">
   <div class="row">
     <div class="col-12 text-center">
-      <h1 class="page-title">{% trans "Register" %}</h1>
+      <h1 class="account-title">{% trans "Register" %}</h1>
       <p class="account-text">{% blocktrans %}Already have an account? Then please
         <a class="url-link" href="{{ login_url }}">login</a>.{% endblocktrans %}
       </p>

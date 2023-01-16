@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from .models import Material, Batch
 
@@ -14,8 +15,8 @@ class MaterialList(generic.ListView):
     paginate_by = 25
 
 
-class BatchList(generic.ListView):
+class BatchList(LoginRequiredMixin, generic.ListView):
     model = Batch
-    queryset = Batch.objects.filter(status='To Test').order_by('booked_in')
+    queryset = Batch.objects.filter(status='To Test').order_by('-priority', 'booked_in', 'batch')
     template_name = 'tracker.html'
-    paginate_by = 25
+    paginate_by = 50

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %}Lab Boss - Login{% endblock %}
 {% load i18n %}
 {% load account socialaccount %}
 
@@ -10,7 +10,7 @@
 <div class="container-fluid form-image">
   <div class="row">
     <div class="col-12 text-center">
-      <h1 class="page-title">{% trans "Login" %}</h1>
+      <h1 class="account-title">{% trans "Login" %}</h1>
       <p class="account-text">{% blocktrans %}Welcome to Lab Boss.{% endblocktrans %}</p>
       <p class="account-text">{% blocktrans %}If you do not already have an account, please
         <a class="url-link" href="{{ signup_url }}">register</a> to connect to your laboratory.

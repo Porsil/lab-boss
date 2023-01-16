@@ -123,7 +123,7 @@ footer {
 
 /* Allauth account forms */
 
-.page-title {
+.account-title {
     font-family: 'Russo One', sans-serif;
     text-transform: uppercase;
     margin-top: 100px;
@@ -147,6 +147,7 @@ footer {
 .center-form {
     display: flex;
     justify-content: center;
+    width: 10%;
 }
 
 .account-form input {
@@ -156,14 +157,14 @@ footer {
     font-size: 90%;
     padding: 4px;
     color: rgb(13, 74, 115);
-    border-color: rgb(13, 74, 115);
-    border-width: 1px;
+    border: 1px solid rgb(13, 74, 115);
     margin-bottom: 5px;
 }
 
 .account-form > p {
     text-align: center;
 }
+
 .form-image {
     width: 100%;
     height: 750px;
@@ -180,4 +181,40 @@ footer {
     padding-right: 20px;
     display: flex;
     margin: auto;
+}
+
+/* All content pages */
+
+.page-title {
+    font-family: 'Russo One', sans-serif;
+    text-transform: uppercase;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Tracker */
+
+.batch-table {
+    margin: auto;
+}
+
+.batch-table, th, td {
+    border: 1px solid rgb(13, 74, 115);
+}
+
+.batch-table-headings {
+    text-transform: uppercase;
+}
+
+.batch-table-contents {
+    font-weight: 400;
+}
+
+.batch-table-contents:hover {
+    background-color: rgba(14, 99, 148, 0.25);
+    text-decoration: underline;
+}
+
+table tr:nth-child(even){
+    background-color: rgba(14, 99, 148, 0.1);
 }

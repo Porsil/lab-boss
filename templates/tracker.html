@@ -1,18 +1,41 @@
 {% extends "base.html" %}
-
+{% block title %}Lab Boss - Batch Tracker{% endblock %}
 {% block content %}
 
-<div>
-    <h2>Batch Tracker</h2>
-    {% for batch in batch_list %}
-    <p>{{ batch.priority }}</p>
-    <p>{{ batch.batch }}</p>
-    <p>{{ batch.material }}</p>
-    <p>{{ batch.booked_in }}</p>
-    <p>{{ batch.due_date }}</p>
-    <p>{{ batch.comments }}</p>
-    <p>{{ batch.status }}</p>
-    {% endfor %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="page-title">Batch Tracker</h1>  
+        </div>
+    </div>
+    <div class="row">
+        <table class="col-11 batch-table text-center">
+            <tr class="batch-table-headings">
+                <th>Priority</th>
+                <th>Batch</th>
+                <th>Material</th>
+                <th>Booked In</th>
+                <th>Due Date</th>
+                <th>Comments</th>
+                <th>Status</th>
+                <th>Edit</th>
+                <th>X</th>
+            </tr>
+            {% for batch in batch_list %}
+            <tr class="batch-table-contents">
+                <td>{{ batch.priority }}</td>
+                <td>{{ batch.batch }}</td>
+                <td>{{ batch.material }}</td>
+                <td>{{ batch.booked_in }}</td>
+                <td>{{ batch.due_date }}</td>
+                <td>{{ batch.comments }}</td>
+                <td>{{ batch.status }}</td>
+                <td>Edit</td>
+                <td>X</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
 
 {%endblock%}
