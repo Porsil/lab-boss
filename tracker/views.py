@@ -19,4 +19,4 @@ class BatchList(LoginRequiredMixin, generic.ListView):
     model = Batch
     queryset = Batch.objects.filter(status='To Test').order_by('-priority', 'booked_in', 'batch')
     template_name = 'tracker.html'
-    paginate_by = 50
+    paginate_by = 20

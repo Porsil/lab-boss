@@ -11,6 +11,7 @@ body {
     color: rgb(13, 74, 115);
     text-decoration: none;
     background-color: rgb(252, 254, 255);
+    margin-bottom: -50px;
 }
 
 /* navbar */
@@ -189,7 +190,7 @@ footer {
     font-family: 'Russo One', sans-serif;
     text-transform: uppercase;
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 
 /* Tracker */
@@ -212,9 +213,66 @@ footer {
 
 .batch-table-contents:hover {
     background-color: rgba(14, 99, 148, 0.25);
-    text-decoration: underline;
 }
 
 table tr:nth-child(even){
     background-color: rgba(14, 99, 148, 0.1);
+}
+
+.table-priority-column {
+    width: 7%;
+}
+
+.table-batch-column, .table-status-column {
+    width: 8%;
+}
+
+.table-material-column {
+    width: 15%;
+}
+
+.table-date-column {
+    width: 10%;
+}
+
+.table-modify-column {
+    width: 6%;
+}
+
+.page-button {
+    font-weight: 700;
+    background-color: rgb(13, 74, 115);
+    color: rgb(252, 254, 255);
+}
+
+.page-button:hover {
+    background-color: rgb(252, 254, 255);
+    border-color: rgb(13, 74, 115);
+    color: rgb(13, 74, 115);
+}
+
+.icon-button {
+    color: rgba(14, 99, 148, 0.75);
+}
+
+.icon-button:hover {
+    color: rgb(13, 74, 115);
+}
+
+/* Pagination */
+
+.pagination-link {
+    margin-left: 3px;
+    margin-right: 3px;
+    text-decoration: none;
+    color: rgb(13, 74, 115);
+}
+
+.pagination-link:hover {
+    color: rgb(103, 199, 237);
+}
+
+.current {
+    margin-left: 10px;
+    margin-right: 10px;
 }
