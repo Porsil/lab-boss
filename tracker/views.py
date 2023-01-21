@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import generic
+from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Material, Batch
 
 
@@ -10,7 +11,7 @@ class Home(generic.TemplateView):
 
 class MaterialList(generic.ListView):
     model = Material
-    queryset = Material.objects.order_by('name')
+    queryset = Material.objects.order_by('status', 'name')
     template_name = 'materials.html'
     paginate_by = 25
 

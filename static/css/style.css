@@ -81,6 +81,7 @@ footer {
 
 .attribute-link {
     color: rgba(158, 215, 240, 0.5);
+    text-decoration: none;
 }
 
 .attribute-link:hover {
@@ -202,8 +203,10 @@ footer {
 
 /* Tracker */
 
-.batch-table {
-    margin: auto;
+.table-container {
+    overflow-x: auto;
+    width: 90%;
+    margin-left: 5%;
 }
 
 .batch-table, th, td {
@@ -264,6 +267,17 @@ table tr:nth-child(even){
 
 .icon-button:hover {
     color: rgb(13, 74, 115);
+}
+
+.toggle-button i {
+    margin-left: 12px;
+    font-size: 120%;
+}
+
+/* Materials */
+
+.material-name {
+    font-weight: 400;
 }
 
 /* Pagination */

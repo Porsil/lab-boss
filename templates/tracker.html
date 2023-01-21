@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Lab Boss - Batch Tracker{% endblock %}
 {% block content %}
+{% load crispy_forms_tags %}
 
 <div class="container-fluid">
     <div class="row">
@@ -8,8 +9,8 @@
             <h1 class="page-title">Batch Tracker</h1>
         </div>
     </div>
-    <div class="row">
-        <table class="col-11 batch-table text-center">
+    <div class="row table-container">
+        <table class="col batch-table text-center">
             <tr class="batch-table-headings">
                 <th class="table-priority-column">Priority</th>
                 <th class="table-batch-column">Batch</th>
@@ -45,12 +46,12 @@
         </table>
     </div>
     <div class="row">
-        {% include "paginator.html" %}
-        <div class="col-4 mt-4 text-end">
+        <div class="col-5 mt-4 text-start offset-md-1">
             <a href="#" class="btn page-button">
                 Add New Batch
             </a>
         </div>
+        {% include "paginator.html" %}
     </div>
 
 </div>

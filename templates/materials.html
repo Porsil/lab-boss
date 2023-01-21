@@ -1,12 +1,52 @@
 {% extends "base.html" %}
-
+{% block title %}Lab Boss - Materials{% endblock %}
 {% block content %}
 
-<div>
-    <h2>Materials</h2>
-    {% for material in material_list %}
-    <p>{{ material.name }}</p>
-    {% endfor %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="page-title">Materials</h1>
+        </div>
+    </div>
+    <div class="row table-container">
+        <table class="col batch-table text-center">
+            <tr class="batch-table-headings">
+                <th class="table-material-column">Material</th>
+                <th class="table-status-column">Status</th>
+                <th class="table-modify-column">Edit</th>
+                <th class="table-modify-column">Delete</th>
+            </tr>
+            {% for material in material_list %}
+            <tr class="batch-table-contents">
+                <td>{{ material.name }}</td>
+                <td>
+                    {% if material.status == "Active" %}
+                    {{ material.status }}
+                    <a class="icon-button toggle-button" href="#"><i class="fa-solid fa-toggle-on"></i></a>
+                    {% endif %}
+                    {% if material.status == "Inactive" %}
+                    {{ material.status }}
+                    <a class="icon-button toggle-button" href="#"><i class="fa-solid fa-toggle-off"></i></a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a class="icon-button" href="#"><i class="fa-solid fa-pencil"></i></a>
+                </td>
+                <td>
+                    <a class="icon-button" href="#"><i class="fa-solid fa-square-xmark"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-4 mt-4 text-start offset-md-1">
+            <a href="#" class="btn page-button">
+                Add New Material
+            </a>
+        </div>
+        {% include "paginator.html" %}
+    </div>
 </div>
 
 {%endblock%}
