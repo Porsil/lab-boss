@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import generic, View
+from django.views import generic
+from django.views.generic.edit import DeleteView
 from django.http import HttpResponseRedirect
 from .models import Material, Batch
 
@@ -21,3 +22,9 @@ class BatchList(LoginRequiredMixin, generic.ListView):
     queryset = Batch.objects.filter(status='To Test').order_by('-priority', 'booked_in', 'batch')
     template_name = 'tracker.html'
     paginate_by = 20
+
+
+class DeleteMaterial(DeleteView):
+    model = Material
+    template_name = 'delete_material.html'
+    success_url = '/materials'
