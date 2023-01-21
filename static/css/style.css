@@ -280,6 +280,36 @@ table tr:nth-child(even){
     font-weight: 400;
 }
 
+/* Confirm deletion pages */
+
+.confirm-title {
+    margin-top: 100px;
+    font-family: 'Russo One', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.confirm-text {
+    margin-top: 100px;
+    font-size: 150%;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.confirm-button {
+    font-weight: 700;
+    background-color: rgb(13, 74, 115);
+    color: rgb(252, 254, 255);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.confirm-button:hover {
+    background-color: rgb(252, 254, 255);
+    border-color: rgb(13, 74, 115);
+    color: rgb(13, 74, 115);
+}
+
 /* Pagination */
 
 .pagination-link {
