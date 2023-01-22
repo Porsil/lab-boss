@@ -25,8 +25,10 @@ class Test(models.Model):
 
 class Workload(models.Model):
     test_date = models.DateField()
-    analyst = models.ForeignKey(Analyst, on_delete=models.CASCADE)
-    test = models.ForeignKey(Test, on_delete=models.CASCADE)
+    analyst = models.ForeignKey(Analyst, on_delete=models.CASCADE,
+                                limit_choices_to={'status': 'Active'},)
+    test = models.ForeignKey(Test, on_delete=models.CASCADE,
+                             limit_choices_to={'status': 'Active'},)
     comment = models.TextField(blank=True)
     status = models.TextField(choices=WORKLOAD_STATUS, default="To Do")
 

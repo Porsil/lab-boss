@@ -14,7 +14,7 @@ class MaterialList(LoginRequiredMixin, generic.ListView):
     model = Material
     queryset = Material.objects.order_by('status', 'name')
     template_name = 'materials.html'
-    paginate_by = 25
+    paginate_by = 20
 
 
 class BatchList(LoginRequiredMixin, generic.ListView):
