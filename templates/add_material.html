@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Lab Boss - Add New Material{% endblock %}
+{% block content %}
+
+<div class="container-fluid form-image">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="confirm-title">Add New Material:</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }} 
+                <button class="btn confirm-button page-button" type="submit">Save</button>
+                <a class="btn confirm-button page-button" href="{% url 'materials' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

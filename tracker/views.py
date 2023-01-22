@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import generic
-from django.views.generic import UpdateView, DeleteView
+from django.views import generic, View
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from .models import Material, Batch
 
@@ -25,6 +25,13 @@ class BatchList(LoginRequiredMixin, generic.ListView):
     paginate_by = 20
 
 
+class AddMaterial(LoginRequiredMixin, CreateView):
+    model = Material
+    fields = ['name', 'status']
+    template_name = 'add_material.html'
+    success_url = '/materials'
+
+
 class UpdateMaterial(LoginRequiredMixin, UpdateView):
     model = Material
     fields = ['name', 'status']
@@ -36,3 +43,9 @@ class DeleteMaterial(LoginRequiredMixin, DeleteView):
     model = Material
     template_name = 'delete_material.html'
     success_url = '/materials'
+
+
+class DeleteBatch(LoginRequiredMixin, DeleteView):
+    model = Batch
+    template_name = 'delete_batch.html'
+    success_url = '/tracker'

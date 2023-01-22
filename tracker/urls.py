@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import UpdateMaterial, DeleteMaterial
+from .views import AddMaterial, UpdateMaterial, DeleteMaterial, DeleteBatch
 
 
 urlpatterns = [
@@ -11,4 +11,7 @@ urlpatterns = [
          name='delete_material'),
     path('materials/<pk>/update/', UpdateMaterial.as_view(),
          name='update_material'),
+    path('materials/add', AddMaterial.as_view(), name='add_material'),
+    path('tracker/<pk>/delete/', DeleteBatch.as_view(),
+         name='delete_batch'),
 ]

@@ -20,7 +20,8 @@ class Material(models.Model):
 class Batch(models.Model):
     priority = models.BooleanField(default=False)
     batch = models.CharField(max_length=10, unique=True)
-    material = models.ForeignKey(Material, on_delete=models.PROTECT)
+    material = models.ForeignKey(Material, on_delete=models.PROTECT,
+                                 limit_choices_to={'status': 'Active'},)
     booked_in = models.DateField(auto_now_add=True)
     comments = models.TextField(blank=True)
     status = models.TextField(choices=BATCH_STATUS, default="To Test")
