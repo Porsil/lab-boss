@@ -23,7 +23,7 @@ class Batch(models.Model):
     material = models.ForeignKey(Material, on_delete=models.PROTECT,
                                  limit_choices_to={'status': 'Active'},)
     booked_in = models.DateField(auto_now_add=True)
-    comments = models.TextField(blank=True)
+    comments = models.CharField(max_length=100, blank=True)
     status = models.TextField(choices=BATCH_STATUS, default="To Test")
 
     class Meta:

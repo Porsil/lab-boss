@@ -1,20 +1,19 @@
 {% extends "base.html" %}
-{% block title %}Lab Boss - Delete Batch{% endblock %}
+{% block title %}Lab Boss - Update Batch{% endblock %}
 {% block content %}
 
 <div class="container-fluid form-image">
     <div class="row">
         <div class="col-12 text-center">
-            <h1 class="confirm-title">Delete Batch?</h1>
+            <h1 class="confirm-title">Update Batch: {{ batch.batch }}</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-12 text-center">
             <form method="post">
                 {% csrf_token %}
-                <p class="confirm-text">Are you sure you want to delete batch: {{ batch.batch }}?</p>
-                <p class="confirm-text">This action is permanent and cannot be undone.</p>
-                <button class="btn confirm-button delete-button" type="submit">Delete</button>
+                {{ form.as_p }} 
+                <button class="btn confirm-button page-button" type="submit">Save</button>
                 <a class="btn confirm-button page-button" href="{% url 'tracker' %}">Cancel</a>
             </form>
         </div>
