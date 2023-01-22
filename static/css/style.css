@@ -175,6 +175,8 @@ footer {
     text-align: center;
 }
 
+/* Multiple content pages */
+
 .form-image {
     width: 100%;
     height: 750px;
@@ -193,15 +195,38 @@ footer {
     margin: auto;
 }
 
-/* All content pages */
-
 .page-title {
     font-family: 'Russo One', sans-serif;
     text-transform: uppercase;
     margin-bottom: 25px;
 }
 
-/* Tracker */
+.page-button {
+    font-weight: 700;
+    background-color: rgb(13, 74, 115);
+    color: rgb(252, 254, 255);
+}
+
+.page-button:hover {
+    background-color: rgb(252, 254, 255);
+    border-color: rgb(13, 74, 115);
+    color: rgb(13, 74, 115);
+}
+
+.icon-button {
+    color: rgba(14, 99, 148, 0.75);
+}
+
+.icon-button:hover {
+    color: rgb(13, 74, 115);
+}
+
+.toggle-button i {
+    margin-left: 12px;
+    font-size: 120%;
+}
+
+/* Table properties */
 
 .table-container {
     overflow-x: auto;
@@ -249,65 +274,43 @@ table tr:nth-child(even){
     width: 6%;
 }
 
-.page-button {
-    font-weight: 700;
-    background-color: rgb(13, 74, 115);
-    color: rgb(252, 254, 255);
-}
-
-.page-button:hover {
-    background-color: rgb(252, 254, 255);
-    border-color: rgb(13, 74, 115);
-    color: rgb(13, 74, 115);
-}
-
-.icon-button {
-    color: rgba(14, 99, 148, 0.75);
-}
-
-.icon-button:hover {
-    color: rgb(13, 74, 115);
-}
-
-.toggle-button i {
-    margin-left: 12px;
-    font-size: 120%;
-}
-
 /* Materials */
 
 .material-name {
     font-weight: 400;
 }
 
-/* Confirm deletion pages */
+/* Update database pages */
 
 .confirm-title {
     margin-top: 100px;
     font-family: 'Russo One', sans-serif;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
 }
 
 .confirm-text {
-    margin-top: 100px;
+    margin-top: 25px;
     font-size: 150%;
     font-weight: 800;
-    margin-bottom: 50px;
 }
 
 .confirm-button {
     font-weight: 700;
-    background-color: rgb(13, 74, 115);
-    color: rgb(252, 254, 255);
+    margin-top: 50px;
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.confirm-button:hover {
+.delete-button {
+    background-color: rgb(180, 20, 20);
+    color: rgb(252, 254, 255);
+}
+
+.delete-button:hover {
     background-color: rgb(252, 254, 255);
-    border-color: rgb(13, 74, 115);
-    color: rgb(13, 74, 115);
+    border-color: rgb(180, 20, 20);
+    color: rgb(180, 20, 20);
 }
 
 /* Pagination */

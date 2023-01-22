@@ -23,14 +23,13 @@
                     {% if material.status == "Active" %}
                     {{ material.status }}
                     <a class="icon-button toggle-button" href="#"><i class="fa-solid fa-toggle-on"></i></a>
-                    {% endif %}
-                    {% if material.status == "Inactive" %}
+                    {% else %}
                     {{ material.status }}
                     <a class="icon-button toggle-button" href="#"><i class="fa-solid fa-toggle-off"></i></a>
                     {% endif %}
                 </td>
                 <td>
-                    <a class="icon-button" href="#"><i class="fa-solid fa-pencil"></i></a>
+                    <a class="icon-button" href="{% url 'update_material' pk=material.id %}"><i class="fa-solid fa-pencil"></i></a>
                 </td>
                 <td>
                     <a class="icon-button" href="{% url 'delete_material' pk=material.id %}"><i class="fa-solid fa-square-xmark"></i></a>
