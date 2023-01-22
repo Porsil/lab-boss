@@ -11,3 +11,10 @@ class AnalystList(LoginRequiredMixin, generic.ListView):
     queryset = Analyst.objects.order_by('status', 'name')
     template_name = 'analysts.html'
     paginate_by = 20
+
+
+class AddAnalyst(LoginRequiredMixin, CreateView):
+    model = Analyst
+    fields = ['name', 'status']
+    template_name = 'add_analyst.html'
+    success_url = '/analysts'
