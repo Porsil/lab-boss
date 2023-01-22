@@ -45,6 +45,13 @@ class DeleteMaterial(LoginRequiredMixin, DeleteView):
     success_url = '/materials'
 
 
+class AddBatch(LoginRequiredMixin, CreateView):
+    model = Batch
+    fields = ['priority', 'batch', 'material', 'comments', 'status']
+    template_name = 'add_batch.html'
+    success_url = '/tracker'
+
+
 class UpdateBatch(LoginRequiredMixin, UpdateView):
     model = Batch
     fields = ['priority', 'batch', 'material', 'comments', 'status']
