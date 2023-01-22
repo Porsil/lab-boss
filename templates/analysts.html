@@ -21,7 +21,7 @@
                 <td>{{ analyst.name }}</td>
                 <td>{{ analyst.status }}</td>
                 <td>
-                    <a class="icon-button" href="#"><i class="fa-solid fa-pencil"></i></a>
+                    <a class="icon-button" href="{% url 'update_analyst' pk=analyst.id %}"><i class="fa-solid fa-pencil"></i></a>
                 </td>
                 <td>
                     <a class="icon-button" href="#"><i class="fa-solid fa-square-xmark"></i></a>

@@ -18,3 +18,10 @@ class AddAnalyst(LoginRequiredMixin, CreateView):
     fields = ['name', 'status']
     template_name = 'add_analyst.html'
     success_url = '/analysts'
+
+
+class UpdateAnalyst(LoginRequiredMixin, UpdateView):
+    model = Analyst
+    fields = ['name', 'status']
+    template_name = 'update_analyst.html'
+    success_url = '/analysts'

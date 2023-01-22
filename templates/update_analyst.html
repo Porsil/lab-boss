@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Lab Boss - Update Analyst{% endblock %}
+{% block content %}
+
+<div class="container-fluid form-image">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="confirm-title">Update Analyst: {{ analyst.name }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }} 
+                <button class="btn confirm-button page-button" type="submit">Save</button>
+                <a class="btn confirm-button page-button" href="{% url 'analysts' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
