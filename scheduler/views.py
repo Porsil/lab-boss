@@ -25,3 +25,9 @@ class UpdateAnalyst(LoginRequiredMixin, UpdateView):
     fields = ['name', 'status']
     template_name = 'update_analyst.html'
     success_url = '/analysts'
+
+
+class DeleteAnalyst(LoginRequiredMixin, DeleteView):
+    model = Analyst
+    template_name = 'delete_analyst.html'
+    success_url = '/analysts'
