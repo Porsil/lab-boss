@@ -11,4 +11,6 @@ urlpatterns = [
           name='delete_analyst'),
      path('tests', views.TestList.as_view(), name='tests'),
      path('tests/add', views.AddTest.as_view(), name='add_test'),
+     path('tests/<pk>/update/', views.UpdateTest.as_view(),
+          name='update_test'),
 ]

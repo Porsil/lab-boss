@@ -67,3 +67,13 @@ class AddTest(LoginRequiredMixin, CreateView):
     fields = ['name', 'status']
     template_name = 'add_test.html'
     success_url = '/tests'
+
+
+class UpdateTest(LoginRequiredMixin, UpdateView):
+    """
+    Displays the page to update an test
+    """
+    model = Test
+    fields = ['name', 'status']
+    template_name = 'update_test.html'
+    success_url = '/tests'
