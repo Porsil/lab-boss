@@ -20,13 +20,16 @@
             <tr class="batch-table-contents">
                 <td>{{ material.name }}</td>
                 <td>
-                    {% if material.status == "Active" %}
-                    {{ material.status }}
-                    <a class="icon-button toggle-button" href="#"><i class="fa-solid fa-toggle-on"></i></a>
-                    {% else %}
-                    {{ material.status }}
-                    <a class="icon-button toggle-button" href="#"><i class="fa-solid fa-toggle-off"></i></a>
-                    {% endif %}
+                    <form action="{% url 'toggle' pk=material.id %}" method="POST">
+                        {% csrf_token %}
+                        {% if material.status == "Active" %}
+                        {{ material.status }}
+                        <button class="toggle-button" type="submit" name="material_id" value="{{material.id}}"><i class="fa-solid fa-toggle-on"></i></button>
+                        {% else %}
+                        {{ material.status }}
+                        <button class="toggle-button" type="submit" name="material_id" value="{{material.id}}"><i class="fa-solid fa-toggle-off"></i></button>
+                        {% endif %}
+                    </form>
                 </td>
                 <td>
                     <a class="icon-button" href="{% url 'update_material' pk=material.id %}"><i class="fa-solid fa-pencil"></i></a>

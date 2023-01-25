@@ -221,9 +221,16 @@ footer {
     color: rgb(13, 74, 115);
 }
 
-.toggle-button i {
-    margin-left: 12px;
+.toggle-button {
+    background: none;
+    border: none;
+    color: rgba(14, 99, 148, 0.75);
+    padding-left: 12px;
     font-size: 120%;
+}
+
+.toggle-button:hover {
+    color: rgb(13, 74, 115);
 }
 
 /* Table properties */
