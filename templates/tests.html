@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Lab Boss - Tests{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="page-title">Tests</h1>
+        </div>
+    </div>
+    <div class="row table-container">
+        <table class="col batch-table text-center">
+            <tr class="batch-table-headings">
+                <th class="table-material-column">Test</th>
+                <th class="table-status-column">Status</th>
+                <th class="table-modify-column">Edit</th>
+                <th class="table-modify-column">Delete</th>
+            </tr>
+            {% for test in test_list %}
+            <tr class="batch-table-contents">
+                <td>{{ test.name }}</td>
+                <td>{{ test.status }}</td>
+                <td>
+                    <a class="icon-button" href="#"><i class="fa-solid fa-pencil"></i></a>
+                </td>
+                <td>
+                    <a class="icon-button" href="#"><i class="fa-solid fa-square-xmark"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-4 mt-4 text-start offset-md-1">
+            <a href="{% url 'add_test' %}" class="btn page-button">
+                Add New Test
+            </a>
+        </div>
+        {% include "paginator.html" %}
+    </div>
+</div>
+
+{%endblock%}
