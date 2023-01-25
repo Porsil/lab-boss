@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Lab Boss - Delete Test{% endblock %}
+{% block content %}
+
+<div class="container-fluid form-image">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="confirm-title">Delete Test?</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <form method="post">
+                {% csrf_token %}
+                <p class="confirm-text">Are you sure you want to delete test: {{ test.name }}?</p>
+                <p class="confirm-text">This action is permanent and cannot be undone.</p>
+                <button class="btn confirm-button delete-button" type="submit">Delete</button>
+                <a class="btn confirm-button page-button" href="{% url 'tests' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

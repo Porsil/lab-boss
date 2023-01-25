@@ -13,4 +13,6 @@ urlpatterns = [
      path('tests/add', views.AddTest.as_view(), name='add_test'),
      path('tests/<pk>/update/', views.UpdateTest.as_view(),
           name='update_test'),
+     path('tests/<pk>/delete/', views.DeleteTest.as_view(),
+          name='delete_test'),
 ]

@@ -40,7 +40,7 @@ class UpdateAnalyst(LoginRequiredMixin, UpdateView):
 
 class DeleteAnalyst(LoginRequiredMixin, DeleteView):
     """
-    Displays the page to confrirm deletion of an analyst
+    Displays the page to confirm deletion of an analyst
     """
     model = Analyst
     template_name = 'delete_analyst.html'
@@ -76,4 +76,13 @@ class UpdateTest(LoginRequiredMixin, UpdateView):
     model = Test
     fields = ['name', 'status']
     template_name = 'update_test.html'
+    success_url = '/tests'
+
+
+class DeleteTest(LoginRequiredMixin, DeleteView):
+    """
+    Displays the page to confirm deletion of an test
+    """
+    model = Test
+    template_name = 'delete_test.html'
     success_url = '/tests'

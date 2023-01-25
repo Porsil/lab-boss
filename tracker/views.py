@@ -50,7 +50,7 @@ class UpdateBatch(LoginRequiredMixin, UpdateView):
 
 class DeleteBatch(LoginRequiredMixin, DeleteView):
     """
-    Displays the page to confrirm deletion of a batch
+    Displays the page to confirm deletion of a batch
     """
     model = Batch
     template_name = 'delete_batch.html'
@@ -91,7 +91,7 @@ class UpdateMaterial(LoginRequiredMixin, UpdateView):
 
 class DeleteMaterial(LoginRequiredMixin, DeleteView):
     """
-    Displays the page to confrirm deletion of a material
+    Displays the page to confirm deletion of a material
     """
     model = Material
     template_name = 'delete_material.html'
