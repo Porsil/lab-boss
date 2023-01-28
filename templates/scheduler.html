@@ -9,17 +9,28 @@
         </div>
     </div>
 
-    <div class="row row-cols-1 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 g-4">
+    <div class="row row-cols-1 row-cols-lg-6 row-cols-md-4 row-cols-sm-3 g-4">
         {% for workload in workload_list %}
         <div class="col">
             <div class="card h-100 text-center">
                 <div class="card-body">
+                    <p class="edit-card text-start">
+                        <a class="icon-button" href="#"><i class="fa-solid fa-pencil"></i></a>
+                    </p>
+                    <p class="delete-card">
+                        <a class="icon-button" href="#"><i class="fa-solid fa-square-xmark"></i></a>
+                    </p>
                     <p>{{ workload.test_date|date:"d M Y" }}</p>
                     <p>{{ workload.analyst }}</p>
                     <p>{{ workload.test }}</p>
                     {% if workload.comment != "" %}
-                    <p>Comment: {{ workload.comment }}</p>
+                    <p class="card-bottom">{{ workload.comment }}</p>
+                    {% else %}
+                    <br>
                     {% endif %}
+                    <p class="card-button">
+                        <a class="btn page-button" href="#">Complete</i></a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -33,7 +44,6 @@
                 Add New Card
             </a>
         </div>
-        
     </div>
 
 </div>

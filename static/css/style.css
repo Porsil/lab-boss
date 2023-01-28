@@ -315,8 +315,33 @@ table tr:nth-child(even){
     color: rgb(180, 20, 20);
 }
 
+/* Scheduler Page */
+
 .card-body {
     background-color: rgba(14, 99, 148, 0.1);
+}
+
+.card-button {
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+
+.card-bottom {
+    margin-bottom: 50px;
+}
+
+.edit-card {
+    margin-bottom: 0;
+    margin-top: -10px;
+}
+
+.delete-card {
+    margin-left: 95%;
+    margin-top: -25px;
+    margin-bottom: 0px;
 }
 
 /* Pagination */

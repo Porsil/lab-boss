@@ -17,7 +17,7 @@ class WorkloadList(LoginRequiredMixin, generic.ListView):
     queryset = Workload.objects.filter(status='To Do').order_by(
         'test_date', 'analyst')
     template_name = 'scheduler.html'
-    paginate_by = 10
+    paginate_by = 12
 
 
 # Analysts Page
