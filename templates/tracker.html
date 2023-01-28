@@ -33,7 +33,13 @@
                 <td>{{ batch.booked_in|date:"d M Y" }}</td>
                 <td>{{ batch.due_date|date:"d M Y" }}</td>
                 <td>{{ batch.comments }}</td>
-                <td>{{ batch.status }}</td>
+                <td>
+                    <form action="{% url 'toggle_batch' pk=batch.id %}" method="POST">
+                        {% csrf_token %}
+                        {{ batch.status }}
+                        <button class="icon-button toggle-button" type="submit" name="batch_id" value="{{batch.id}}"><i class="fa-regular fa-circle-check"></i></button>
+                    </form>
+                </td>
                 <td>
                     <a class="icon-button" href="{% url 'update_batch' pk=batch.id %}"><i class="fa-solid fa-pencil"></i></a>
                 </td>

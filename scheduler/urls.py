@@ -10,7 +10,7 @@ urlpatterns = [
      path('analysts/<pk>/delete/', views.DeleteAnalyst.as_view(),
           name='delete_analyst'),
      path('toggle_analyst/<pk>', views.ToggleAnalyst.as_view(),
-           name='toggle_analyst'),
+          name='toggle_analyst'),
      path('tests', views.TestList.as_view(), name='tests'),
      path('tests/add', views.AddTest.as_view(), name='add_test'),
      path('tests/<pk>/update/', views.UpdateTest.as_view(),
@@ -18,5 +18,5 @@ urlpatterns = [
      path('tests/<pk>/delete/', views.DeleteTest.as_view(),
           name='delete_test'),
      path('toggle_test/<pk>', views.ToggleTest.as_view(),
-           name='toggle_test'),
+          name='toggle_test'),
 ]

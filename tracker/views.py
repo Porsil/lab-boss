@@ -25,7 +25,7 @@ class BatchList(LoginRequiredMixin, generic.ListView):
     queryset = Batch.objects.filter(status='To Test').order_by(
         '-priority', 'booked_in', 'batch')
     template_name = 'tracker.html'
-    paginate_by = 20
+    paginate_by = 16
 
 
 class AddBatch(LoginRequiredMixin, CreateView):
@@ -57,6 +57,20 @@ class DeleteBatch(LoginRequiredMixin, DeleteView):
     success_url = '/tracker'
 
 
+class ToggleBatch(LoginRequiredMixin, View):
+    """
+    Toggles the status of a batch
+    """
+    def post(self, request, pk, *args, **kwargs):
+        toggle_batch = get_object_or_404(Batch, pk=pk)
+        if toggle_batch.status == "To Test":
+            toggle_batch.status = "Approved"
+        else:
+            toggle_batch.status = "To Test"
+        toggle_batch.save()
+        return redirect('tracker')
+
+
 # Materials Page
 
 class MaterialList(LoginRequiredMixin, generic.ListView):
@@ -66,7 +80,7 @@ class MaterialList(LoginRequiredMixin, generic.ListView):
     model = Material
     queryset = Material.objects.order_by('status', 'name')
     template_name = 'materials.html'
-    paginate_by = 20
+    paginate_by = 16
 
 
 class AddMaterial(LoginRequiredMixin, CreateView):

@@ -15,7 +15,7 @@ class AnalystList(LoginRequiredMixin, generic.ListView):
     model = Analyst
     queryset = Analyst.objects.order_by('status', 'name')
     template_name = 'analysts.html'
-    paginate_by = 20
+    paginate_by = 16
 
 
 class AddAnalyst(LoginRequiredMixin, CreateView):
@@ -70,7 +70,7 @@ class TestList(LoginRequiredMixin, generic.ListView):
     model = Test
     queryset = Test.objects.order_by('status', 'name')
     template_name = 'tests.html'
-    paginate_by = 20
+    paginate_by = 16
 
 
 class AddTest(LoginRequiredMixin, CreateView):
