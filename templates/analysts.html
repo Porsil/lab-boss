@@ -19,7 +19,18 @@
             {% for analyst in analyst_list %}
             <tr class="batch-table-contents">
                 <td>{{ analyst.name }}</td>
-                <td>{{ analyst.status }}</td>
+                <td>
+                    <form action="{% url 'toggle_analyst' pk=analyst.id %}" method="POST">
+                        {% csrf_token %}
+                        {% if analyst.status == "Active" %}
+                        {{ analyst.status }}
+                        <button class="icon-button toggle-button" type="submit" name="analyst_id" value="{{analyst.id}}"><i class="fa-solid fa-toggle-on"></i></button>
+                        {% else %}
+                        {{ analyst.status }}
+                        <button class="icon-button toggle-button" type="submit" name="analyst_id" value="{{analyst.id}}"><i class="fa-solid fa-toggle-off"></i></button>
+                        {% endif %}
+                    </form>
+                </td>
                 <td>
                     <a class="icon-button" href="{% url 'update_analyst' pk=analyst.id %}"><i class="fa-solid fa-pencil"></i></a>
                 </td>

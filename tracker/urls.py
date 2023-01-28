@@ -11,7 +11,7 @@ urlpatterns = [
      path('materials/<pk>/delete/', views.DeleteMaterial.as_view(),
           name='delete_material'),
      path('tracker', views.BatchList.as_view(), name='tracker'),
-     path('toggle/<pk>', views.ToggleMaterial.as_view(), name='toggle'),
+     path('toggle_material/<pk>', views.ToggleMaterial.as_view(), name='toggle_material'),
      path('tracker/add', views.AddBatch.as_view(), name='add_batch'),
      path('tracker/<pk>/update/', views.UpdateBatch.as_view(),
           name='update_batch'),

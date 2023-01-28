@@ -9,6 +9,7 @@ urlpatterns = [
           name='update_analyst'),
      path('analysts/<pk>/delete/', views.DeleteAnalyst.as_view(),
           name='delete_analyst'),
+     path('toggle_analyst/<pk>', views.ToggleAnalyst.as_view(), name='toggle_analyst'),
      path('tests', views.TestList.as_view(), name='tests'),
      path('tests/add', views.AddTest.as_view(), name='add_test'),
      path('tests/<pk>/update/', views.UpdateTest.as_view(),

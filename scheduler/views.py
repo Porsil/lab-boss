@@ -47,6 +47,20 @@ class DeleteAnalyst(LoginRequiredMixin, DeleteView):
     success_url = '/analysts'
 
 
+class ToggleAnalyst(View):
+    """
+    Toggles the status of an analyst
+    """
+    def post(self, request, pk, *args, **kwargs):
+        toggle_analyst = get_object_or_404(Analyst, pk=pk)
+        if toggle_analyst.status == "Active":
+            toggle_analyst.status = "Inactive"
+        else:
+            toggle_analyst.status = "Active"
+        toggle_analyst.save()
+        return redirect('analysts')
+
+
 # Tests Page
 
 class TestList(LoginRequiredMixin, generic.ListView):

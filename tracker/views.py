@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
+from django.http import HttpResponseRedirect
 from .models import Material, Batch
 
 
@@ -102,10 +103,10 @@ class ToggleMaterial(View):
     Toggles the status of a material
     """
     def post(self, request, pk, *args, **kwargs):
-        toggle = get_object_or_404(Material, pk=pk)
-        if toggle.status == "Active":
-            toggle.status = "Inactive"
+        toggle_material = get_object_or_404(Material, pk=pk)
+        if toggle_material.status == "Active":
+            toggle_material.status = "Inactive"
         else:
-            toggle.status = "Active"
-        toggle.save()
+            toggle_material.status = "Active"
+        toggle_material.save()
         return redirect('materials')
