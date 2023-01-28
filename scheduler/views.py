@@ -47,7 +47,7 @@ class DeleteAnalyst(LoginRequiredMixin, DeleteView):
     success_url = '/analysts'
 
 
-class ToggleAnalyst(View):
+class ToggleAnalyst(LoginRequiredMixin, View):
     """
     Toggles the status of an analyst
     """
@@ -100,3 +100,17 @@ class DeleteTest(LoginRequiredMixin, DeleteView):
     model = Test
     template_name = 'delete_test.html'
     success_url = '/tests'
+
+
+class ToggleTest(LoginRequiredMixin, View):
+    """
+    Toggles the status of a test
+    """
+    def post(self, request, pk, *args, **kwargs):
+        toggle_test = get_object_or_404(Test, pk=pk)
+        if toggle_test.status == "Active":
+            toggle_test.status = "Inactive"
+        else:
+            toggle_test.status = "Active"
+        toggle_test.save()
+        return redirect('tests')

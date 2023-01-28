@@ -98,7 +98,7 @@ class DeleteMaterial(LoginRequiredMixin, DeleteView):
     success_url = '/materials'
 
 
-class ToggleMaterial(View):
+class ToggleMaterial(LoginRequiredMixin, View):
     """
     Toggles the status of a material
     """

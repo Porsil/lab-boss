@@ -19,7 +19,18 @@
             {% for test in test_list %}
             <tr class="batch-table-contents">
                 <td>{{ test.name }}</td>
-                <td>{{ test.status }}</td>
+                <td>
+                    <form action="{% url 'toggle_test' pk=test.id %}" method="POST">
+                        {% csrf_token %}
+                        {% if test.status == "Active" %}
+                        {{ test.status }}
+                        <button class="icon-button toggle-button" type="submit" name="test_id" value="{{test.id}}"><i class="fa-solid fa-toggle-on"></i></button>
+                        {% else %}
+                        {{ test.status }}
+                        <button class="icon-button toggle-button" type="submit" name="test_id" value="{{test.id}}"><i class="fa-solid fa-toggle-off"></i></button>
+                        {% endif %}
+                    </form>
+                </td>
                 <td>
                     <a class="icon-button" href="{% url 'update_test' pk=test.id %}"><i class="fa-solid fa-pencil"></i></a>
                 </td>
