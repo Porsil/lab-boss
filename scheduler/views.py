@@ -3,7 +3,21 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
-from .models import Analyst, Test, Workload
+from .models import Workload, Analyst, Test
+
+
+# Scheduler Page
+
+
+class WorkloadList(LoginRequiredMixin, generic.ListView):
+    """
+    Displays the workload cards that have a status of To Do
+    """
+    model = Workload()
+    queryset = Workload.objects.filter(status='To Do').order_by(
+        'test_date', 'analyst')
+    template_name = 'scheduler.html'
+    paginate_by = 10
 
 
 # Analysts Page
@@ -15,7 +29,7 @@ class AnalystList(LoginRequiredMixin, generic.ListView):
     model = Analyst
     queryset = Analyst.objects.order_by('status', 'name')
     template_name = 'analysts.html'
-    paginate_by = 16
+    paginate_by = 15
 
 
 class AddAnalyst(LoginRequiredMixin, CreateView):
@@ -70,7 +84,7 @@ class TestList(LoginRequiredMixin, generic.ListView):
     model = Test
     queryset = Test.objects.order_by('status', 'name')
     template_name = 'tests.html'
-    paginate_by = 16
+    paginate_by = 15
 
 
 class AddTest(LoginRequiredMixin, CreateView):

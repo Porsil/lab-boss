@@ -14,7 +14,7 @@
             {% if user.is_authenticated %}
             <p>Please select the option you require</p>
             <a class="btn button" href="{% url 'tracker' %}" role="button">Batch Tracker</a>
-            <a class="btn button" href="#" role="button">Scheduler</a>
+            <a class="btn button" href="{% url 'scheduler' %}" role="button">Scheduler</a>
             {% else %}
             <p>Please login or register to connect to your laboratory</p>
             <a class="btn button" href="{% url 'account_login' %}" role="button">Login</a>

@@ -25,7 +25,7 @@ class BatchList(LoginRequiredMixin, generic.ListView):
     queryset = Batch.objects.filter(status='To Test').order_by(
         '-priority', 'booked_in', 'batch')
     template_name = 'tracker.html'
-    paginate_by = 16
+    paginate_by = 15
 
 
 class AddBatch(LoginRequiredMixin, CreateView):
@@ -80,7 +80,7 @@ class MaterialList(LoginRequiredMixin, generic.ListView):
     model = Material
     queryset = Material.objects.order_by('status', 'name')
     template_name = 'materials.html'
-    paginate_by = 16
+    paginate_by = 15
 
 
 class AddMaterial(LoginRequiredMixin, CreateView):

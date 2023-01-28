@@ -42,12 +42,12 @@
         </table>
     </div>
     <div class="row">
-        <div class="col-4 mt-4 text-start offset-md-1">
+        {% include "paginator.html" %}
+        <div class="col-12 mt-4 text-center">
             <a href="{% url 'add_material' %}" class="btn page-button">
                 Add New Material
             </a>
         </div>
-        {% include "paginator.html" %}
     </div>
 </div>
 

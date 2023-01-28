@@ -8,6 +8,7 @@
             <h1 class="page-title">Batch Tracker</h1>
         </div>
     </div>
+    
     <div class="row table-container">
         <table class="col batch-table text-center">
             <tr class="batch-table-headings">
@@ -50,13 +51,14 @@
             {% endfor %}
         </table>
     </div>
+
     <div class="row">
-        <div class="col-5 mt-4 text-start offset-md-1">
+        {% include "paginator.html" %}
+        <div class="col-12 mt-4 text-center">
             <a href="{% url 'add_batch' %}" class="btn page-button">
                 Add New Batch
             </a>
         </div>
-        {% include "paginator.html" %}
     </div>
 
 </div>

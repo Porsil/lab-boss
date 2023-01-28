@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Lab Boss - Scheduler{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="page-title">Scheduler</h1>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 g-4">
+        {% for workload in workload_list %}
+        <div class="col">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <p>{{ workload.test_date|date:"d M Y" }}</p>
+                    <p>{{ workload.analyst }}</p>
+                    <p>{{ workload.test }}</p>
+                    {% if workload.comment != "" %}
+                    <p>Comment: {{ workload.comment }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        {% include "paginator.html" %}
+        <div class="col-12 mt-4 text-center">
+            <a href="#" class="btn page-button">
+                Add New Card
+            </a>
+        </div>
+        
+    </div>
+
+</div>
+
+{%endblock%}
