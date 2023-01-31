@@ -14,11 +14,11 @@
         <div class="col">
             <div class="card h-100 text-center">
                 <div class="card-body">
-                    <p class="edit-card text-start">
+                    <p class="edit-card-btn text-start">
                         <a class="icon-button" href="#"><i class="fa-solid fa-pencil"></i></a>
                     </p>
-                    <p class="delete-card">
-                        <a class="icon-button" href="#"><i class="fa-solid fa-square-xmark"></i></a>
+                    <p class="delete-card-btn">
+                        <a class="icon-button" href="{% url 'delete_workload' pk=workload.id %}"><i class="fa-solid fa-square-xmark"></i></a>
                     </p>
                     <p>{{ workload.test_date|date:"d M Y" }}</p>
                     <p>{{ workload.analyst }}</p>

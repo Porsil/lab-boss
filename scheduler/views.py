@@ -13,11 +13,20 @@ class WorkloadList(LoginRequiredMixin, generic.ListView):
     """
     Displays the workload cards that have a status of To Do
     """
-    model = Workload()
+    model = Workload
     queryset = Workload.objects.filter(status='To Do').order_by(
         'test_date', 'analyst')
     template_name = 'scheduler.html'
     paginate_by = 12
+
+
+class DeleteWorkload(LoginRequiredMixin, DeleteView):
+    """
+    Displays the page to confirm deletion of a workload card
+    """
+    model = Workload
+    template_name = 'delete_workload.html'
+    success_url = '/scheduler'
 
 
 # Analysts Page

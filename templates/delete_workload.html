@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Lab Boss - Delete Card{% endblock %}
+{% block content %}
+
+<div class="container-fluid form-image">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="confirm-title">Delete Workload Card?</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <p class="confirm-text">Are you sure you want to delete the following workload card?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 card text-center delete-card">
+            <div class="card-body">
+                <p>{{ workload.test_date|date:"d M Y" }}</p>
+                <p>{{ workload.analyst }}</p>
+                <p>{{ workload.test }}</p>
+                {% if workload.comment != "" %}
+                <p>{{ workload.comment }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <p class="confirm-text">This action is permanent and cannot be undone.</p>
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn confirm-button delete-button" type="submit">Delete</button>
+                <a class="btn confirm-button page-button" href="{% url 'scheduler' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

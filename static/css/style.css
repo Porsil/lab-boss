@@ -315,6 +315,11 @@ table tr:nth-child(even){
     color: rgb(180, 20, 20);
 }
 
+.delete-card {
+    margin: auto;
+    padding: 0;
+}
+
 /* Scheduler Page */
 
 .card-body {
@@ -333,12 +338,12 @@ table tr:nth-child(even){
     margin-bottom: 50px;
 }
 
-.edit-card {
+.edit-card-btn {
     margin-bottom: 0;
     margin-top: -10px;
 }
 
-.delete-card {
+.delete-card-btn {
     margin-left: 95%;
     margin-top: -25px;
     margin-bottom: 0px;
