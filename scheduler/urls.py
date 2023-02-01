@@ -4,6 +4,7 @@ from django.urls import path
 
 urlpatterns = [
      path('scheduler', views.WorkloadList.as_view(), name='scheduler'),
+     path('workload/add', views.AddWorkload.as_view(), name='add_workload'),
      path('workload/<pk>/update/', views.UpdateWorkload.as_view(),
           name='update_workload'),
      path('workload/<pk>/delete/', views.DeleteWorkload.as_view(),

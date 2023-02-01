@@ -11,7 +11,9 @@ class AnalystChoices(forms.ModelForm):
 
 
 class TestChoices(forms.ModelForm):
-    """ Gets a list of available tests """
+    """
+    Gets a list of available tests
+    """
     test_choices = Test.objects.all().values_list('name', 'name')
     test_list = []
     for choice in test_choices:
@@ -19,12 +21,16 @@ class TestChoices(forms.ModelForm):
 
 
 class DateInput(forms.DateInput):
-    """ defines the input type for calendar picker """
+    """
+    defines the input type for calendar picker
+    """
     input_type = 'date'
 
 
-class EditWorkload(forms.ModelForm):
-    """ edit workload card form """
+class WorkloadForm(forms.ModelForm):
+    """
+    edit workload card form
+    """
     class Meta:
         model = Workload
         fields = ('test_date', 'analyst', 'test', 'comment')

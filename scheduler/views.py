@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
-from .forms import EditWorkload
+from .forms import WorkloadForm
 from .models import Workload, Analyst, Test
 
 
@@ -21,12 +21,22 @@ class WorkloadList(LoginRequiredMixin, generic.ListView):
     paginate_by = 12
 
 
+class AddWorkload(LoginRequiredMixin, CreateView):
+    """
+    Displays the page to add a new workload card
+    """
+    model = Workload
+    form_class = WorkloadForm
+    template_name = 'add_workload.html'
+    success_url = '/scheduler'
+
+
 class UpdateWorkload(LoginRequiredMixin, UpdateView):
     """
     Displays the page to update a workload card
     """
     model = Workload
-    form_class = EditWorkload
+    form_class = WorkloadForm
     template_name = 'update_workload.html'
     success_url = '/scheduler'
 
