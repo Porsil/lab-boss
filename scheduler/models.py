@@ -29,7 +29,7 @@ class Workload(models.Model):
                                 limit_choices_to={'status': 'Active'},)
     test = models.ForeignKey(Test, on_delete=models.CASCADE,
                              limit_choices_to={'status': 'Active'},)
-    comment = models.TextField(blank=True)
+    comment = models.CharField(max_length=50, blank=True)
     status = models.TextField(choices=WORKLOAD_STATUS, default="To Do")
 
     class Meta:

@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
+from .forms import EditWorkload
 from .models import Workload, Analyst, Test
 
 
@@ -20,6 +21,16 @@ class WorkloadList(LoginRequiredMixin, generic.ListView):
     paginate_by = 12
 
 
+class UpdateWorkload(LoginRequiredMixin, UpdateView):
+    """
+    Displays the page to update a workload card
+    """
+    model = Workload
+    form_class = EditWorkload
+    template_name = 'update_workload.html'
+    success_url = '/scheduler'
+
+
 class DeleteWorkload(LoginRequiredMixin, DeleteView):
     """
     Displays the page to confirm deletion of a workload card
@@ -30,6 +41,7 @@ class DeleteWorkload(LoginRequiredMixin, DeleteView):
 
 
 # Analysts Page
+
 
 class AnalystList(LoginRequiredMixin, generic.ListView):
     """
