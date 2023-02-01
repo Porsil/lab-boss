@@ -9,6 +9,8 @@ urlpatterns = [
           name='update_workload'),
      path('workload/<pk>/delete/', views.DeleteWorkload.as_view(),
           name='delete_workload'),
+     path('toggle_workload/<pk>', views.ToggleWorkload.as_view(),
+          name='toggle_workload'),
      path('analysts', views.AnalystList.as_view(), name='analysts'),
      path('analysts/add', views.AddAnalyst.as_view(), name='add_analyst'),
      path('analysts/<pk>/update/', views.UpdateAnalyst.as_view(),

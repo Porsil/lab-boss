@@ -15,21 +15,27 @@
             <div class="card h-100 text-center">
                 <div class="card-body">
                     <p class="edit-card-btn text-start">
-                        <a class="icon-button" href="{% url 'update_workload' pk=workload.id %}"><i class="fa-solid fa-pencil"></i></a>
+                        <a class="icon-button" href="{% url 'update_workload' pk=workload.id %}"><i
+                                class="fa-solid fa-pencil"></i></a>
                     </p>
                     <p class="delete-card-btn">
-                        <a class="icon-button" href="{% url 'delete_workload' pk=workload.id %}"><i class="fa-solid fa-square-xmark"></i></a>
+                        <a class="icon-button" href="{% url 'delete_workload' pk=workload.id %}"><i
+                                class="fa-solid fa-square-xmark"></i></a>
                     </p>
                     <p>{{ workload.test_date|date:"d M Y" }}</p>
                     <p>{{ workload.analyst }}</p>
                     <p>{{ workload.test }}</p>
                     {% if workload.comment != "" %}
-                    <p class="card-bottom">{{ workload.comment }}</p>
+                    <p>{{ workload.comment }}</p>
                     {% else %}
                     <br>
                     {% endif %}
-                    <p class="card-button">
-                        <a class="btn page-button" href="#">Complete</i></a>
+                    <p>
+                        <form action="{% url 'toggle_workload' pk=workload.id %}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn page-button" type="submit" name="workload_id"
+                                value="{{workload.id}}">Complete</button>
+                        </form>
                     </p>
                 </div>
             </div>

@@ -50,6 +50,20 @@ class DeleteWorkload(LoginRequiredMixin, DeleteView):
     success_url = '/scheduler'
 
 
+class ToggleWorkload(LoginRequiredMixin, View):
+    """
+    Toggles the status of a workload card
+    """
+    def post(self, request, pk, *args, **kwargs):
+        toggle_workload = get_object_or_404(Workload, pk=pk)
+        if toggle_workload.status == "To Do":
+            toggle_workload.status = "Completed"
+        else:
+            toggle_workload.status = "To Do"
+        toggle_workload.save()
+        return redirect('scheduler')
+
+
 # Analysts Page
 
 
