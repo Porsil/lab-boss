@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Lab Boss - Add New Analyst{% endblock %}
 {% block content %}
+{% load crispy_forms_tags %}
 
 <div class="container-fluid form-image">
     <div class="row">
@@ -8,11 +9,11 @@
             <h1 class="confirm-title">Add New Analyst:</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 text-center">
-            <form method="post" enctype="multipart/form-data">
+    <div class="row justify-content-center">
+        <div class="col-3 text-center">
+            <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }} 
+                {{ form | crispy }} 
                 <button class="btn confirm-button page-button" type="submit">Save</button>
                 <a class="btn confirm-button page-button" href="{% url 'analysts' %}">Cancel</a>
             </form>
