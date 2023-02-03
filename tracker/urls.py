@@ -13,6 +13,8 @@ urlpatterns = [
      path('toggle_material/<pk>', views.ToggleMaterial.as_view(),
           name='toggle_material'),
      path('tracker', views.BatchList.as_view(), name='tracker'),
+     path('priority_tracker', views.PriorityBatchList.as_view(), name='priority_tracker'),
+     path('all_tracker', views.AllBatchList.as_view(), name='all_tracker'),
      path('tracker/add', views.AddBatch.as_view(), name='add_batch'),
      path('tracker/<pk>/update/', views.UpdateBatch.as_view(),
           name='update_batch'),

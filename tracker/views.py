@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
@@ -25,6 +26,28 @@ class BatchList(LoginRequiredMixin, generic.ListView):
     queryset = Batch.objects.filter(status='To Test').order_by(
         '-priority', 'booked_in', 'batch')
     template_name = 'tracker.html'
+    paginate_by = 15
+
+
+class PriorityBatchList(LoginRequiredMixin, generic.ListView):
+    """
+    Displays the batches that have the priority status
+    """
+    model = Batch
+    queryset = Batch.objects.filter(priority='True').order_by(
+        'booked_in', 'batch')
+    template_name = 'priority_tracker.html'
+    paginate_by = 15
+
+
+class AllBatchList(LoginRequiredMixin, generic.ListView):
+    """
+    Displays all batches
+    """
+    model = Batch
+    queryset = Batch.objects.order_by(
+        'batch')
+    template_name = 'all_tracker.html'
     paginate_by = 15
 
 

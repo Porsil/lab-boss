@@ -260,8 +260,12 @@ table tr:nth-child(even){
     width: 7%;
 }
 
-.table-batch-column, .table-status-column {
+.table-batch-column {
     width: 8%;
+}
+
+.table-status-column {
+    width: 9%;
 }
 
 .table-material-column {
@@ -273,7 +277,7 @@ table tr:nth-child(even){
 }
 
 .table-modify-column {
-    width: 6%;
+    width: 5%;
 }
 
 /* Materials */
