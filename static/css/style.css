@@ -16,7 +16,7 @@ body {
 }
 
 main {
-    padding-bottom: 75px;
+    padding-bottom: 60px;
 }
 
 /* navbar */
@@ -54,7 +54,7 @@ main {
 
 footer {
     position: absolute;
-    min-height: 50px;
+    min-height: 40px;
     width: 100%;
     bottom: 0;
 }
@@ -198,7 +198,7 @@ footer {
 .page-title {
     font-family: 'Russo One', sans-serif;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .page-button {
@@ -318,6 +318,32 @@ table tr:nth-child(even){
 .delete-card {
     margin: auto;
     padding: 0;
+}
+
+/* Tracker Pages */
+
+.trackers {
+    margin-bottom: 20px;
+}
+
+.tracker-link {
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgb(13, 74, 115);
+}
+
+.tracker-link:hover {
+    color: rgb(103, 199, 237);
+}
+
+.active {
+    color: rgb(13, 74, 115);
+    border-bottom: 2px solid rgb(13, 74, 115);
+}
+
+.active:hover {
+    border-bottom: 2px solid rgb(103, 199, 237);
 }
 
 /* Scheduler Page */

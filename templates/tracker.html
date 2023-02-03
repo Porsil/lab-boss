@@ -9,8 +9,26 @@
         </div>
     </div>
     
+    <div class="row trackers">
+        <div class="col-4 mt-1 text-center">
+            <a href="#" class="tracker-link">
+                Priority Batches To Test
+            </a>
+        </div>
+        <div class="col-4 mt-1 text-center">
+            <a href="{% url 'tracker' %}" class="active tracker-link">
+                Batches To Test
+            </a>
+        </div>
+        <div class="col-4 mt-1 text-center">
+            <a href="#" class="tracker-link">
+                All Batches
+            </a>
+        </div>
+    </div>
+
     <div class="row table-container">
-        <table class="col batch-table text-center">
+        <table class="col mt-1 batch-table text-center">
             <tr class="batch-table-headings">
                 <th class="table-priority-column">Priority</th>
                 <th class="table-batch-column">Batch</th>
