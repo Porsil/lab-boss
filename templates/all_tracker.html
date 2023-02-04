@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Lab Boss - All Batches{% endblock %}
+{% block title %}Lab Boss - Batch Tracker{% endblock %}
 {% block content %}
 
 <div class="container-fluid">
@@ -8,7 +8,7 @@
             <h1 class="page-title">Batch Tracker</h1>
         </div>
     </div>
-    
+
     <div class="row trackers">
         <div class="col-4 mt-1 text-center">
             <a href="{% url 'priority_tracker' %}" class="tracker-link">
@@ -27,6 +27,18 @@
         </div>
     </div>
 
+    <div class="row">
+        <details>
+            <summary class="col-2 offset-md-5 btn page-button mb-4">Filter data</summary>
+            <div class="col-12 text-center">
+                <form method="GET">
+                    {{ filter.form.as_p }}
+                    <button class="btn page-button mb-3" type="submit">Search</button>
+                </form>
+            </div>
+    </div>
+    </details>
+
     <div class="row table-container">
         <table class="col mt-1 batch-table text-center">
             <tr class="batch-table-headings">
@@ -38,7 +50,7 @@
                 <th>Comments</th>
                 <th class="table-status-column">Status</th>
             </tr>
-            {% for batch in batch_list %}
+            {% for batch in filter.qs %}
             <tr class="batch-table-contents">
                 <td>
                     {% if batch.priority == True %}
@@ -51,29 +63,16 @@
                 <td>{{ batch.due_date|date:"d M Y" }}</td>
                 <td>{{ batch.comments }}</td>
                 <td>
-                    <form action="{% url 'toggle_batch' pk=batch.id %}" method="POST">
+                    <form action="{% url 'toggle_batch_all' pk=batch.id %}" method="POST">
                         {% csrf_token %}
-                        {% if batch.status == "To Test" %}
                         {{ batch.status }}
-                        <button class="icon-button toggle-button" type="submit" name="batch_id" value="{{batch.id}}"><i class="fa-solid fa-toggle-off"></i></button>
-                        {% else %}
-                        {{ batch.status }}
-                        <button class="icon-button toggle-button" type="submit" name="batch_id" value="{{batch.id}}"><i class="fa-solid fa-toggle-on"></i></button>
-                        {% endif %}
+                        <button class="icon-button toggle-button" type="submit" name="batch_id" value="{{batch.id}}"><i
+                                class="fa-regular fa-circle-check"></i></button>
                     </form>
                 </td>
             </tr>
             {% endfor %}
         </table>
-    </div>
-
-    <div class="row">
-        {% include "paginator.html" %}>
-        <div class="col-12 mt-4 text-center">
-            <a href="{% url 'add_batch' %}" class="btn page-button">
-                Add New Batch
-            </a>
-        </div>
     </div>
 
 </div>

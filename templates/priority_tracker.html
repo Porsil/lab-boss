@@ -47,13 +47,7 @@
                 <td>{{ batch.booked_in|date:"d M Y" }}</td>
                 <td>{{ batch.due_date|date:"d M Y" }}</td>
                 <td>{{ batch.comments }}</td>
-                <td>
-                    <form action="{% url 'toggle_batch' pk=batch.id %}" method="POST">
-                        {% csrf_token %}
-                        {{ batch.status }}
-                        <button class="icon-button toggle-button" type="submit" name="batch_id" value="{{batch.id}}"><i class="fa-regular fa-circle-check"></i></button>
-                    </form>
-                </td>
+                <td>{{ batch.status }}</td>
             </tr>
             {% endif %}
             {% endfor %}
@@ -62,11 +56,6 @@
 
     <div class="row">
         {% include "paginator.html" %}
-        <div class="col-12 mt-4 text-center">
-            <a href="{% url 'add_batch' %}" class="btn page-button">
-                Add New Batch
-            </a>
-        </div>
     </div>
 
 </div>

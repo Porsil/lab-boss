@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
-from django.http import HttpResponseRedirect
 from .models import Material, Batch
+from .filters import BatchFilter
 
 
 # Home Page
@@ -50,6 +49,13 @@ class AllBatchList(LoginRequiredMixin, generic.ListView):
     template_name = 'all_tracker.html'
     paginate_by = 15
 
+    def get_context_data(self, **kwargs):
+        """ tracker table search filters """    
+        context = super().get_context_data(**kwargs)
+        context['filter'] = BatchFilter(self.request.GET,
+                                        queryset=Batch.objects.order_by('batch'), )
+        return context
+
 
 class AddBatch(LoginRequiredMixin, CreateView):
     """
@@ -82,7 +88,7 @@ class DeleteBatch(LoginRequiredMixin, DeleteView):
 
 class ToggleBatch(LoginRequiredMixin, View):
     """
-    Toggles the status of a batch
+    Toggles the status of a batch from priority or tracker pages
     """
     def post(self, request, pk, *args, **kwargs):
         toggle_batch = get_object_or_404(Batch, pk=pk)
@@ -93,6 +99,19 @@ class ToggleBatch(LoginRequiredMixin, View):
         toggle_batch.save()
         return redirect('tracker')
 
+
+class ToggleBatchAll(LoginRequiredMixin, View):
+    """
+    Toggles the status of a batch from the all_tracker page
+    """
+    def post(self, request, pk, *args, **kwargs):
+        toggle_batch = get_object_or_404(Batch, pk=pk)
+        if toggle_batch.status == "To Test":
+            toggle_batch.status = "Approved"
+        else:
+            toggle_batch.status = "To Test"
+        toggle_batch.save()
+        return redirect('all_tracker')
 
 # Materials Page
 

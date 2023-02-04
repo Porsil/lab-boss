@@ -1,5 +1,8 @@
 from . import views
 from django.urls import path
+from django_filters.views import FilterView
+from .models import Batch
+from .filters import BatchFilter
 
 
 urlpatterns = [
@@ -13,7 +16,8 @@ urlpatterns = [
      path('toggle_material/<pk>', views.ToggleMaterial.as_view(),
           name='toggle_material'),
      path('tracker', views.BatchList.as_view(), name='tracker'),
-     path('priority_tracker', views.PriorityBatchList.as_view(), name='priority_tracker'),
+     path('priority_tracker', views.PriorityBatchList.as_view(),
+          name='priority_tracker'),
      path('all_tracker', views.AllBatchList.as_view(), name='all_tracker'),
      path('tracker/add', views.AddBatch.as_view(), name='add_batch'),
      path('tracker/<pk>/update/', views.UpdateBatch.as_view(),
@@ -22,4 +26,7 @@ urlpatterns = [
           name='delete_batch'),
      path('toggle_batch/<pk>', views.ToggleBatch.as_view(),
           name='toggle_batch'),
+     path('toggle_batch_all/<pk>', views.ToggleBatchAll.as_view(),
+          name='toggle_batch_all'),
+
 ]
