@@ -5,15 +5,13 @@ from .forms import DateInput
 
 
 class BatchFilter(django_filters.FilterSet):
-    
+
     booked_in = DateFilter(field_name="booked_in",
-                            label="Booked in",
-                            widget=DateInput(attrs={'type': 'date'}))
+                           label="Booked in",
+                           widget=DateInput(attrs={'type': 'date'}))
 
     class Meta:
         model = Batch
         fields = ('priority', 'batch', 'material',
                   'booked_in', 'status')
         exclude = ['booked_in',]
-    
-

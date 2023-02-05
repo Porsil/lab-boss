@@ -8,6 +8,7 @@ from .filters import BatchFilter
 
 # Home Page
 
+
 class Home(generic.TemplateView):
     """
     Displays the home page
@@ -16,6 +17,7 @@ class Home(generic.TemplateView):
 
 
 # Batch Tracker Pages
+
 
 class BatchList(LoginRequiredMixin, generic.ListView):
     """
@@ -50,10 +52,11 @@ class AllBatchList(LoginRequiredMixin, generic.ListView):
     paginate_by = 15
 
     def get_context_data(self, **kwargs):
-        """ tracker table search filters """    
+        """ tracker table search filters """
         context = super().get_context_data(**kwargs)
         context['filter'] = BatchFilter(self.request.GET,
-                                        queryset=Batch.objects.order_by('batch'), )
+                                        queryset=Batch.objects.order_by(
+                                         'batch'), )
         return context
 
 
@@ -113,7 +116,9 @@ class ToggleBatchAll(LoginRequiredMixin, View):
         toggle_batch.save()
         return redirect('all_tracker')
 
+
 # Materials Page
+
 
 class MaterialList(LoginRequiredMixin, generic.ListView):
     """

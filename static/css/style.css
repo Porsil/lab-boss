@@ -23,6 +23,7 @@ main {
 
 .navbar {
     margin-right: 25px;
+    padding: 0;
 }
 
 .nav-link {
@@ -228,6 +229,30 @@ footer {
     font-size: 120%;
 }
 
+.choices {
+    margin-bottom: 20px;
+}
+
+.choice-link {
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgb(13, 74, 115);
+}
+
+.choice-link:hover {
+    color: rgb(103, 199, 237);
+}
+
+.active {
+    color: rgb(13, 74, 115);
+    border-bottom: 2px solid rgb(13, 74, 115);
+}
+
+.active:hover {
+    border-bottom: 2px solid rgb(103, 199, 237);
+}
+
 /* Table properties */
 
 .table-container {
@@ -265,7 +290,7 @@ table tr:nth-child(even){
 }
 
 .table-status-column {
-    width: 9%;
+    width: 12%;
 }
 
 .table-material-column {
@@ -278,12 +303,6 @@ table tr:nth-child(even){
 
 .table-modify-column {
     width: 5%;
-}
-
-/* Materials */
-
-.material-name {
-    font-weight: 400;
 }
 
 /* Update database pages */
@@ -324,32 +343,6 @@ table tr:nth-child(even){
     padding: 0;
 }
 
-/* Tracker Pages */
-
-.trackers {
-    margin-bottom: 20px;
-}
-
-.tracker-link {
-    text-decoration: none;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: rgb(13, 74, 115);
-}
-
-.tracker-link:hover {
-    color: rgb(103, 199, 237);
-}
-
-.active {
-    color: rgb(13, 74, 115);
-    border-bottom: 2px solid rgb(13, 74, 115);
-}
-
-.active:hover {
-    border-bottom: 2px solid rgb(103, 199, 237);
-}
-
 /* Scheduler Page */
 
 .card-body {
@@ -365,6 +358,20 @@ table tr:nth-child(even){
     margin-left: 95%;
     margin-top: -25px;
     margin-bottom: 0px;
+}
+
+.all-delete-card-btn {
+    margin-left: 95%;
+    margin-top: -13px;
+    margin-bottom: 0px;
+}
+
+strike {
+    color: rgba(13, 74, 115, 0.6)
+}
+
+.card-text {
+    margin-bottom: 7px;
 }
 
 /* Pagination */

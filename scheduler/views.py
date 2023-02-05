@@ -5,6 +5,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from .forms import WorkloadForm
 from .models import Workload, Analyst, Test
+from .filters import WorkloadFilter, AllWorkloadFilter
 
 
 # Scheduler Page
@@ -19,6 +20,33 @@ class WorkloadList(LoginRequiredMixin, generic.ListView):
         'test_date', 'analyst')
     template_name = 'scheduler.html'
     paginate_by = 12
+
+    def get_context_data(self, **kwargs):
+        """ scheduler search filters """
+        context = super().get_context_data(**kwargs)
+        context['filter'] = WorkloadFilter(self.request.GET,
+                                           queryset=Workload.objects.order_by(
+                                            'test_date'), )
+        return context
+
+
+class AllWorkloadList(LoginRequiredMixin, generic.ListView):
+    """
+    Displays all workload cards
+    """
+    model = Workload
+    queryset = Workload.objects.order_by(
+        '-test_date')
+    template_name = 'all_scheduler.html'
+    paginate_by = 12
+
+    def get_context_data(self, **kwargs):
+        """ scheduler search filters """
+        context = super().get_context_data(**kwargs)
+        context['filter'] = AllWorkloadFilter(self.request.GET,
+                                              queryset=Workload.objects.
+                                              order_by('-test_date'), )
+        return context
 
 
 class AddWorkload(LoginRequiredMixin, CreateView):
@@ -50,6 +78,15 @@ class DeleteWorkload(LoginRequiredMixin, DeleteView):
     success_url = '/scheduler'
 
 
+class AllDeleteWorkload(LoginRequiredMixin, DeleteView):
+    """
+    Displays the page to confirm deletion of a workload card
+    """
+    model = Workload
+    template_name = 'all_delete_workload.html'
+    success_url = '/all_scheduler'
+
+
 class ToggleWorkload(LoginRequiredMixin, View):
     """
     Toggles the status of a workload card
@@ -62,6 +99,20 @@ class ToggleWorkload(LoginRequiredMixin, View):
             toggle_workload.status = "To Do"
         toggle_workload.save()
         return redirect('scheduler')
+
+
+class AllToggleWorkload(LoginRequiredMixin, View):
+    """
+    Toggles the status of a workload card
+    """
+    def post(self, request, pk, *args, **kwargs):
+        toggle_workload = get_object_or_404(Workload, pk=pk)
+        if toggle_workload.status == "To Do":
+            toggle_workload.status = "Completed"
+        else:
+            toggle_workload.status = "To Do"
+        toggle_workload.save()
+        return redirect('all_scheduler')
 
 
 # Analysts Page

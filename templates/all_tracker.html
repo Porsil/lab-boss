@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Lab Boss - Batch Tracker{% endblock %}
+{% block title %}Lab Boss - All Batches{% endblock %}
 {% block content %}
+{% load crispy_forms_tags %}
 
 <div class="container-fluid">
     <div class="row">
@@ -9,35 +10,38 @@
         </div>
     </div>
 
-    <div class="row trackers">
+    <div class="row choices">
         <div class="col-4 mt-1 text-center">
-            <a href="{% url 'priority_tracker' %}" class="tracker-link">
+            <a href="{% url 'priority_tracker' %}" class="choice-link">
                 Priority Batches To Test
             </a>
         </div>
         <div class="col-4 mt-1 text-center">
-            <a href="{% url 'tracker' %}" class="tracker-link">
+            <a href="{% url 'tracker' %}" class="choice-link">
                 Batches To Test
             </a>
         </div>
         <div class="col-4 mt-1 text-center">
-            <a href="{% url 'all_tracker' %}" class="active tracker-link">
+            <a href="{% url 'all_tracker' %}" class="active choice-link">
                 All Batches
             </a>
         </div>
     </div>
 
     <div class="row">
-        <details>
-            <summary class="col-2 offset-md-5 btn page-button mb-4">Filter data</summary>
-            <div class="col-12 text-center">
-                <form method="GET">
-                    {{ filter.form.as_p }}
-                    <button class="btn page-button mb-3" type="submit">Search</button>
-                </form>
-            </div>
+        <div class="dropdown">
+            <button type="button" class="col-2 offset-md-5 btn page-button mb-2 dropdown-toggle"
+                data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                Filter Table
+            </button>
+            <form class="dropdown-menu p-4" method="GET">
+                {{ filter.form | crispy }}
+                <div class="text-center">
+                   <button class="btn page-button mt-4" type="submit">Search</button> 
+                </div>
+            </form>
+        </div>
     </div>
-    </details>
 
     <div class="row table-container">
         <table class="col mt-1 batch-table text-center">
@@ -73,6 +77,10 @@
             </tr>
             {% endfor %}
         </table>
+    </div>
+
+    <div class="row">
+        {% include "paginator.html" %}
     </div>
 
 </div>
