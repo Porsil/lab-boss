@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Material, Batch
 from .filters import BatchFilter
 
@@ -56,17 +57,26 @@ class AllBatchList(LoginRequiredMixin, generic.ListView):
     Displays all batches
     """
     model = Batch
-    queryset = Batch.objects.order_by(
-        'batch')
     template_name = 'all_tracker.html'
     paginate_by = 15
 
     def get_context_data(self, **kwargs):
-        """ tracker table search filters """
-        context = super().get_context_data(**kwargs)
-        context['filter'] = BatchFilter(self.request.GET,
-                                        queryset=Batch.objects.order_by(
-                                         'batch'), )
+        """
+        tracker table search filters and pagination
+        code adapted from
+        https://stackoverflow.com/questions/5907575/how-do-i-use-pagination-with-django-class-based-generic-listviews
+        """
+        context = super(AllBatchList, self).get_context_data(**kwargs) 
+        all_batches = Batch.objects.all().order_by('batch')
+        paginator = Paginator(all_batches, self.paginate_by)
+        page = self.request.GET.get('page')
+        try:
+            paginate_all_batches = paginator.page(page)
+        except PageNotAnInteger:
+            paginate_all_batches = paginator.page(1)
+        except EmptyPage:
+            paginate_all_batches = paginator.page(paginator.num_pages)
+        context['all_batches'] = paginate_all_batches
         return context
 
 

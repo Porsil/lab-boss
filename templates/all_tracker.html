@@ -37,7 +37,7 @@
             <form class="dropdown-menu p-4" method="GET">
                 {{ filter.form | crispy }}
                 <div class="text-center">
-                   <button class="btn page-button mt-4" type="submit">Search</button> 
+                    <button class="btn page-button mt-4" type="submit">Search</button>
                 </div>
             </form>
         </div>
@@ -54,7 +54,7 @@
                 <th>Comments</th>
                 <th class="table-status-column">Status</th>
             </tr>
-            {% for batch in filter.qs %}
+            {% for batch in all_batches %}
             <tr class="batch-table-contents">
                 <td>
                     {% if batch.priority == True %}
@@ -69,9 +69,15 @@
                 <td>
                     <form action="{% url 'toggle_batch_all' pk=batch.id %}" method="POST">
                         {% csrf_token %}
+                        {% if batch.status == "Approved" %}
                         {{ batch.status }}
                         <button class="icon-button toggle-button" type="submit" name="batch_id" value="{{batch.id}}"><i
-                                class="fa-regular fa-circle-check"></i></button>
+                                class="fa-solid fa-toggle-on"></i></button>
+                        {% else %}
+                        {{ batch.status }}
+                        <button class="icon-button toggle-button" type="submit" name="material_id"
+                            value="{{material.id}}"><i class="fa-solid fa-toggle-off"></i></button>
+                        {% endif %}
                     </form>
                 </td>
             </tr>
