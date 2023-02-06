@@ -16,6 +16,16 @@ class Home(generic.TemplateView):
     template_name = 'index.html'
 
 
+# Contact Us Page
+
+
+class ContactUs(generic.TemplateView):
+    """
+    Displays the contact us page
+    """
+    template_name = 'contact_us.html'
+
+
 # Batch Tracker Pages
 
 

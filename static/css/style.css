@@ -132,6 +132,32 @@ footer {
     color: rgb(13, 74, 115);
 }
 
+/* Contact Us Page */
+
+.contact_title {
+    margin-top: 125px;
+}
+
+.contact-container {
+    margin-top: 75px;
+}
+
+.contact-details {
+    font-weight: 800;
+    font-size: 110%;
+    margin-bottom: 10px;
+}
+
+.map-container {
+    width: 30%;
+    margin: auto;
+}
+
+.map {
+    margin-top: 75px;
+    min-height: 300px;
+}
+
 /* Allauth account forms */
 
 .account-title {

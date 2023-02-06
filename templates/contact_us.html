@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Lab Boss - Contact Us{% endblock %}
+{% block content %}
+
+<div class="container-fluid form-image">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="page-title contact_title">Contact Us</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 text-center contact-container">
+            <p class="contact-details">Lab Boss</p>
+            <p class="contact-details">NETPark</p>
+            <p class="contact-details">Thomas Wright Way</p>
+            <p class="contact-details">Sedgefield</p>
+            <p class="contact-details">TS21 3FD</p>
+            <br>
+            <p class="contact-details">01740 625 250</p>
+            <br>
+            <p class="contact-details">queries@labboss.co.uk</p>
+        </div>
+        <div class="col-lg-6 col-sm-12 map-container">
+            <div id="map" class="map"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 p-5 text-center home-text">
+            <a class="btn button" href="{% url 'home' %}" role="button">Home</a>
+        </div>
+    </div>
+
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYa4O55URsUPUO9s422TATX3V6aZR8kbA&callback=initMap"></script>
+<script src="static/js/maps.js"></script>
+
+{%endblock%}
+
