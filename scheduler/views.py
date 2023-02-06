@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
-from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import WorkloadForm
 from .models import Workload, Analyst, Test
 from .filters import WorkloadFilter, AllWorkloadFilter
@@ -22,11 +22,23 @@ class WorkloadList(LoginRequiredMixin, generic.ListView):
     paginate_by = 12
 
     def get_context_data(self, **kwargs):
-        """ scheduler search filters """
-        context = super().get_context_data(**kwargs)
-        context['filter'] = WorkloadFilter(self.request.GET,
-                                           queryset=Workload.objects.order_by(
-                                            'test_date'), )
+        """
+        workload card search filters and pagination
+        code adapted from
+        https://stackoverflow.com/questions/5907575/how-do-i-use-pagination-with-django-class-based-generic-listviews
+        """
+        context = super(WorkloadList, self).get_context_data(**kwargs)
+        cards = Workload.objects.filter(status='To Do').order_by('test_date',
+                                                                 'analyst')
+        paginator = Paginator(cards, self.paginate_by)
+        page = self.request.GET.get('page')
+        try:
+            paginate_cards = paginator.page(page)
+        except PageNotAnInteger:
+            paginate_cards = paginator.page(1)
+        except EmptyPage:
+            paginate_cards = paginator.page(paginator.num_pages)
+        context['cards'] = paginate_cards
         return context
 
 
@@ -35,17 +47,26 @@ class AllWorkloadList(LoginRequiredMixin, generic.ListView):
     Displays all workload cards
     """
     model = Workload
-    queryset = Workload.objects.order_by(
-        '-test_date')
     template_name = 'all_scheduler.html'
     paginate_by = 12
 
     def get_context_data(self, **kwargs):
-        """ scheduler search filters """
-        context = super().get_context_data(**kwargs)
-        context['filter'] = AllWorkloadFilter(self.request.GET,
-                                              queryset=Workload.objects.
-                                              order_by('-test_date'), )
+        """
+        workload card search filters and pagination
+        code adapted from
+        https://stackoverflow.com/questions/5907575/how-do-i-use-pagination-with-django-class-based-generic-listviews
+        """
+        context = super(AllWorkloadList, self).get_context_data(**kwargs)
+        all_cards = Workload.objects.all().order_by('-test_date')
+        paginator = Paginator(all_cards, self.paginate_by)
+        page = self.request.GET.get('page')
+        try:
+            paginate_all_cards = paginator.page(page)
+        except PageNotAnInteger:
+            paginate_all_cards = paginator.page(1)
+        except EmptyPage:
+            paginate_all_cards = paginator.page(paginator.num_pages)
+        context['all_cards'] = paginate_all_cards
         return context
 
 

@@ -66,7 +66,7 @@ class AllBatchList(LoginRequiredMixin, generic.ListView):
         code adapted from
         https://stackoverflow.com/questions/5907575/how-do-i-use-pagination-with-django-class-based-generic-listviews
         """
-        context = super(AllBatchList, self).get_context_data(**kwargs) 
+        context = super(AllBatchList, self).get_context_data(**kwargs)
         all_batches = Batch.objects.all().order_by('batch')
         paginator = Paginator(all_batches, self.paginate_by)
         page = self.request.GET.get('page')
