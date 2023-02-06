@@ -222,6 +222,18 @@ footer {
     margin: auto;
 }
 
+.form-button:hover {
+    font-weight: 700;
+    font-size: 100%;
+    background-color: rgb(252, 254, 255);
+    border-color: rgb(13, 74, 115);
+    color: rgb(13, 74, 115);
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    margin: auto;
+}
+
 .page-title {
     font-family: 'Russo One', sans-serif;
     text-transform: uppercase;

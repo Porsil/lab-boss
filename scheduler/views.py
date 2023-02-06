@@ -16,29 +16,16 @@ class WorkloadList(LoginRequiredMixin, generic.ListView):
     Displays the workload cards that have a status of To Do
     """
     model = Workload
-    queryset = Workload.objects.filter(status='To Do').order_by(
-        'test_date', 'analyst')
+    filterset_class = WorkloadFilter
     template_name = 'scheduler.html'
     paginate_by = 12
 
     def get_context_data(self, **kwargs):
-        """
-        workload card search filters and pagination
-        code adapted from
-        https://stackoverflow.com/questions/5907575/how-do-i-use-pagination-with-django-class-based-generic-listviews
-        """
-        context = super(WorkloadList, self).get_context_data(**kwargs)
-        cards = Workload.objects.filter(status='To Do').order_by('test_date',
-                                                                 'analyst')
-        paginator = Paginator(cards, self.paginate_by)
-        page = self.request.GET.get('page')
-        try:
-            paginate_cards = paginator.page(page)
-        except PageNotAnInteger:
-            paginate_cards = paginator.page(1)
-        except EmptyPage:
-            paginate_cards = paginator.page(paginator.num_pages)
-        context['cards'] = paginate_cards
+        """ tracker table search filters """
+        context = super().get_context_data(**kwargs)
+        context['filter'] = WorkloadFilter(self.request.GET,
+                                           queryset=Workload.objects.order_by(
+                                            'test_date'), )
         return context
 
 
@@ -51,24 +38,12 @@ class AllWorkloadList(LoginRequiredMixin, generic.ListView):
     paginate_by = 12
 
     def get_context_data(self, **kwargs):
-        """
-        workload card search filters and pagination
-        code adapted from
-        https://stackoverflow.com/questions/5907575/how-do-i-use-pagination-with-django-class-based-generic-listviews
-        """
-        context = super(AllWorkloadList, self).get_context_data(**kwargs)
-        all_cards = Workload.objects.all().order_by('-test_date')
-        paginator = Paginator(all_cards, self.paginate_by)
-        page = self.request.GET.get('page')
-        try:
-            paginate_all_cards = paginator.page(page)
-        except PageNotAnInteger:
-            paginate_all_cards = paginator.page(1)
-        except EmptyPage:
-            paginate_all_cards = paginator.page(paginator.num_pages)
-        context['all_cards'] = paginate_all_cards
+        """ tracker table search filters """
+        context = super().get_context_data(**kwargs)
+        context['filter'] = AllWorkloadFilter(self.request.GET,
+                                           queryset=Workload.objects.order_by(
+                                            'test_date'), )
         return context
-
 
 class AddWorkload(LoginRequiredMixin, CreateView):
     """
