@@ -2,6 +2,7 @@
 {% block title %}Lab Boss - Login{% endblock %}
 {% load i18n %}
 {% load account socialaccount %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
@@ -19,10 +20,10 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-2 center-form">
+    <div class="col-lg-3 col-sm-5 text-center">
       <form class="login account-form" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form | crispy }}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}

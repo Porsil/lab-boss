@@ -16,12 +16,13 @@ class WorkloadList(LoginRequiredMixin, generic.ListView):
     Displays the workload cards that have a status of To Do
     """
     model = Workload
-    filterset_class = WorkloadFilter
+    queryset = Workload.objects.filter(status='To Do').order_by('-test_date',
+                                                               'analyst')
     template_name = 'scheduler.html'
     paginate_by = 12
 
     def get_context_data(self, **kwargs):
-        """ tracker table search filters """
+        """ card table search filters """
         context = super().get_context_data(**kwargs)
         context['filter'] = WorkloadFilter(self.request.GET,
                                            queryset=Workload.objects.order_by(
@@ -34,16 +35,19 @@ class AllWorkloadList(LoginRequiredMixin, generic.ListView):
     Displays all workload cards
     """
     model = Workload
+    queryset = Workload.objects.order_by('-test_date', 'analyst')
     template_name = 'all_scheduler.html'
     paginate_by = 12
 
     def get_context_data(self, **kwargs):
-        """ tracker table search filters """
+        """ card search filters """
         context = super().get_context_data(**kwargs)
-        context['filter'] = AllWorkloadFilter(self.request.GET,
-                                           queryset=Workload.objects.order_by(
-                                            'test_date'), )
+        context['filter'] = AllWorkloadFilter(
+            self.request.GET,
+            queryset=Workload.objects.order_by('-test_date'),
+        )
         return context
+
 
 class AddWorkload(LoginRequiredMixin, CreateView):
     """
