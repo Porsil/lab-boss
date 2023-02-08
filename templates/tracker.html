@@ -37,8 +37,10 @@
                 <th class="table-date-column">Due Date</th>
                 <th>Comments</th>
                 <th class="table-status-column">Status</th>
+                {% if perms.tracker.view_material %}
                 <th class="table-modify-column">Edit</th>
                 <th class="table-modify-column">Delete</th>
+                {% endif %}
             </tr>
             {% for batch in batch_list %}
             <tr class="batch-table-contents">
@@ -52,6 +54,7 @@
                 <td>{{ batch.booked_in|date:"d M Y" }}</td>
                 <td>{{ batch.due_date|date:"d M Y" }}</td>
                 <td>{{ batch.comments }}</td>
+                {% if perms.tracker.change_batch %}
                 <td>
                     <form action="{% url 'toggle_batch' pk=batch.id %}" method="POST">
                         {% csrf_token %}
@@ -65,6 +68,9 @@
                 <td>
                     <a class="icon-button" href="{% url 'delete_batch' pk=batch.id %}"><i class="fa-solid fa-square-xmark"></i></a>
                 </td>
+                {% else %}
+                <td>{{ batch.status }}</td>
+                {% endif %}
             </tr>
             {% endfor %}
         </table>
@@ -72,11 +78,13 @@
 
     <div class="row">
         {% include "paginator.html" %}
+        {% if perms.tracker.add_batch %}
         <div class="col-12 mt-4 text-center">
             <a href="{% url 'add_batch' %}" class="btn page-button">
                 Add New Batch
             </a>
         </div>
+        {% endif %}
     </div>
 
 </div>

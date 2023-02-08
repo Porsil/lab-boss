@@ -44,10 +44,13 @@
             <div class="card h-100 text-center">
                 <div class="card-body">
                     {% if workload.status == 'Completed' %}
+                    {% if perms.scheduler.delete_workload %}
                     <p class="all-delete-card-btn">
                         <a class="icon-button" href="{% url 'all_delete_workload' pk=workload.id %}"><i
                                 class="fa-solid fa-square-xmark"></i></a>
+                        
                     </p>
+                    {% endif %}
                     <p class="card-text"><strike>{{ workload.status }}</strike></p>
                     <p class="card-text"><strike>{{ workload.test_date|date:"d M Y" }}</strike></p>
                     <p class="card-text"><strike>{{ workload.analyst }}</strike></p>
@@ -65,10 +68,12 @@
                         </form>
                     </p>
                     {% else %}
+                    {% if perms.scheduler.delete_workload %}
                     <p class="all-delete-card-btn">
                         <a class="icon-button" href="{% url 'all_delete_workload' pk=workload.id %}"><i
                                 class="fa-solid fa-square-xmark"></i></a>
                     </p>
+                    {% endif %}
                     <p class="card-text">{{ workload.status }}</p>
                     <p class="card-text">{{ workload.test_date|date:"d M Y" }}</p>
                     <p class="card-text">{{ workload.analyst }}</p>
@@ -78,6 +83,7 @@
                     {% else %}
                     <br>
                     {% endif %}
+                    {% if perms.scheduler.change_workload %}
                     <p>
                         <form action="{% url 'all_toggle_workload' pk=workload.id %}" method="POST">
                             {% csrf_token %}
@@ -85,6 +91,7 @@
                                 value="{{workload.id}}">Toggle Status</button>
                         </form>
                     </p>
+                    {% endif %}
                     {% endif %}
                 </div>
             </div>

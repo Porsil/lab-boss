@@ -66,6 +66,7 @@
                 <td>{{ batch.booked_in|date:"d M Y" }}</td>
                 <td>{{ batch.due_date|date:"d M Y" }}</td>
                 <td>{{ batch.comments }}</td>
+                {% if perms.tracker.change_batch %}
                 <td>
                     <form action="{% url 'toggle_batch_all' pk=batch.id %}" method="POST">
                         {% csrf_token %}
@@ -80,6 +81,9 @@
                         {% endif %}
                     </form>
                 </td>
+                {% else %}
+                <td>{{ batch.status }}</td>
+                {% endif %}
             </tr>
             {% endfor %}
         </table>

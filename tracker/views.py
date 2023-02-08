@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from .models import Material, Batch
 from .filters import BatchFilter
 
@@ -30,7 +31,7 @@ class ContactUs(generic.TemplateView):
 # Batch Tracker Pages
 
 
-class BatchList(LoginRequiredMixin, generic.ListView):
+class BatchList(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
     """
     Displays the batches that have a status of To Test
     """
@@ -39,9 +40,14 @@ class BatchList(LoginRequiredMixin, generic.ListView):
         '-priority', 'booked_in', 'batch')
     template_name = 'tracker.html'
     paginate_by = 15
+    permission_required = 'tracker.view_batch'
 
 
-class PriorityBatchList(LoginRequiredMixin, generic.ListView):
+class PriorityBatchList(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        generic.ListView
+            ):
     """
     Displays the batches that have the priority status
     """
@@ -50,9 +56,14 @@ class PriorityBatchList(LoginRequiredMixin, generic.ListView):
         'booked_in', 'batch')
     template_name = 'priority_tracker.html'
     paginate_by = 15
+    permission_required = 'tracker.view_batch'
 
 
-class AllBatchList(LoginRequiredMixin, generic.ListView):
+class AllBatchList(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        generic.ListView
+            ):
     """
     Displays all batches
     """
@@ -60,6 +71,7 @@ class AllBatchList(LoginRequiredMixin, generic.ListView):
     queryset = Batch.objects.order_by('batch')
     template_name = 'all_tracker.html'
     paginate_by = 15
+    permission_required = 'tracker.view_batch'
 
     def get_context_data(self, **kwargs):
         """ tracker table search filters """
@@ -71,7 +83,7 @@ class AllBatchList(LoginRequiredMixin, generic.ListView):
         return context
 
 
-class AddBatch(LoginRequiredMixin, CreateView):
+class AddBatch(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     """
     Displays the page to add a new batch to the tracker
     """
@@ -79,9 +91,10 @@ class AddBatch(LoginRequiredMixin, CreateView):
     fields = ['priority', 'batch', 'material', 'comments', 'status']
     template_name = 'add_batch.html'
     success_url = '/tracker'
+    permission_required = 'tracker.add_batch'
 
 
-class UpdateBatch(LoginRequiredMixin, UpdateView):
+class UpdateBatch(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     """
     Displays the page to update a batch
     """
@@ -89,21 +102,25 @@ class UpdateBatch(LoginRequiredMixin, UpdateView):
     fields = ['priority', 'batch', 'material', 'comments', 'status']
     template_name = 'update_batch.html'
     success_url = '/tracker'
+    permission_required = 'tracker.change_batch'
 
 
-class DeleteBatch(LoginRequiredMixin, DeleteView):
+class DeleteBatch(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     """
     Displays the page to confirm deletion of a batch
     """
     model = Batch
     template_name = 'delete_batch.html'
     success_url = '/tracker'
+    permission_required = 'tracker.delete_batch'
 
 
-class ToggleBatch(LoginRequiredMixin, View):
+class ToggleBatch(LoginRequiredMixin, PermissionRequiredMixin, View):
     """
     Toggles the status of a batch from priority or tracker pages
     """
+    permission_required = 'tracker.change_batch'
+
     def post(self, request, pk, *args, **kwargs):
         toggle_batch = get_object_or_404(Batch, pk=pk)
         if toggle_batch.status == "To Test":
@@ -114,10 +131,12 @@ class ToggleBatch(LoginRequiredMixin, View):
         return redirect('tracker')
 
 
-class ToggleBatchAll(LoginRequiredMixin, View):
+class ToggleBatchAll(LoginRequiredMixin, PermissionRequiredMixin, View):
     """
     Toggles the status of a batch from the all_tracker page
     """
+    permission_required = 'tracker.change_batch'
+
     def post(self, request, pk, *args, **kwargs):
         toggle_batch = get_object_or_404(Batch, pk=pk)
         if toggle_batch.status == "To Test":
@@ -131,7 +150,11 @@ class ToggleBatchAll(LoginRequiredMixin, View):
 # Materials Page
 
 
-class MaterialList(LoginRequiredMixin, generic.ListView):
+class MaterialList(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        generic.ListView
+        ):
     """
     Displays a list of all materials
     """
@@ -139,9 +162,10 @@ class MaterialList(LoginRequiredMixin, generic.ListView):
     queryset = Material.objects.order_by('status', 'name')
     template_name = 'materials.html'
     paginate_by = 15
+    permission_required = 'tracker.view_material'
 
 
-class AddMaterial(LoginRequiredMixin, CreateView):
+class AddMaterial(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     """
     Displays the page to add a new material to the list
     """
@@ -149,9 +173,10 @@ class AddMaterial(LoginRequiredMixin, CreateView):
     fields = ['name', 'status']
     template_name = 'add_material.html'
     success_url = '/materials'
+    permission_required = 'tracker.add_material'
 
 
-class UpdateMaterial(LoginRequiredMixin, UpdateView):
+class UpdateMaterial(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     """
     Displays the page to update a material
     """
@@ -159,21 +184,25 @@ class UpdateMaterial(LoginRequiredMixin, UpdateView):
     fields = ['name', 'status']
     template_name = 'update_material.html'
     success_url = '/materials'
+    permission_required = 'tracker.change_material'
 
 
-class DeleteMaterial(LoginRequiredMixin, DeleteView):
+class DeleteMaterial(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     """
     Displays the page to confirm deletion of a material
     """
     model = Material
     template_name = 'delete_material.html'
     success_url = '/materials'
+    permission_required = 'tracker.delete_material'
 
 
-class ToggleMaterial(LoginRequiredMixin, View):
+class ToggleMaterial(LoginRequiredMixin, PermissionRequiredMixin, View):
     """
     Toggles the status of a material
     """
+    permission_required = 'tracker.change_material'
+
     def post(self, request, pk, *args, **kwargs):
         toggle_material = get_object_or_404(Material, pk=pk)
         if toggle_material.status == "Active":

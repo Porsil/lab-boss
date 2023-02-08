@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from .forms import WorkloadForm
 from .models import Workload, Analyst, Test
 from .filters import WorkloadFilter, AllWorkloadFilter
@@ -11,15 +12,20 @@ from .filters import WorkloadFilter, AllWorkloadFilter
 # Scheduler Page
 
 
-class WorkloadList(LoginRequiredMixin, generic.ListView):
+class WorkloadList(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        generic.ListView
+            ):
     """
     Displays the workload cards that have a status of To Do
     """
     model = Workload
     queryset = Workload.objects.filter(status='To Do').order_by('-test_date',
-                                                               'analyst')
+                                                                'analyst')
     template_name = 'scheduler.html'
     paginate_by = 12
+    permission_required = 'scheduler.view_workload'
 
     def get_context_data(self, **kwargs):
         """ card table search filters """
@@ -30,7 +36,11 @@ class WorkloadList(LoginRequiredMixin, generic.ListView):
         return context
 
 
-class AllWorkloadList(LoginRequiredMixin, generic.ListView):
+class AllWorkloadList(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        generic.ListView
+            ):
     """
     Displays all workload cards
     """
@@ -38,6 +48,7 @@ class AllWorkloadList(LoginRequiredMixin, generic.ListView):
     queryset = Workload.objects.order_by('-test_date', 'analyst')
     template_name = 'all_scheduler.html'
     paginate_by = 12
+    permission_required = 'scheduler.view_workload'
 
     def get_context_data(self, **kwargs):
         """ card search filters """
@@ -49,7 +60,7 @@ class AllWorkloadList(LoginRequiredMixin, generic.ListView):
         return context
 
 
-class AddWorkload(LoginRequiredMixin, CreateView):
+class AddWorkload(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     """
     Displays the page to add a new workload card
     """
@@ -57,9 +68,10 @@ class AddWorkload(LoginRequiredMixin, CreateView):
     form_class = WorkloadForm
     template_name = 'add_workload.html'
     success_url = '/scheduler'
+    permission_required = 'scheduler.add_workload'
 
 
-class UpdateWorkload(LoginRequiredMixin, UpdateView):
+class UpdateWorkload(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     """
     Displays the page to update a workload card
     """
@@ -67,30 +79,39 @@ class UpdateWorkload(LoginRequiredMixin, UpdateView):
     form_class = WorkloadForm
     template_name = 'update_workload.html'
     success_url = '/scheduler'
+    permission_required = 'scheduler.change_workload'
 
 
-class DeleteWorkload(LoginRequiredMixin, DeleteView):
+class DeleteWorkload(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     """
     Displays the page to confirm deletion of a workload card
     """
     model = Workload
     template_name = 'delete_workload.html'
     success_url = '/scheduler'
+    permission_required = 'scheduler.delete_workload'
 
 
-class AllDeleteWorkload(LoginRequiredMixin, DeleteView):
+class AllDeleteWorkload(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        DeleteView
+            ):
     """
     Displays the page to confirm deletion of a workload card
     """
     model = Workload
     template_name = 'all_delete_workload.html'
     success_url = '/all_scheduler'
+    permission_required = 'scheduler.delete_workload'
 
 
-class ToggleWorkload(LoginRequiredMixin, View):
+class ToggleWorkload(LoginRequiredMixin, PermissionRequiredMixin, View):
     """
     Toggles the status of a workload card
     """
+    permission_required = 'scheduler.change_workload'
+    
     def post(self, request, pk, *args, **kwargs):
         toggle_workload = get_object_or_404(Workload, pk=pk)
         if toggle_workload.status == "To Do":
@@ -101,10 +122,12 @@ class ToggleWorkload(LoginRequiredMixin, View):
         return redirect('scheduler')
 
 
-class AllToggleWorkload(LoginRequiredMixin, View):
+class AllToggleWorkload(LoginRequiredMixin, PermissionRequiredMixin, View):
     """
     Toggles the status of a workload card
     """
+    permission_required = 'scheduler.change_workload'
+    
     def post(self, request, pk, *args, **kwargs):
         toggle_workload = get_object_or_404(Workload, pk=pk)
         if toggle_workload.status == "To Do":
@@ -118,7 +141,11 @@ class AllToggleWorkload(LoginRequiredMixin, View):
 # Analysts Page
 
 
-class AnalystList(LoginRequiredMixin, generic.ListView):
+class AnalystList(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        generic.ListView
+        ):
     """
     Displays a list of all analysts
     """
@@ -126,9 +153,10 @@ class AnalystList(LoginRequiredMixin, generic.ListView):
     queryset = Analyst.objects.order_by('status', 'name')
     template_name = 'analysts.html'
     paginate_by = 15
+    permission_required = 'scheduler.view_analyst'
 
 
-class AddAnalyst(LoginRequiredMixin, CreateView):
+class AddAnalyst(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     """
     Displays the page to add a new analyst to the list
     """
@@ -136,9 +164,10 @@ class AddAnalyst(LoginRequiredMixin, CreateView):
     fields = ['name', 'status']
     template_name = 'add_analyst.html'
     success_url = '/analysts'
+    permission_required = 'scheduler.add_analyst'
 
 
-class UpdateAnalyst(LoginRequiredMixin, UpdateView):
+class UpdateAnalyst(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     """
     Displays the page to update an analyst
     """
@@ -146,21 +175,25 @@ class UpdateAnalyst(LoginRequiredMixin, UpdateView):
     fields = ['name', 'status']
     template_name = 'update_analyst.html'
     success_url = '/analysts'
+    permission_required = 'scheduler.change_analyst'
 
 
-class DeleteAnalyst(LoginRequiredMixin, DeleteView):
+class DeleteAnalyst(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     """
     Displays the page to confirm deletion of an analyst
     """
     model = Analyst
     template_name = 'delete_analyst.html'
     success_url = '/analysts'
+    permission_required = 'scheduler.delete_analyst'
 
 
-class ToggleAnalyst(LoginRequiredMixin, View):
+class ToggleAnalyst(LoginRequiredMixin, PermissionRequiredMixin, View):
     """
     Toggles the status of an analyst
     """
+    permission_required = 'scheduler.change_analyst'
+    
     def post(self, request, pk, *args, **kwargs):
         toggle_analyst = get_object_or_404(Analyst, pk=pk)
         if toggle_analyst.status == "Active":
@@ -173,7 +206,11 @@ class ToggleAnalyst(LoginRequiredMixin, View):
 
 # Tests Page
 
-class TestList(LoginRequiredMixin, generic.ListView):
+class TestList(
+    LoginRequiredMixin,
+    PermissionRequiredMixin,
+    generic.ListView
+        ):
     """
     Displays a list of all tests
     """
@@ -181,9 +218,10 @@ class TestList(LoginRequiredMixin, generic.ListView):
     queryset = Test.objects.order_by('status', 'name')
     template_name = 'tests.html'
     paginate_by = 15
+    permission_required = 'scheduler.view_test'
 
 
-class AddTest(LoginRequiredMixin, CreateView):
+class AddTest(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     """
     Displays the page to add a new test to the list
     """
@@ -191,9 +229,10 @@ class AddTest(LoginRequiredMixin, CreateView):
     fields = ['name', 'status']
     template_name = 'add_test.html'
     success_url = '/tests'
+    permission_required = 'scheduler.add_test'
 
 
-class UpdateTest(LoginRequiredMixin, UpdateView):
+class UpdateTest(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     """
     Displays the page to update an test
     """
@@ -201,21 +240,25 @@ class UpdateTest(LoginRequiredMixin, UpdateView):
     fields = ['name', 'status']
     template_name = 'update_test.html'
     success_url = '/tests'
+    permission_required = 'scheduler.change_test'
 
 
-class DeleteTest(LoginRequiredMixin, DeleteView):
+class DeleteTest(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     """
     Displays the page to confirm deletion of an test
     """
     model = Test
     template_name = 'delete_test.html'
     success_url = '/tests'
+    permission_required = 'scheduler.delete_test'
 
 
-class ToggleTest(LoginRequiredMixin, View):
+class ToggleTest(LoginRequiredMixin, PermissionRequiredMixin, View):
     """
     Toggles the status of a test
     """
+    permission_required = 'scheduler.change_test'
+    
     def post(self, request, pk, *args, **kwargs):
         toggle_test = get_object_or_404(Test, pk=pk)
         if toggle_test.status == "Active":
