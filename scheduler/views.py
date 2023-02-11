@@ -4,6 +4,8 @@ from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from .forms import WorkloadForm
 from .models import Workload, Analyst, Test
 from .filters import WorkloadFilter, AllWorkloadFilter
@@ -60,7 +62,12 @@ class AllWorkloadList(
         return context
 
 
-class AddWorkload(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class AddWorkload(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        CreateView
+            ):
     """
     Displays the page to add a new workload card
     """
@@ -69,9 +76,15 @@ class AddWorkload(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     template_name = 'add_workload.html'
     success_url = '/scheduler'
     permission_required = 'scheduler.add_workload'
+    success_message = "Card created successfully"
 
 
-class UpdateWorkload(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class UpdateWorkload(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        UpdateView
+            ):
     """
     Displays the page to update a workload card
     """
@@ -80,9 +93,14 @@ class UpdateWorkload(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     template_name = 'update_workload.html'
     success_url = '/scheduler'
     permission_required = 'scheduler.change_workload'
+    success_message = "Card updated successfully"
 
 
-class DeleteWorkload(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class DeleteWorkload(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        DeleteView
+            ):
     """
     Displays the page to confirm deletion of a workload card
     """
@@ -90,6 +108,17 @@ class DeleteWorkload(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     template_name = 'delete_workload.html'
     success_url = '/scheduler'
     permission_required = 'scheduler.delete_workload'
+    success_message = "Card deleted successfully"
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Display success message
+        Adapted from: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(DeleteWorkload, self).delete(request, *args, **kwargs)
 
 
 class AllDeleteWorkload(
@@ -104,9 +133,24 @@ class AllDeleteWorkload(
     template_name = 'all_delete_workload.html'
     success_url = '/all_scheduler'
     permission_required = 'scheduler.delete_workload'
+    success_message = "Card deleted successfully"
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Display success message
+        Adapted from: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(AllDeleteWorkload, self).delete(request, *args, **kwargs)
 
 
-class ToggleWorkload(LoginRequiredMixin, PermissionRequiredMixin, View):
+class ToggleWorkload(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        View
+            ):
     """
     Toggles the status of a workload card
     """
@@ -116,13 +160,16 @@ class ToggleWorkload(LoginRequiredMixin, PermissionRequiredMixin, View):
         toggle_workload = get_object_or_404(Workload, pk=pk)
         if toggle_workload.status == "To Do":
             toggle_workload.status = "Completed"
-        else:
-            toggle_workload.status = "To Do"
+            messages.success(self.request, "Card completed successfully")
         toggle_workload.save()
         return redirect('scheduler')
 
 
-class AllToggleWorkload(LoginRequiredMixin, PermissionRequiredMixin, View):
+class AllToggleWorkload(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        View
+            ):
     """
     Toggles the status of a workload card
     """
@@ -132,8 +179,12 @@ class AllToggleWorkload(LoginRequiredMixin, PermissionRequiredMixin, View):
         toggle_workload = get_object_or_404(Workload, pk=pk)
         if toggle_workload.status == "To Do":
             toggle_workload.status = "Completed"
+            messages.success(self.request,
+                             "Card status changed to Completed successfully")
         else:
             toggle_workload.status = "To Do"
+            messages.success(self.request,
+                             "Card status changed to To Do successfully")
         toggle_workload.save()
         return redirect('all_scheduler')
 
@@ -156,7 +207,12 @@ class AnalystList(
     permission_required = 'scheduler.view_analyst'
 
 
-class AddAnalyst(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class AddAnalyst(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        CreateView
+            ):
     """
     Displays the page to add a new analyst to the list
     """
@@ -165,9 +221,15 @@ class AddAnalyst(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     template_name = 'add_analyst.html'
     success_url = '/analysts'
     permission_required = 'scheduler.add_analyst'
+    success_message = "%(name)s added successfully"
 
 
-class UpdateAnalyst(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class UpdateAnalyst(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        UpdateView
+            ):
     """
     Displays the page to update an analyst
     """
@@ -176,9 +238,14 @@ class UpdateAnalyst(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     template_name = 'update_analyst.html'
     success_url = '/analysts'
     permission_required = 'scheduler.change_analyst'
+    success_message = "%(name)s updated successfully"
 
 
-class DeleteAnalyst(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class DeleteAnalyst(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        DeleteView
+            ):
     """
     Displays the page to confirm deletion of an analyst
     """
@@ -186,9 +253,24 @@ class DeleteAnalyst(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     template_name = 'delete_analyst.html'
     success_url = '/analysts'
     permission_required = 'scheduler.delete_analyst'
+    success_message = "%(name)s deleted successfully"
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Display success message
+        Adapted from: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(DeleteAnalyst, self).delete(request, *args, **kwargs)
 
 
-class ToggleAnalyst(LoginRequiredMixin, PermissionRequiredMixin, View):
+class ToggleAnalyst(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        View
+            ):
     """
     Toggles the status of an analyst
     """
@@ -198,8 +280,12 @@ class ToggleAnalyst(LoginRequiredMixin, PermissionRequiredMixin, View):
         toggle_analyst = get_object_or_404(Analyst, pk=pk)
         if toggle_analyst.status == "Active":
             toggle_analyst.status = "Inactive"
+            messages.success(self.request,
+                             "Analyst status changed to Inactive successfully") 
         else:
             toggle_analyst.status = "Active"
+            messages.success(self.request,
+                             "Analyst status changed to Active successfully") 
         toggle_analyst.save()
         return redirect('analysts')
 
@@ -221,7 +307,12 @@ class TestList(
     permission_required = 'scheduler.view_test'
 
 
-class AddTest(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class AddTest(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        CreateView
+            ):
     """
     Displays the page to add a new test to the list
     """
@@ -230,9 +321,15 @@ class AddTest(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     template_name = 'add_test.html'
     success_url = '/tests'
     permission_required = 'scheduler.add_test'
+    success_message = "%(name)s added successfully"
 
 
-class UpdateTest(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class UpdateTest(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        UpdateView
+            ):
     """
     Displays the page to update an test
     """
@@ -241,9 +338,14 @@ class UpdateTest(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     template_name = 'update_test.html'
     success_url = '/tests'
     permission_required = 'scheduler.change_test'
+    success_message = "%(name)s updated successfully"
 
 
-class DeleteTest(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class DeleteTest(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        DeleteView
+            ):
     """
     Displays the page to confirm deletion of an test
     """
@@ -251,9 +353,23 @@ class DeleteTest(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     template_name = 'delete_test.html'
     success_url = '/tests'
     permission_required = 'scheduler.delete_test'
+    success_message = "%(name)s deleted successfully"
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Display success message
+        Adapted from: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(DeleteTest, self).delete(request, *args, **kwargs)
 
 
-class ToggleTest(LoginRequiredMixin, PermissionRequiredMixin, View):
+class ToggleTest(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        View):
     """
     Toggles the status of a test
     """
@@ -263,7 +379,11 @@ class ToggleTest(LoginRequiredMixin, PermissionRequiredMixin, View):
         toggle_test = get_object_or_404(Test, pk=pk)
         if toggle_test.status == "Active":
             toggle_test.status = "Inactive"
+            messages.success(self.request,
+                             "Test status changed to Inactive successfully") 
         else:
             toggle_test.status = "Active"
+            messages.success(self.request,
+                             "Test status changed to Active successfully") 
         toggle_test.save()
         return redirect('tests')

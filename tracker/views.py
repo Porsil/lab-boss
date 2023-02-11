@@ -4,6 +4,8 @@ from django.views import generic, View
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from .models import Material, Batch
 from .filters import BatchFilter
 
@@ -31,7 +33,11 @@ class ContactUs(generic.TemplateView):
 # Batch Tracker Pages
 
 
-class BatchList(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
+class BatchList(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        generic.ListView
+            ):
     """
     Displays the batches that have a status of To Test
     """
@@ -83,7 +89,12 @@ class AllBatchList(
         return context
 
 
-class AddBatch(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class AddBatch(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        CreateView
+            ):
     """
     Displays the page to add a new batch to the tracker
     """
@@ -92,9 +103,15 @@ class AddBatch(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     template_name = 'add_batch.html'
     success_url = '/tracker'
     permission_required = 'tracker.add_batch'
+    success_message = "%(batch)s added successfully"
 
 
-class UpdateBatch(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class UpdateBatch(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        UpdateView
+            ):
     """
     Displays the page to update a batch
     """
@@ -103,9 +120,14 @@ class UpdateBatch(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     template_name = 'update_batch.html'
     success_url = '/tracker'
     permission_required = 'tracker.change_batch'
+    success_message = "%(batch)s updated successfully"
 
 
-class DeleteBatch(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class DeleteBatch(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        DeleteView
+            ):
     """
     Displays the page to confirm deletion of a batch
     """
@@ -113,9 +135,24 @@ class DeleteBatch(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     template_name = 'delete_batch.html'
     success_url = '/tracker'
     permission_required = 'tracker.delete_batch'
+    success_message = "%(batch)s deleted successfully"
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Display success message
+        Adapted from: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(DeleteBatch, self).delete(request, *args, **kwargs)
 
 
-class ToggleBatch(LoginRequiredMixin, PermissionRequiredMixin, View):
+class ToggleBatch(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        View
+            ):
     """
     Toggles the status of a batch from priority or tracker pages
     """
@@ -125,13 +162,16 @@ class ToggleBatch(LoginRequiredMixin, PermissionRequiredMixin, View):
         toggle_batch = get_object_or_404(Batch, pk=pk)
         if toggle_batch.status == "To Test":
             toggle_batch.status = "Approved"
-        else:
-            toggle_batch.status = "To Test"
+            messages.success(self.request, "Batch approved successfully") 
         toggle_batch.save()
         return redirect('tracker')
 
 
-class ToggleBatchAll(LoginRequiredMixin, PermissionRequiredMixin, View):
+class ToggleBatchAll(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        View
+            ):
     """
     Toggles the status of a batch from the all_tracker page
     """
@@ -141,8 +181,11 @@ class ToggleBatchAll(LoginRequiredMixin, PermissionRequiredMixin, View):
         toggle_batch = get_object_or_404(Batch, pk=pk)
         if toggle_batch.status == "To Test":
             toggle_batch.status = "Approved"
+            messages.success(self.request, "Batch approved successfully")
         else:
             toggle_batch.status = "To Test"
+            messages.success(self.request,
+                             "Batch status changed to To Test successfully")
         toggle_batch.save()
         return redirect('all_tracker')
 
@@ -165,7 +208,12 @@ class MaterialList(
     permission_required = 'tracker.view_material'
 
 
-class AddMaterial(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class AddMaterial(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        CreateView
+            ):
     """
     Displays the page to add a new material to the list
     """
@@ -174,9 +222,15 @@ class AddMaterial(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     template_name = 'add_material.html'
     success_url = '/materials'
     permission_required = 'tracker.add_material'
+    success_message = "%(name)s added successfully"
 
 
-class UpdateMaterial(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class UpdateMaterial(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        SuccessMessageMixin,
+        UpdateView
+            ):
     """
     Displays the page to update a material
     """
@@ -185,9 +239,14 @@ class UpdateMaterial(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     template_name = 'update_material.html'
     success_url = '/materials'
     permission_required = 'tracker.change_material'
+    success_message = "%(name)s updated successfully"
 
 
-class DeleteMaterial(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class DeleteMaterial(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        DeleteView
+            ):
     """
     Displays the page to confirm deletion of a material
     """
@@ -195,9 +254,24 @@ class DeleteMaterial(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     template_name = 'delete_material.html'
     success_url = '/materials'
     permission_required = 'tracker.delete_material'
+    success_message = "%(name)s deleted successfully"
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Display success message
+        Adapted from: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(DeleteMaterial, self).delete(request, *args, **kwargs)
 
 
-class ToggleMaterial(LoginRequiredMixin, PermissionRequiredMixin, View):
+class ToggleMaterial(
+        LoginRequiredMixin,
+        PermissionRequiredMixin,
+        View
+            ):
     """
     Toggles the status of a material
     """
@@ -207,7 +281,11 @@ class ToggleMaterial(LoginRequiredMixin, PermissionRequiredMixin, View):
         toggle_material = get_object_or_404(Material, pk=pk)
         if toggle_material.status == "Active":
             toggle_material.status = "Inactive"
+            messages.success(self.request,
+                             "Material status changed to Inactive successfully")
         else:
             toggle_material.status = "Active"
+            messages.success(self.request,
+                             "Material status changed to Active successfully")
         toggle_material.save()
         return redirect('materials')
