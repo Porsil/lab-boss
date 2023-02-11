@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Lab Boss - Error{% endblock %}
+{% block content %}
+
+<div class="container-fluid hero-image">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3 class="error-heading">lab boss</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center error-text">
+            <p>403 Error</p>
+            <p>Page Forbidden</p>
+            <p>You do not have permission to view this page</p>
+            <br>
+            <a class="btn page-button" href="{% url 'home' %}" role="button">Home</a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
