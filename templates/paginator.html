@@ -1,21 +1,25 @@
-<!-- Code taken from Django Documentation on Pagination -->
+<!-- Code adapted from https://www.caktusgroup.com/blog/2018/10/18/filtering-and-pagination-django/ -->
 
-{%  if is_paginated  %}
+{% load my_tags %}
+
+{% if is_paginated %}
 <div class="col-12">
     <div class="pagination justify-content-center mt-3">
         <span class="step-links">
             {% if page_obj.has_previous %}
-            <a class="pagination-link" href="?page=1">First</a>
-            <a class="pagination-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                <a class="pagination-link" href="?{% param_replace page=1 %}">First</a>
+                <a class="pagination-link" href="?{% param_replace page=page_obj.previous_page_number %}">Previous</a>
             {% endif %}
+
             <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                Page {{ page_obj.number }} of {{ paginator.num_pages }}
             </span>
+
             {% if page_obj.has_next %}
-            <a class="pagination-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-            <a class="pagination-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                <a class="pagination-link" href="?{% param_replace page=page_obj.next_page_number %}">Next</a>
+                <a class="pagination-link" href="?{% param_replace page=paginator.num_pages %}">Last</a>
             {% endif %}
         </span>
     </div>
 </div>
-{%  endif  %}
+{% endif %}

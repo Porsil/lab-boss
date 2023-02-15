@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
@@ -30,6 +29,28 @@ class ContactUs(generic.TemplateView):
     template_name = 'contact_us.html'
 
 
+# FilteredListView to allow pagination and filters
+
+
+class FilteredListView(ListView):
+    """
+    Code taken from https://www.caktusgroup.com/blog/2018/10/18/
+    filtering-and-pagination-django/
+    """
+    filterset_class = None
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = self.filterset_class(self.request.GET,
+                                              queryset=queryset)
+        return self.filterset.qs.distinct()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filterset'] = self.filterset
+        return context
+
+
 # Batch Tracker Pages
 
 
@@ -45,7 +66,7 @@ class BatchList(
     queryset = Batch.objects.filter(status='To Test').order_by(
         '-priority', 'booked_in', 'batch')
     template_name = 'tracker.html'
-    paginate_by = 15
+    paginate_by = 18
     permission_required = 'tracker.view_batch'
 
 
@@ -68,25 +89,20 @@ class PriorityBatchList(
 class AllBatchList(
         LoginRequiredMixin,
         PermissionRequiredMixin,
-        generic.ListView
+        FilteredListView
             ):
     """
-    Displays all batches
+    Displays all batches.
+    FilteredListView & filterset_class added from
+    https://www.caktusgroup.com/blog/2018/10/18/
+    filtering-and-pagination-django/
     """
     model = Batch
     queryset = Batch.objects.order_by('batch')
     template_name = 'all_tracker.html'
-    paginate_by = 15
+    paginate_by = 20
     permission_required = 'tracker.view_batch'
-
-    def get_context_data(self, **kwargs):
-        """ tracker table search filters """
-        context = super().get_context_data(**kwargs)
-        context['filter'] = BatchFilter(
-            self.request.GET,
-            queryset=Batch.objects.order_by('batch'),
-        )
-        return context
+    filterset_class = BatchFilter
 
 
 class AddBatch(
@@ -162,7 +178,8 @@ class ToggleBatch(
         toggle_batch = get_object_or_404(Batch, pk=pk)
         if toggle_batch.status == "To Test":
             toggle_batch.status = "Approved"
-            messages.success(self.request, "Batch approved successfully") 
+            messages.success(self.request,
+                             "Batch approved successfully")
         toggle_batch.save()
         return redirect('tracker')
 
@@ -281,8 +298,10 @@ class ToggleMaterial(
         toggle_material = get_object_or_404(Material, pk=pk)
         if toggle_material.status == "Active":
             toggle_material.status = "Inactive"
-            messages.success(self.request,
-                             "Material status changed to Inactive successfully")
+            messages.success(
+                self.request,
+                "Material status changed to Inactive successfully"
+                    )
         else:
             toggle_material.status = "Active"
             messages.success(self.request,

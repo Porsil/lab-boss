@@ -217,7 +217,7 @@ class AddAnalyst(
     Displays the page to add a new analyst to the list
     """
     model = Analyst
-    fields = ['name', 'status']
+    fields = ['work_id', 'name', 'status']
     template_name = 'add_analyst.html'
     success_url = '/analysts'
     permission_required = 'scheduler.add_analyst'

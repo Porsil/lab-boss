@@ -5,9 +5,9 @@ from .models import Analyst, Test, Workload
 @admin.register(Analyst)
 class AnalystAdmin(admin.ModelAdmin):
 
-    list_display = ('name', 'status',)
-    list_filter = ('name', 'status',)
-    search_fields = ['name', 'status']
+    list_display = ('work_id', 'name', 'status',)
+    list_filter = ('work_id', 'name', 'status',)
+    search_fields = ['work_id', 'name', 'status']
 
 
 @admin.register(Test)

@@ -35,7 +35,7 @@
                 Filter Table
             </button>
             <form class="dropdown-menu p-4" method="GET">
-                {{ filter.form | crispy }}
+                {{ filterset.form | crispy }}
                 <div class="text-center">
                     <button class="btn page-button mt-4" type="submit">Search</button>
                 </div>
@@ -54,7 +54,7 @@
                 <th>Comments</th>
                 <th class="table-status-column">Status</th>
             </tr>
-            {% for batch in filter.qs %}
+            {% for batch in batch_list %}
             <tr class="batch-table-contents">
                 <td>
                     {% if batch.priority == True %}

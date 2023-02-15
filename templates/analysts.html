@@ -12,6 +12,7 @@
     <div class="row table-container">
         <table class="col batch-table text-center">
             <tr class="batch-table-headings">
+                <th class="table-status-column">Work ID</th>
                 <th class="table-material-column">Analyst</th>
                 <th class="table-status-column">Status</th>
                 <th class="table-modify-column">Edit</th>
@@ -19,6 +20,7 @@
             </tr>
             {% for analyst in analyst_list %}
             <tr class="batch-table-contents">
+                <td>{{ analyst.work_id }}</td>
                 <td>{{ analyst.name }}</td>
                 <td>
                     <form action="{% url 'toggle_analyst' pk=analyst.id %}" method="POST">

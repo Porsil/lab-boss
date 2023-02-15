@@ -8,7 +8,8 @@ WORKLOAD_STATUS = (("To Do", "To Do"), ("Completed", "Completed"))
 
 
 class Analyst(models.Model):
-    name = models.CharField(max_length=30, unique=True)
+    work_id = models.CharField(max_length=8, unique=True)
+    name = models.CharField(max_length=30)
     status = models.TextField(choices=AVAILABLE_STATUS, default="Active")
 
     def __str__(self):
