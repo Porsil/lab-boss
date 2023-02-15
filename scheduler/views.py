@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
-from django.views.generic import CreateView, UpdateView, DeleteView
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
@@ -11,16 +10,41 @@ from .models import Workload, Analyst, Test
 from .filters import WorkloadFilter, AllWorkloadFilter
 
 
+# FilteredListView to allow pagination and filters
+
+
+class FilteredListView(ListView):
+    """
+    Code taken from https://www.caktusgroup.com/blog/2018/10/18/
+    filtering-and-pagination-django/
+    """
+    filterset_class = None
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = self.filterset_class(self.request.GET,
+                                              queryset=queryset)
+        return self.filterset.qs.distinct()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filterset'] = self.filterset
+        return context
+
+
 # Scheduler Page
 
 
 class WorkloadList(
         LoginRequiredMixin,
         PermissionRequiredMixin,
-        generic.ListView
+        FilteredListView
             ):
     """
     Displays the workload cards that have a status of To Do
+    FilteredListView & filterset_class added from
+    https://www.caktusgroup.com/blog/2018/10/18/
+    filtering-and-pagination-django/
     """
     model = Workload
     queryset = Workload.objects.filter(status='To Do').order_by('-test_date',
@@ -28,6 +52,7 @@ class WorkloadList(
     template_name = 'scheduler.html'
     paginate_by = 12
     permission_required = 'scheduler.view_workload'
+    filterset_class = WorkloadFilter
 
     def get_context_data(self, **kwargs):
         """ card table search filters """
@@ -41,16 +66,20 @@ class WorkloadList(
 class AllWorkloadList(
         LoginRequiredMixin,
         PermissionRequiredMixin,
-        generic.ListView
+        FilteredListView
             ):
     """
     Displays all workload cards
+    FilteredListView & filterset_class added from
+    https://www.caktusgroup.com/blog/2018/10/18/
+    filtering-and-pagination-django/
     """
     model = Workload
     queryset = Workload.objects.order_by('-test_date', 'analyst')
     template_name = 'all_scheduler.html'
     paginate_by = 12
     permission_required = 'scheduler.view_workload'
+    filterset_class = AllWorkloadFilter
 
     def get_context_data(self, **kwargs):
         """ card search filters """
@@ -155,7 +184,7 @@ class ToggleWorkload(
     Toggles the status of a workload card
     """
     permission_required = 'scheduler.change_workload'
-    
+
     def post(self, request, pk, *args, **kwargs):
         toggle_workload = get_object_or_404(Workload, pk=pk)
         if toggle_workload.status == "To Do":
@@ -174,7 +203,7 @@ class AllToggleWorkload(
     Toggles the status of a workload card
     """
     permission_required = 'scheduler.change_workload'
-    
+
     def post(self, request, pk, *args, **kwargs):
         toggle_workload = get_object_or_404(Workload, pk=pk)
         if toggle_workload.status == "To Do":
@@ -275,17 +304,17 @@ class ToggleAnalyst(
     Toggles the status of an analyst
     """
     permission_required = 'scheduler.change_analyst'
-    
+
     def post(self, request, pk, *args, **kwargs):
         toggle_analyst = get_object_or_404(Analyst, pk=pk)
         if toggle_analyst.status == "Active":
             toggle_analyst.status = "Inactive"
             messages.success(self.request,
-                             "Analyst status changed to Inactive successfully") 
+                             "Analyst status changed to Inactive successfully")
         else:
             toggle_analyst.status = "Active"
             messages.success(self.request,
-                             "Analyst status changed to Active successfully") 
+                             "Analyst status changed to Active successfully")
         toggle_analyst.save()
         return redirect('analysts')
 
@@ -374,16 +403,16 @@ class ToggleTest(
     Toggles the status of a test
     """
     permission_required = 'scheduler.change_test'
-    
+
     def post(self, request, pk, *args, **kwargs):
         toggle_test = get_object_or_404(Test, pk=pk)
         if toggle_test.status == "Active":
             toggle_test.status = "Inactive"
             messages.success(self.request,
-                             "Test status changed to Inactive successfully") 
+                             "Test status changed to Inactive successfully")
         else:
             toggle_test.status = "Active"
             messages.success(self.request,
-                             "Test status changed to Active successfully") 
+                             "Test status changed to Active successfully")
         toggle_test.save()
         return redirect('tests')

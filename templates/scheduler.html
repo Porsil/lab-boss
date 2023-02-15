@@ -25,12 +25,12 @@
 
     <div class="row">
         <div class="dropdown">
-            <button type="button" class="col-lg-2 col-xs-12 btn mb-2 dropdown-toggle filter-dropdown"
+            <button type="button" class="col-lg-2 col-xs-12 btn mb-4 dropdown-toggle filter-dropdown"
                 data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                 Filter Cards
             </button>
             <form class="dropdown-menu p-4" method="GET">
-                {{ filter.form | crispy }}
+                {{ filterset.form | crispy }}
                 <div class="text-center">
                    <button class="btn page-button mt-4" type="submit">Search</button> 
                 </div>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="row row-cols-1 row-cols-lg-6 row-cols-md-4 row-cols-sm-3 g-3 justify-content-center">
-        {% for workload in filter.qs %}
+        {% for workload in workload_list %}
         <div class="col">
             <div class="card h-100 text-center">
                 <div class="card-body">
