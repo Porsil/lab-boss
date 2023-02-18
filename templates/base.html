@@ -44,12 +44,14 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         {% if user.is_authenticated %}
+                        {% if perms.tracker.add_batch %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'tracker' %}">Batch Tracker</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'scheduler' %}">Scheduler</a>
                         </li>
+                        {% endif %}
                         {% if perms.tracker.view_material %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
@@ -60,6 +62,7 @@
                                 <li><a class="dropdown-item" href="{% url 'materials' %}">Materials</a></li>
                                 <li><a class="dropdown-item" href="{% url 'analysts' %}">Analysts</a></li>
                                 <li><a class="dropdown-item" href="{% url 'tests' %}">Tests</a></li>
+                                <li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a></li>
                             </ul>
                         </li>
                         {% endif %}
