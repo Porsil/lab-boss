@@ -72,12 +72,12 @@
                         {% csrf_token %}
                         {% if batch.status == "Approved" %}
                         {{ batch.status }}
-                        <button class="icon-button toggle-button" type="submit" name="batch_id" value="{{batch.id}}"><i
+                        <button class="icon-button toggle-button" type="submit" name="batch_id" value="{{batch.id}}" aria-label="unapprove batch"><i
                                 class="fa-solid fa-toggle-on"></i></button>
                         {% else %}
                         {{ batch.status }}
                         <button class="icon-button toggle-button" type="submit" name="material_id"
-                            value="{{material.id}}"><i class="fa-solid fa-toggle-off"></i></button>
+                            value="{{material.id}}" aria-label="approve batch"><i class="fa-solid fa-toggle-off"></i></button>
                         {% endif %}
                     </form>
                 </td>

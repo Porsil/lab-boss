@@ -25,18 +25,26 @@
                         {% csrf_token %}
                         {% if test.status == "Active" %}
                         {{ test.status }}
-                        <button class="icon-button toggle-button" type="submit" name="test_id" value="{{test.id}}"><i class="fa-solid fa-toggle-on"></i></button>
+                        <button class="icon-button toggle-button" type="submit" name="test_id" value="{{test.id}}" aria-label="change status to inactive">
+                            <i class="fa-solid fa-toggle-on"></i>
+                        </button>
                         {% else %}
                         {{ test.status }}
-                        <button class="icon-button toggle-button" type="submit" name="test_id" value="{{test.id}}"><i class="fa-solid fa-toggle-off"></i></button>
+                        <button class="icon-button toggle-button" type="submit" name="test_id" value="{{test.id}}" aria-label="change status to active">
+                            <i class="fa-solid fa-toggle-off"></i>
+                        </button>
                         {% endif %}
                     </form>
                 </td>
                 <td>
-                    <a class="icon-button" href="{% url 'update_test' pk=test.id %}"><i class="fa-solid fa-pencil"></i></a>
+                    <a class="icon-button" href="{% url 'update_test' pk=test.id %}" aria-label="edit test">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
                 </td>
                 <td>
-                    <a class="icon-button" href="{% url 'delete_test' pk=test.id %}"><i class="fa-solid fa-square-xmark"></i></a>
+                    <a class="icon-button" href="{% url 'delete_test' pk=test.id %}" aria-label="delete test">
+                        <i class="fa-solid fa-square-xmark"></i>
+                    </a>
                 </td>
             </tr>
             {% endfor %}

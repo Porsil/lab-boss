@@ -44,13 +44,15 @@
             <div class="card h-100 text-center">
                 <div class="card-body">
                     <div class="edit-card-btn text-start">
-                        <a class="icon-button" href="{% url 'update_workload' pk=workload.id %}"><i
-                                class="fa-solid fa-pencil"></i></a>
+                        <a class="icon-button" href="{% url 'update_workload' pk=workload.id %}" aria-label="edit card">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a>
                     </div>
                     {% if perms.scheduler.delete_workload %}
                     <div class="delete-card-btn">
-                        <a class="icon-button" href="{% url 'delete_workload' pk=workload.id %}"><i
-                                class="fa-solid fa-square-xmark"></i></a>
+                        <a class="icon-button" href="{% url 'delete_workload' pk=workload.id %}" aria-label="delete card">
+                            <i class="fa-solid fa-square-xmark"></i>
+                        </a>
                     </div>
                     {% endif %}
                     <p class="card-text">{{ workload.test_date|date:"d M Y" }}</p>
