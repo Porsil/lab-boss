@@ -6,7 +6,7 @@ Lab Boss is a laboratory planning tool and can be used by any laboratory team to
 
 The batch tracker app allows the laboratory to track batches through the laboratory, easily seeing what batches require testing, when they are due and if they are a priority for the business.
 
-The scheduler app allows the laboratory to schedule the worklod by quickly and easily assigning an analytical test to an analyst on a particular day.
+The scheduler app allows the laboratory to schedule the workload by quickly and easily assigning an analytical test to an analyst on a particular day.
 
 [View the live project here](https://lab-boss.herokuapp.com/)
 
@@ -68,6 +68,14 @@ Database Entity Relationship Diagram:
 
 ## Agile Methodology
 
+An agile approach was implemented for the project using GitHub projects where the Epics were added as Milestones and allocated the User Stories as Issues. Each User Story Issue was given acceptance criteria and tasks to assist in the completion of each Issue.
+
+The project board was also used to track development tasks and backlog issues (PBIs).
+
+The project board can be viewed [here](https://github.com/users/Porsil/projects/6)
+
+[Table Of Contents](#table-of-contents)
+
 ## Design
 
 ## Features
@@ -75,6 +83,10 @@ Database Entity Relationship Diagram:
 ## Languages and Libraries
 
 ## Testing
+
+Testing details and results can be found [here](/TESTING.md)
+
+[Table Of Contents](#table-of-contents)
 
 ## Deployment
 

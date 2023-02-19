@@ -66,7 +66,7 @@ class BatchList(
     queryset = Batch.objects.filter(status='To Test').order_by(
         '-priority', 'booked_in', 'batch')
     template_name = 'tracker.html'
-    paginate_by = 18
+    paginate_by = 15
     permission_required = 'tracker.view_batch'
 
 
@@ -100,7 +100,7 @@ class AllBatchList(
     model = Batch
     queryset = Batch.objects.order_by('batch')
     template_name = 'all_tracker.html'
-    paginate_by = 20
+    paginate_by = 15
     permission_required = 'tracker.view_batch'
     filterset_class = BatchFilter
 
