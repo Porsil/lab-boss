@@ -47,8 +47,9 @@ main {
 }
 
 .logo {
-    height: 100px;
+    max-height: 100px;
     margin-left: 25px;
+    max-width: 100%;
 }
 
 /* footer */
@@ -155,7 +156,7 @@ footer {
 .map-container {
     width: 30%;
     margin: auto;
-}
+} 
 
 .map {
     margin-top: 75px;
@@ -416,8 +417,9 @@ table tr:nth-child(even){
     margin-bottom: 0px;
 }
 
-strike {
-    color: rgba(13, 74, 115, 0.6)
+.strike {
+    color: rgba(13, 74, 115, 0.6);
+    text-decoration: line-through;
 }
 
 .card-text {
@@ -566,6 +568,10 @@ strike {
 /* screen size 570px wide and below */
 
 @media screen and (max-width: 570px) {
+    .logo {
+        max-height: 75px;
+    }
+    
     .contact_title {
         margin-top: 50px;
     }

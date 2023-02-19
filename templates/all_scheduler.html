@@ -45,34 +45,34 @@
                 <div class="card-body">
                     {% if workload.status == 'Completed' %}
                     {% if perms.scheduler.delete_workload %}
-                    <p class="all-delete-card-btn">
+                    <div class="all-delete-card-btn">
                         <a class="icon-button" href="{% url 'all_delete_workload' pk=workload.id %}"><i
                                 class="fa-solid fa-square-xmark"></i></a>
                         
-                    </p>
+                    </div>
                     {% endif %}
-                    <p class="card-text"><strike>{{ workload.status }}</strike></p>
-                    <p class="card-text"><strike>{{ workload.test_date|date:"d M Y" }}</strike></p>
-                    <p class="card-text"><strike>{{ workload.analyst }}</strike></p>
-                    <p class="card-text"><strike>{{ workload.test }}</strike></p>
+                    <p class="card-text strike">{{ workload.status }}</p>
+                    <p class="card-text strike">{{ workload.test_date|date:"d M Y" }}</p>
+                    <p class="card-text strike">{{ workload.analyst }}</p>
+                    <p class="card-text strike">{{ workload.test }}</p>
                     {% if workload.comment != "" %}
-                    <p class="card-text"><strike>{{ workload.comment }}</strike></p>
+                    <p class="card-text strike">{{ workload.comment }}</p>
                     {% else %}
                     <br>
                     {% endif %}
-                    <p>
+                    <div>
                         <form action="{% url 'all_toggle_workload' pk=workload.id %}" method="POST">
                             {% csrf_token %}
                             <button class="btn page-button" type="submit" name="workload_id"
                                 value="{{workload.id}}">Toggle Status</button>
                         </form>
-                    </p>
+                    </div>
                     {% else %}
                     {% if perms.scheduler.delete_workload %}
-                    <p class="all-delete-card-btn">
+                    <div class="all-delete-card-btn">
                         <a class="icon-button" href="{% url 'all_delete_workload' pk=workload.id %}"><i
                                 class="fa-solid fa-square-xmark"></i></a>
-                    </p>
+                    </div>
                     {% endif %}
                     <p class="card-text">{{ workload.status }}</p>
                     <p class="card-text">{{ workload.test_date|date:"d M Y" }}</p>
@@ -84,13 +84,13 @@
                     <br>
                     {% endif %}
                     {% if perms.scheduler.change_workload %}
-                    <p>
+                    <div>
                         <form action="{% url 'all_toggle_workload' pk=workload.id %}" method="POST">
                             {% csrf_token %}
                             <button class="btn page-button" type="submit" name="workload_id"
                                 value="{{workload.id}}">Toggle Status</button>
                         </form>
-                    </p>
+                    </div>
                     {% endif %}
                     {% endif %}
                 </div>
