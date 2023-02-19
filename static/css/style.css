@@ -47,9 +47,9 @@ main {
 }
 
 .logo {
-    max-height: 100px;
+    height: 100px;
     margin-left: 25px;
-    max-width: 100%;
+    width: 154px;
 }
 
 /* footer */
@@ -81,17 +81,17 @@ footer {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 75%;
-    color: rgba(158, 215, 240, 0.5);
+    color: rgb(158, 215, 240);
     margin-top: 7px;
 }
 
 .attribute-link {
-    color: rgba(158, 215, 240, 0.5);
+    color: rgb(158, 215, 240);
     text-decoration: none;
 }
 
 .attribute-link:hover {
-    color: rgba(103, 199, 237, 0.5);
+    color: rgb(103, 199, 237);
 }
 
 /* home page */
@@ -99,7 +99,7 @@ footer {
 .hero-image {
     width: 100%;
     height: 750px;
-    background: url('https://res.cloudinary.com/dzgzb3yx8/image/upload/v1673722786/lab-boss/hero_cmurhw.png') no-repeat center center;
+    background: url('https://res.cloudinary.com/dzgzb3yx8/image/upload/v1676833815/lab-boss/hero_webp_fhznmf.webp') no-repeat center center;
     background-size: cover;
 }
 
@@ -212,7 +212,7 @@ footer {
 .form-image {
     width: 100%;
     height: 750px;
-    background: url('https://res.cloudinary.com/dzgzb3yx8/image/upload/v1673787102/lab-boss/forms_wsh7ln.png') no-repeat center center;
+    background: url('https://res.cloudinary.com/dzgzb3yx8/image/upload/v1676833920/lab-boss/forms_webp_rhjhr0.webp') no-repeat center center;
     background-size: cover;
 }
 

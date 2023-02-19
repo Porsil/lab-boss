@@ -35,7 +35,19 @@
 </div>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYa4O55URsUPUO9s422TATX3V6aZR8kbA&callback=initMap"></script>
-<script src="static/js/maps.js" type="application/javascript"></script>
+<script>
+    function initMap() {
+        const netpark = { lat: 54.6708, lng: -1.4514 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: netpark,
+        });
+        const marker = new google.maps.Marker({
+            position: netpark,
+            map: map,
+        });
+    }
+</script>
 
 {%endblock%}
 
