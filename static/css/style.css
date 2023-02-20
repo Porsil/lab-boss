@@ -120,6 +120,11 @@ footer {
     margin-top: 25px;
 }
 
+.home-options {
+    font-size: 120%;
+    font-weight: 800;
+}
+
 .button {
     font-weight: 700;
     font-size: 100%;
@@ -322,11 +327,11 @@ footer {
 }
 
 .batch-table-contents:hover {
-    background-color: rgba(14, 99, 148, 0.25);
+    background-color: rgba(14, 99, 148, 0.2);
 }
 
 table tr:nth-child(even){
-    background-color: rgba(14, 99, 148, 0.1);
+    background-color: rgba(14, 99, 148, 0.05);
 }
 
 .table-priority-column {

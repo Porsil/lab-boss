@@ -14,7 +14,11 @@
 
 ### HTML
 
-The [Official W3C HTML Validator](https://validator.w3.org/) was used to check all html pages. The results are given below.
+The [Official W3C HTML Validator](https://validator.w3.org/) was used to check all html pages. All errors found were fixed.
+
+<details>
+
+<summary>HTML Validation Report</summary>
 
 | Page                     | Logged Out    | Logged In - Analyst | Logged In - Senior |
 |--------------------------|---------------|---------------------|--------------------|
@@ -53,6 +57,12 @@ The [Official W3C HTML Validator](https://validator.w3.org/) was used to check a
 | update_test.html         | N/A           | N/A                 | No errors          |
 | delete_test.html         | N/A           | N/A                 | No errors          |
 
+</details>
+
+<details>
+
+<summary>HTML Validation Notes</summary>
+
 #### Notes
 
 - Note 1:
@@ -75,6 +85,8 @@ The `<p></p>` tags were changed to `<div></div>` tags to fix the error.
 Page contained `<strike></strike>` tags, which are obsolete.
 To fix the error these tags were removed and CSS was added to line through the required text.
 
+</details>
+
 [Table Of Contents](#table-of-contents)
 
 ### CSS
@@ -86,8 +98,8 @@ The [Official W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used 
 <summary>CSS Validation Report</summary>
 
 ![CSS Validation](readme_assets/css_validator.png)
+
 </details>
-<br>
 
 [Table Of Contents](#table-of-contents)
 
@@ -102,7 +114,6 @@ The [Official W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used 
 ![Jshint - message timeout](readme_assets/messages_jshint.png)
 ![Jshint - map](readme_assets/map_jshint.png)
 </details>
-<br>
 
 [Table Of Contents](#table-of-contents)
 
@@ -114,6 +125,86 @@ The python code was checked using the PEP8 linter throughout the project. The li
 
 ### Lighthouse
 
+All pages were run for Lighthouse validation on both desktop and mobile to assess performance and accessibility. Initial reports gave the images should be in webp format and 'aria-labels' were missing for icon buttons. These were fixed by converting the images to webp format and adding aria-labels to the icon buttons.
+The Lighthouse report did give a warning for *'Background and foreground colors do not have a sufficient contrast ratio'*, the contrast was improved on the home page and the tracker table. This issue was ignored for the footer link to the logo attribute as the link is not an integral part of the site but a requirement for use of the logo hexagon.
+
+After the updates given above the following scores were given:
+
+<details>
+
+<summary>Lighthouse Desktop Report</summary>
+
+| Page                | Performance  | Accessibility | Best Practices  | SEO |
+|---------------------|--------------|---------------|-----------------|-----|
+| login               |              |               |                 |     |
+| logout              |              |               |                 |     |
+| signup              |              |               |                 |     |
+| home                |              |               |                 |     |
+| contact_us          |              |               |                 |     |
+| tracker             |              |               |                 |     |
+| all_tracker         |              |               |                 |     |
+| priority_tracker    |              |               |                 |     |
+| add_batch           |              |               |                 |     |
+| update_batch        |              |               |                 |     |
+| delete_batch        |              |               |                 |     |
+| material            |              |               |                 |     |
+| add_material        |              |               |                 |     |
+| update_material     |              |               |                 |     |
+| delete_material     |              |               |                 |     |
+| scheduler           |              |               |                 |     |
+| all_scheduler       |              |               |                 |     |
+| add_workload        |              |               |                 |     |
+| update_workload     |              |               |                 |     |
+| delete_workload     |              |               |                 |     |
+| all_delete_workload |              |               |                 |     |
+| analysts            |              |               |                 |     |
+| add_analyst         |              |               |                 |     |
+| update_analyst      |              |               |                 |     |
+| delete_analyst      |              |               |                 |     |
+| tests               |              |               |                 |     |
+| add_test            |              |               |                 |     |
+| update_test         |              |               |                 |     |
+| delete_test         |              |               |                 |     |
+
+</details>
+
+<details>
+
+<summary>Lighthouse Mobile Report</summary>
+
+| Page                | Performance  | Accessibility | Best Practices  | SEO |
+|---------------------|--------------|---------------|-----------------|-----|
+| login               |              |               |                 |     |
+| logout              |              |               |                 |     |
+| signup              |              |               |                 |     |
+| home                |              |               |                 |     |
+| contact_us          |              |               |                 |     |
+| tracker             |              |               |                 |     |
+| all_tracker         |              |               |                 |     |
+| priority_tracker    |              |               |                 |     |
+| add_batch           |              |               |                 |     |
+| update_batch        |              |               |                 |     |
+| delete_batch        |              |               |                 |     |
+| material            |              |               |                 |     |
+| add_material        |              |               |                 |     |
+| update_material     |              |               |                 |     |
+| delete_material     |              |               |                 |     |
+| scheduler           |              |               |                 |     |
+| all_scheduler       |              |               |                 |     |
+| add_workload        |              |               |                 |     |
+| update_workload     |              |               |                 |     |
+| delete_workload     |              |               |                 |     |
+| all_delete_workload |              |               |                 |     |
+| analysts            |              |               |                 |     |
+| add_analyst         |              |               |                 |     |
+| update_analyst      |              |               |                 |     |
+| delete_analyst      |              |               |                 |     |
+| tests               |              |               |                 |     |
+| add_test            |              |               |                 |     |
+| update_test         |              |               |                 |     |
+| delete_test         |              |               |                 |     |
+
+</details>
 
 [Table Of Contents](#table-of-contents)
 

@@ -13,7 +13,7 @@
         <div class="col-12 text-center home-text">
             {% if user.is_authenticated %}
             {% if perms.tracker.view_batch %}
-            <p>Please select the option you require</p>
+            <p class="home-options">Please select the option you require</p>
             <a class="btn button" href="{% url 'tracker' %}" role="button">Batch Tracker</a>
             <a class="btn button" href="{% url 'scheduler' %}" role="button">Scheduler</a>
             {% else %}
@@ -21,7 +21,7 @@
             <h5>account has been authorised by a senior analyst</h5>
             {% endif %}
             {% else %}
-            <p>Please login or register to connect to your laboratory</p>
+            <p class="home-options">Please login or register to connect to your laboratory</p>
             <a class="btn button" href="{% url 'account_login' %}" role="button">Login</a>
             <a class="btn button" href="{% url 'account_signup' %}" role="button">Register</a>
             {% endif %}
