@@ -139,8 +139,8 @@ After the updates given above the following scores were given:
 | login               | 99           | 97            | 100             | 100 |
 | logout              | 99           | 98            | 100             | 100 |
 | signup              | 99           | 97            | 100             | 100 |
-| home                |              |               |                 |     |
-| contact_us          | 99           | 98            | 92 (Note 1)     | 100 |
+| home                | 99           | 97            | 100             | 100 |
+| contact_us          | 99           | 98            | 92 (Note 6)     | 100 |
 | tracker             | 99           | 98            | 100             | 100 |
 | all_tracker         | 98           | 98            | 100             | 100 |
 | priority_tracker    | 99           | 98            | 100             | 100 |
@@ -166,57 +166,52 @@ After the updates given above the following scores were given:
 | update_test         | 98           | 98            | 100             | 100 |
 | delete_test         | 98           | 98            | 100             | 100 |
 
+- Note 6:
+The Lightouse best practies score was lower for the contact us page due to the map pin. This was ignored as the map was generated using an API.
+
+![Lightouse Map](readme_assets/map_lighthouse.png)
+
 </details>
 
 <details>
 
 <summary>Lighthouse Mobile Report</summary>
 
+Due to the site being desiged for use in a laboratory, it is unlikely to be used on a mobile device. The mobile report was performed as site has been designed to be responsive so the browser size can be shrunk if desired.
+
+The main issue reported for mobile devices was the font size of the logo attribute text and the copyright text in the footer are too small. This issue was not addressed due to these not being an integral part of the sites usage.
+
 | Page                | Performance  | Accessibility | Best Practices  | SEO |
 |---------------------|--------------|---------------|-----------------|-----|
-| login               |              |               |                 |     |
-| logout              |              |               |                 |     |
-| signup              |              |               |                 |     |
-| home                |              |               |                 |     |
-| contact_us          |              |               |                 |     |
-| tracker             |              |               |                 |     |
-| all_tracker         |              |               |                 |     |
-| priority_tracker    |              |               |                 |     |
-| add_batch           |              |               |                 |     |
-| update_batch        |              |               |                 |     |
-| delete_batch        |              |               |                 |     |
-| material            |              |               |                 |     |
-| add_material        |              |               |                 |     |
-| update_material     |              |               |                 |     |
-| delete_material     |              |               |                 |     |
-| scheduler           |              |               |                 |     |
-| all_scheduler       |              |               |                 |     |
-| add_workload        |              |               |                 |     |
-| update_workload     |              |               |                 |     |
-| delete_workload     |              |               |                 |     |
-| all_delete_workload |              |               |                 |     |
-| analysts            |              |               |                 |     |
-| add_analyst         |              |               |                 |     |
-| update_analyst      |              |               |                 |     |
-| delete_analyst      |              |               |                 |     |
-| tests               |              |               |                 |     |
-| add_test            |              |               |                 |     |
-| update_test         |              |               |                 |     |
-| delete_test         |              |               |                 |     |
-
-</details>
-
-<details>
-
-<summary>Lighthouse Notes</summary>
-
-#### Notes
-
-- Note 1:
-The Lightouse best practies score was lower for the contact us page due to the map pin. This was ignored as the map was generated using an API.
-
-![Lightouse Map](readme_assets/map_lighthouse.png)
-
+| login               | 88           | 97            | 100             | 98  |
+| logout              | 88           | 97            | 100             | 92  |
+| signup              | 89           | 97            | 100             | 92  |
+| home                | 94           | 98            | 100             | 92  |
+| contact_us          | 85           | 98            | 92              | 92  |
+| tracker             | 91           | 97            | 100             | 95  |
+| all_tracker         | 91           | 97            | 100             | 97  |
+| priority_tracker    | 94           | 97            | 100             | 95  |
+| add_batch           | 88           | 97            | 100             | 92  |
+| update_batch        | 88           | 97            | 100             | 92  |
+| delete_batch        | 88           | 97            | 100             | 100 |
+| material            | 91           | 97            | 100             | 93  |
+| add_material        | 88           | 97            | 100             | 92  |
+| update_material     | 89           | 97            | 100             | 92  |
+| delete_material     | 88           | 97            | 100             | 100 |
+| scheduler           | 83           | 97            | 100             | 98  |
+| all_scheduler       | 86           | 97            | 100             | 98  |
+| add_workload        | 88           | 97            | 100             | 92  |
+| update_workload     | 88           | 97            | 100             | 92  |
+| delete_workload     | 88           | 97            | 100             | 100 |
+| all_delete_workload | 88           | 97            | 100             | 100 |
+| analysts            | 86           | 97            | 100             | 100 |
+| add_analyst         | 88           | 97            | 100             | 92  |
+| update_analyst      | 89           | 97            | 100             | 92  |
+| delete_analyst      | 88           | 97            | 100             | 100 |
+| tests               | 86           | 97            | 100             | 85  |
+| add_test            | 89           | 97            | 100             | 92  |
+| update_test         | 88           | 97            | 100             | 92  |
+| delete_test         | 88           | 97            | 100             | 100 |
 
 </details>
 
@@ -224,6 +219,11 @@ The Lightouse best practies score was lower for the contact us page due to the m
 
 ### Browser and Device Testing
 
+The site was developed and continuously tested on a desktop using Google Chrome, including using the developer tools to check the responsiveness across multiple device sizes. 
+
+The site was checked on a desktop post depolyment using Firefix and Microsoft Edge and on a iPhone 12 using Safari.
+
+No issues were noted.
 
 [Table Of Contents](#table-of-contents)
 

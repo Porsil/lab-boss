@@ -363,7 +363,7 @@ table tr:nth-child(even){
 .confirm-title {
     margin-top: 100px;
     font-family: 'Russo One', sans-serif;
-    font-size: 80%;
+    font-size: 150%;
     text-transform: uppercase;
     margin-bottom: 50px;
 }
