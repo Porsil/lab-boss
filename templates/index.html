@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12 text-center">
             <h1 class="hero-text">lab boss</h1>
-            <h3 class="tagline">for your laboratory planning needs</h3>
+            <h2 class="tagline">for your laboratory planning needs</h2>
         </div>
     </div>
     <div class="row">
@@ -17,8 +17,8 @@
             <a class="btn button" href="{% url 'tracker' %}" role="button">Batch Tracker</a>
             <a class="btn button" href="{% url 'scheduler' %}" role="button">Scheduler</a>
             {% else %}
-            <h5 class="mt-4">The site cannot be accessed until your</h5>
-            <h5>account has been authorised by a senior analyst</h5>
+            <p class="home-options mt-4">The site cannot be accessed until your</p>
+            <p class="home-options">account has been authorised by a senior analyst</p>
             {% endif %}
             {% else %}
             <p class="home-options">Please login or register to connect to your laboratory</p>

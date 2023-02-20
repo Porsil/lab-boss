@@ -363,13 +363,14 @@ table tr:nth-child(even){
 .confirm-title {
     margin-top: 100px;
     font-family: 'Russo One', sans-serif;
+    font-size: 80%;
     text-transform: uppercase;
     margin-bottom: 50px;
 }
 
 .confirm-text {
     margin-top: 25px;
-    font-size: 150%;
+    font-size: 140%;
     font-weight: 800;
 }
 
@@ -574,7 +575,8 @@ table tr:nth-child(even){
 
 @media screen and (max-width: 570px) {
     .logo {
-        max-height: 75px;
+        height: 75px;
+        width: 116px;
     }
     
     .contact_title {

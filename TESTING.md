@@ -126,7 +126,7 @@ The python code was checked using the PEP8 linter throughout the project. The li
 ### Lighthouse
 
 All pages were run for Lighthouse validation on both desktop and mobile to assess performance and accessibility. Initial reports gave the images should be in webp format and 'aria-labels' were missing for icon buttons. These were fixed by converting the images to webp format and adding aria-labels to the icon buttons.
-The Lighthouse report did give a warning for *'Background and foreground colors do not have a sufficient contrast ratio'*, the contrast was improved on the home page and the tracker table. This issue was ignored for the footer link to the logo attribute as the link is not an integral part of the site but a requirement for use of the logo hexagon.
+The Lighthouse report gave give a warning for *'Background and foreground colors do not have a sufficient contrast ratio'*, the contrast was improved on the home page and the tracker table. This issue was ignored for the footer link to the logo attribute as the link is not an integral part of the site but a requirement for use of the logo hexagon.
 
 After the updates given above the following scores were given:
 
@@ -136,35 +136,35 @@ After the updates given above the following scores were given:
 
 | Page                | Performance  | Accessibility | Best Practices  | SEO |
 |---------------------|--------------|---------------|-----------------|-----|
-| login               |              |               |                 |     |
-| logout              |              |               |                 |     |
-| signup              |              |               |                 |     |
+| login               | 99           | 97            | 100             | 100 |
+| logout              | 99           | 98            | 100             | 100 |
+| signup              | 99           | 97            | 100             | 100 |
 | home                |              |               |                 |     |
-| contact_us          |              |               |                 |     |
-| tracker             |              |               |                 |     |
-| all_tracker         |              |               |                 |     |
-| priority_tracker    |              |               |                 |     |
-| add_batch           |              |               |                 |     |
-| update_batch        |              |               |                 |     |
-| delete_batch        |              |               |                 |     |
-| material            |              |               |                 |     |
-| add_material        |              |               |                 |     |
-| update_material     |              |               |                 |     |
-| delete_material     |              |               |                 |     |
-| scheduler           |              |               |                 |     |
-| all_scheduler       |              |               |                 |     |
-| add_workload        |              |               |                 |     |
-| update_workload     |              |               |                 |     |
-| delete_workload     |              |               |                 |     |
-| all_delete_workload |              |               |                 |     |
-| analysts            |              |               |                 |     |
-| add_analyst         |              |               |                 |     |
-| update_analyst      |              |               |                 |     |
-| delete_analyst      |              |               |                 |     |
-| tests               |              |               |                 |     |
-| add_test            |              |               |                 |     |
-| update_test         |              |               |                 |     |
-| delete_test         |              |               |                 |     |
+| contact_us          | 99           | 98            | 92 (Note 1)     | 100 |
+| tracker             | 99           | 98            | 100             | 100 |
+| all_tracker         | 98           | 98            | 100             | 100 |
+| priority_tracker    | 99           | 98            | 100             | 100 |
+| add_batch           | 98           | 98            | 100             | 100 |
+| update_batch        | 98           | 98            | 100             | 100 |
+| delete_batch        | 98           | 98            | 100             | 100 |
+| material            | 99           | 98            | 100             | 100 |
+| add_material        | 98           | 98            | 100             | 100 |
+| update_material     | 98           | 98            | 100             | 100 |
+| delete_material     | 98           | 98            | 100             | 100 |
+| scheduler           | 98           | 98            | 100             | 100 |
+| all_scheduler       | 98           | 98            | 100             | 100 |
+| add_workload        | 98           | 98            | 100             | 100 |
+| update_workload     | 98           | 98            | 100             | 100 |
+| delete_workload     | 98           | 98            | 100             | 100 |
+| all_delete_workload | 98           | 98            | 100             | 100 |
+| analysts            | 99           | 98            | 100             | 100 |
+| add_analyst         | 99           | 98            | 100             | 100 |
+| update_analyst      | 98           | 98            | 100             | 100 |
+| delete_analyst      | 98           | 98            | 100             | 100 |
+| tests               | 99           | 98            | 100             | 100 |
+| add_test            | 98           | 98            | 100             | 100 |
+| update_test         | 98           | 98            | 100             | 100 |
+| delete_test         | 98           | 98            | 100             | 100 |
 
 </details>
 
@@ -203,6 +203,20 @@ After the updates given above the following scores were given:
 | add_test            |              |               |                 |     |
 | update_test         |              |               |                 |     |
 | delete_test         |              |               |                 |     |
+
+</details>
+
+<details>
+
+<summary>Lighthouse Notes</summary>
+
+#### Notes
+
+- Note 1:
+The Lightouse best practies score was lower for the contact us page due to the map pin. This was ignored as the map was generated using an API.
+
+![Lightouse Map](readme_assets/map_lighthouse.png)
+
 
 </details>
 
