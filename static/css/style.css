@@ -30,6 +30,7 @@ main {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     color: rgb(13, 74, 115);
+    text-align: end;
 }
 
 .nav-link:hover {
@@ -40,6 +41,7 @@ main {
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     color: rgb(13, 74, 115);
+    text-align: end;
 }
 
 .dropdown-item:hover {
@@ -363,7 +365,7 @@ table tr:nth-child(even){
 .confirm-title {
     margin-top: 100px;
     font-family: 'Russo One', sans-serif;
-    font-size: 150%;
+    font-size: 160%;
     text-transform: uppercase;
     margin-bottom: 50px;
 }

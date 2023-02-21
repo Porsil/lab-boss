@@ -84,7 +84,7 @@ The project board can be viewed [here](https://github.com/users/Porsil/projects/
 
 ## Testing
 
-Testing details and results can be found [here](/TESTING.md)
+Testing details and results can be found [here](/TESTING.md).
 
 [Table Of Contents](#table-of-contents)
 
