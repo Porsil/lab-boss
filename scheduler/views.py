@@ -230,7 +230,7 @@ class AnalystList(
     Displays a list of all analysts
     """
     model = Analyst
-    queryset = Analyst.objects.order_by('status', 'name')
+    queryset = Analyst.objects.order_by('work_id', 'status', 'name')
     template_name = 'analysts.html'
     paginate_by = 15
     permission_required = 'scheduler.view_analyst'
@@ -263,7 +263,7 @@ class UpdateAnalyst(
     Displays the page to update an analyst
     """
     model = Analyst
-    fields = ['name', 'status']
+    fields = ['work_id', 'name', 'status']
     template_name = 'update_analyst.html'
     success_url = '/analysts'
     permission_required = 'scheduler.change_analyst'

@@ -228,63 +228,301 @@ No issues were noted.
 
 ## Manual Testing
 
-### Site Navigation
+<details>
+
+<summary>Site Navigation</summary>
 
 | Feature                  | Action     | Expected Result                      | Pass/Fail |
 |--------------------------|------------|--------------------------------------|-----------|
 | Screen size above 992px  |                                                               |
-| Logged Out                                                                               |
+| Logged out                                                                               |
 | Site logo                | Click      | Open Home page                       | Pass      |
-| Login Link               | Click      | Open Login page                      | Pass      |
-| Register Link            | Click      | Open Signup page                     | Pass      |
+| Login link               | Click      | Open Login page                      | Pass      |
+| Register link            | Click      | Open Signup page                     | Pass      |
+| Contact Us link          | Click      | Open Contact Us page                 | Pass      |
 | Nav options available    | Display    | No further nav options are available | Pass      |
-| All Nav Links            | Hover      | Change text colour                   | Pass      |
+| All Nav links            | Hover      | Change text colour                   | Pass      |
 | Logged in as Analyst                                                                     |
 | Site logo                | Click      | Open Home page                       | Pass      |
-| Batch Tracker Link       | Click      | Open Tracker page                    | Pass      |
-| Scheduler Link           | Click      | Open Scheduler page                  | Pass      |
-| Logout Link              | Click      | Open Logout page                     | Pass      |
+| Batch Tracker link       | Click      | Open Tracker page                    | Pass      |
+| Scheduler link           | Click      | Open Scheduler page                  | Pass      |
+| Logout link              | Click      | Open Logout page                     | Pass      |
+| Contact Us link          | Click      | Open Contact Us page                 | Pass      |
 | Nav options available    | Display    | No further nav options are available | Pass      |
-| All Nav Links            | Hover      | Change text colour                   | Pass      |
+| All Nav links            | Hover      | Change text colour                   | Pass      |
 | Logged in as Senior Analyst                                                              |
 | Site logo                | Click      | Open Home page                       | Pass      |
-| Batch Tracker Link       | Click      | Open Tracker page                    | Pass      |
-| Scheduler Link           | Click      | Open Scheduler page                  | Pass      |
-| Data Management Dropdown | Click      | Displays dropdown options            | Pass      |
-| Materials Link           | Click      | Open Tracker page                    | Pass      |
-| Analysts Link            | Click      | Open Tracker page                    | Pass      |
-| Tests Link               | Click      | Open Tracker page                    | Pass      |
-| Admin Link               | Click      | Open Tracker page                    | Pass      |
-| Logout Link              | Click      | Open Logout page                     | Pass      |
-| All Nav Links            | Hover      | Change text colour                   | Pass      |
+| Batch Tracker link       | Click      | Open Tracker page                    | Pass      |
+| Scheduler link           | Click      | Open Scheduler page                  | Pass      |
+| Data Management dropdown | Click      | Displays dropdown options            | Pass      |
+| Materials link           | Click      | Open Materials page                  | Pass      |
+| Analysts link            | Click      | Open Analysts page                   | Pass      |
+| Tests link               | Click      | Open Tests page                      | Pass      |
+| Admin link               | Click      | Open Admin page                      | Pass      |
+| Logout link              | Click      | Open Logout page                     | Pass      |
+| Contact Us link          | Click      | Open Contact Us page                 | Pass      |
+| All Nav links            | Hover      | Change text colour                   | Pass      |
 | Screen size changed from above 992px to below 991px                                      |
 | Hamburger menu           | Display    | Navbar changes to hamburger menu     | Pass      |
-| Logged Out                                                                               |
+| Logged out                                                                               |
 | Site logo                | Click      | Open Home page                       | Pass      |
-| Login Link               | Click      | Open Login page                      | Pass      |
-| Register Link            | Click      | Open Signup page                     | Pass      |
+| Login link               | Click      | Open Login page                      | Pass      |
+| Register link            | Click      | Open Signup page                     | Pass      |
+| Contact Us link          | Click      | Open Contact Us page                 | Pass      |
 | Nav options available    | Display    | No further nav options are available | Pass      |
-| All Nav Links            | Hover      | Change text colour                   | Pass      |
+| All Nav links            | Hover      | Change text colour                   | Pass      |
 | Logged in as Analyst                                                                     |
 | Site logo                | Click      | Open Home page                       | Pass      |
-| Batch Tracker Link       | Click      | Open Tracker page                    | Pass      |
-| Scheduler Link           | Click      | Open Scheduler page                  | Pass      |
-| Logout Link              | Click      | Open Logout page                     | Pass      |
+| Batch Tracker link       | Click      | Open Tracker page                    | Pass      |
+| Scheduler link           | Click      | Open Scheduler page                  | Pass      |
+| Logout link              | Click      | Open Logout page                     | Pass      |
+| Contact Us link          | Click      | Open Contact Us page                 | Pass      |
 | Nav options available    | Display    | No further nav options are available | Pass      |
-| All Nav Links            | Hover      | Change text colour                   | Pass      |
+| All Nav links            | Hover      | Change text colour                   | Pass      |
 | Logged in as Senior Analyst                                                              |
 | Site logo                | Click      | Open Home page                       | Pass      |
-| Batch Tracker Link       | Click      | Open Tracker page                    | Pass      |
-| Scheduler Link           | Click      | Open Scheduler page                  | Pass      |
-| Data Management Dropdown | Click      | Displays dropdown options            | Pass      |
-| Materials Link           | Click      | Open Tracker page                    | Pass      |
-| Analysts Link            | Click      | Open Tracker page                    | Pass      |
-| Tests Link               | Click      | Open Tracker page                    | Pass      |
-| Admin Link               | Click      | Open Tracker page                    | Pass      |
-| Logout Link              | Click      | Open Logout page                     | Pass      |
-| All Nav Links            | Hover      | Change text colour                   | Pass      |
+| Batch Tracker link       | Click      | Open Tracker page                    | Pass      |
+| Scheduler link           | Click      | Open Scheduler page                  | Pass      |
+| Data Management dropdown | Click      | Displays dropdown options            | Pass      |
+| Materials link           | Click      | Open Materials page                  | Pass      |
+| Analysts link            | Click      | Open Analysts page                   | Pass      |
+| Tests link               | Click      | Open Tests page                      | Pass      |
+| Admin link               | Click      | Open Admin page                      | Pass      |
+| Logout link              | Click      | Open Logout page                     | Pass      |
+| Contact Us link          | Click      | Open Contact Us page                 | Pass      |
+| All Nav links            | Hover      | Change text colour                   | Pass      |
 
+</details>
 
+<details>
+
+<summary>Django AllAuth Pages</summary>
+
+| Element                     | Action                                    | Expected Result                                       | Pass/Fail |
+|-----------------------------|-------------------------------------------|-------------------------------------------------------|-----------|
+| Register                                                                                                                                    |
+| Log in link                 | Click                                     | Redirect to login page                                | Pass      |
+| Log in link                 | Hover                                     | Change text colour                                    | Pass      |
+| Email field                 | Field left empty                          | Form won't submit - Error message displays            | Pass      |
+| Username field              | Field left empty                          | Form won't submit - Error message displays            | Pass      |
+| Password field              | Field left empty                          | Form won't submit - Error message displays            | Pass      |
+| Password (again) field      | Field left empty                          | Form won't submit - Error message displays            | Pass      |
+| Email field                 | Incorrect format used                     | Form won't submit - Error message displays            | Pass      |
+| Email field                 | Duplicate email used                      | Form won't submit - Error message displays            | Pass      |
+| Username field              | Duplicate email used                      | Form won't submit - Error message displays            | Pass      |
+| Password fields             | Different passwords used                  | Form won't submit - Error message displays            | Pass      |
+| Register button             | Click with satisfactory form              | Form submits - New user is registered to the site     | Pass      |
+| Redirect to home page       | Post registration                         | User is taken to the home page                        | Pass      |
+| Success message             | Post registration                         | Message confirming sucessfull signin appears          | Pass      |
+| Success message fade        | Post registration                         | Success message fades after 3 seconds                 | Pass      |
+| User requires authorisation | Post registration                         | User is informed their account requires authorisation | Pass      |
+| Site access is restricted   | Post registration                         | User cannot access the site without authorisation     | Pass      |
+| Log in                                                                                                                                      |
+| Register link               | Click                                     | Redirect to signup page                               | Pass      |
+| Register link               | Hover                                     | Change text colour                                    | Pass      |
+| Username field              | Field left empty                          | Form won't submit - Error message displays            | Pass      |
+| Password field              | Field left empty                          | Form won't submit - Error message displays            | Pass      |
+| Login button                | Click with satisfactory form              | Form submits - User is logged into site               | Pass      |
+| Redirect to home page       | Post login                                | User is taken to the home page                        | Pass      |
+| Success message             | Post login                                | Message confirming sucessfull signin appears          | Pass      |
+| Success message fade        | Post login                                | Success message fades after 3 seconds                 | Pass      |
+| Log Out                                                                                                                                     |
+| Signout button              | Click                                     | Redirects to home page and user is logged out         | Pass      |
+| Success message             | Post Signout                              | Message confirming sucessfull signout appears         | Pass      |
+| Success message fade        | Post Signout                              | Success message fades after 3 seconds                 | Pass      |
+| Cancel button               | Click                                     | Redirects to home page and user remains logged in     | Pass      |
+
+</details>
+
+<details>
+
+<summary>Home Page</summary>
+
+| Feature                  | Action     | Expected Result                      | Pass/Fail |
+|--------------------------|------------|--------------------------------------|-----------|
+| Logged Out                                                                               |
+| Login button             | Click      | Open Login page                      | Pass      |
+| Register button          | Click      | Open Signup page                     | Pass      |
+| All buttons              | Hover      | Change text & background colour      | Pass      |
+| Logged in as Analyst                                                                     |
+| Batch Tracker button     | Click      | Open Batch Tracker page              | Pass      |
+| Scheduler button         | Click      | Open Scheduler page                  | Pass      |
+| All buttons              | Hover      | Change text & background colour      | Pass      |
+| Logged in as Senior Analyst                                                              |
+| Batch Tracker button     | Click      | Open Batch Tracker page              | Pass      |
+| Scheduler button         | Click      | Open Scheduler page                  | Pass      |
+| All buttons              | Hover      | Change text & background colour      | Pass      |
+
+</details>
+
+<details>
+
+<summary>Contact Us Page</summary>
+
+| Feature                  | Action     | Expected Result                         | Pass/Fail |
+|--------------------------|------------|-----------------------------------------|-----------|
+| Map                      | Interact   | Map can be moved and zoom level changed | Pass      |
+| Home button              | Click      | Redirected to home page                 | Pass      |
+
+</details>
+
+<details>
+
+<summary>Material Pages</summary>
+
+| Feature                    | Action                       | Expected Result                                | Pass/Fail |
+|----------------------------|------------------------------|------------------------------------------------|-----------|
+| Material list              | Display                      | Displays material list correctly               | Pass      |
+| Material list              | Hover                        | Change background colour                       | Pass      |
+| Toggle Status button       | Display                      | Active = on, Inactive = off                    | Pass      |
+| Toggle Status button       | Hover                        | Change background colour                       | Pass      |
+| Toggle Status button       | Click                        | Status and icon is toggled                     | Pass      |
+| Success message            | Post Toggle                  | Message confirming sucessfull toggle appears   | Pass      |
+| Success message fade       | Post Toggle                  | Success message fades after 3 seconds          | Pass      |
+| Edit Material button       | Click                        | Redirects to update material page              | Pass      |
+| Edit Material button       | Hover                        | Change text colour                             | Pass      |
+| Delete Material button     | Click                        | Redirects to delete material page              | Pass      |
+| Delete Material button     | Hover                        | Change text colour                             | Pass      |
+| Add New Material button    | Click                        | Redirects to add material page                 | Pass      |
+| Add New Material button    | Hover                        | Change text & background colour                | Pass      |
+| Update Material                                                                                                        |
+| Name field                 | Field left empty             | Form won't submit - Error message displays     | Pass      |
+| Name field                 | Duplicate name used          | Form won't submit - Error message displays     | Pass      |
+| Save button                | Hover                        | Change text & background colour                | Pass      |
+| Save button                | Click with satisfactory form | Form submits - material is updated correctly   | Pass      |
+| Redirect to materials page | Post edit                    | User is returned to the materials page         | Pass      |
+| Success message            | Post edit                    | Message confirming sucessfull update appears   | Pass      |
+| Success message fade       | Post edit                    | Success message fades after 3 seconds          | Pass      |
+| Cancel button              | Hover                        | Change text & background colour                | Pass      |
+| Cancel button              | Click                        | Redirects to materials page with no changes    | Pass      |
+| Delete Material                                                                                                        |
+| Confirm message            | Display                      | Displays material name correctly               | Pass      |
+| Delete button              | Hover                        | Change text & background colour                | Pass      |
+| Delete button              | Click                        | Form submits - material is deleted correctly   | Pass      |
+| Redirect to materials page | Post delete                  | User is returned to the materials page         | Pass      |
+| Success message            | Post delete                  | Message confirming sucessfull deletion appears | Pass      |
+| Success message fade       | Post delete                  | Success message fades after 3 seconds          | Pass      |
+| Cancel button              | Hover                        | Change text & background colour                | Pass      |
+| Cancel button              | Click                        | Redirects to materials page with no changes    | Pass      |
+| Add New Material                                                                                                       |
+| Name field                 | Field left empty             | Form won't submit - Error message displays     | Pass      |
+| Name field                 | Duplicate name used          | Form won't submit - Error message displays     | Pass      |
+| Save button                | Hover                        | Change text & background colour                | Pass      |
+| Save button                | Click with satisfactory form | Form submits - material is added correctly     | Pass      |
+| Redirect to materials page | Post add                     | User is returned to the materials page         | Pass      |
+| Success message            | Post add                     | Message confirming sucessfull add appears      | Pass      |
+| Success message fade       | Post add                     | Success message fades after 3 seconds          | Pass      |
+| Cancel button              | Hover                        | Change text & background colour                | Pass      |
+| Cancel button              | Click                        | Redirects to materials page with no changes    | Pass      |
+
+</details>
+
+<details>
+
+<summary>Analyst Pages</summary>
+
+| Feature                   | Action                       | Expected Result                                | Pass/Fail     |
+|---------------------------|------------------------------|------------------------------------------------|---------------|
+| Analyst list              | Display                      | Displays analyst list correctly                | Pass          |
+| Analyst list              | Hover                        | Change background colour                       | Pass          |
+| Toggle Status button      | Display                      | Active = on, Inactive = off                    | Pass          |
+| Toggle Status button      | Hover                        | Change background colour                       | Pass          |
+| Toggle Status button      | Click                        | Status and icon is toggled                     | Pass          |
+| Success message           | Post Toggle                  | Message confirming sucessfull toggle appears   | Pass          |
+| Success message fade      | Post Toggle                  | Success message fades after 3 seconds          | Pass          |
+| Edit Analyst button       | Click                        | Redirects to update analyst page               | Pass          |
+| Edit Analyst button       | Hover                        | Change text colour                             | Pass          |
+| Delete Analyst button     | Click                        | Redirects to delete analyst page               | Pass          |
+| Delete Analyst button     | Hover                        | Change text colour                             | Pass          |
+| Add New Analyst button    | Click                        | Redirects to add analyst page                  | Pass          |
+| Add New Analyst button    | Hover                        | Change text & background colour                | Pass          |
+| Update Analyst                                                                                                            |
+| Work ID field             | Field left empty             | Form won't submit - Error message displays     | Pass (Note 7) |
+| Work ID field             | Duplicate ID used            | Form won't submit - Error message displays     | Pass (Note 7) |
+| Name field                | Field left empty             | Form won't submit - Error message displays     | Pass          |
+| Save button               | Hover                        | Change text & background colour                | Pass          |
+| Save button               | Click with satisfactory form | Form submits - analyst is updated correctly    | Pass          |
+| Redirect to analysts page | Post edit                    | User is returned to the analysts page          | Pass          |
+| Success message           | Post edit                    | Message confirming sucessfull update appears   | Pass          |
+| Success message fade      | Post edit                    | Success message fades after 3 seconds          | Pass          |
+| Cancel button             | Hover                        | Change text & background colour                | Pass          |
+| Cancel button             | Click                        | Redirects to analysts page with no changes     | Pass          |
+| Delete Analyst                                                                                                            |
+| Confirm message           | Display                      | Displays analyst name correctly                | Pass          |
+| Delete button             | Hover                        | Change text & background colour                | Pass          |
+| Delete button             | Click                        | Form submits - analyst is deleted correctly    | Pass          |
+| Redirect to analysts page | Post delete                  | User is returned to theanalysts page           | Pass          |
+| Success message           | Post delete                  | Message confirming sucessfull deletion appears | Pass          |
+| Success message fade      | Post delete                  | Success message fades after 3 seconds          | Pass          |
+| Cancel button             | Hover                        | Change text & background colour                | Pass          |
+| Cancel button             | Click                        | Redirects to analysts page with no changes     | Pass          |
+| Add New Analyst                                                                                                           |
+| Work ID field             | Field left empty             | Form won't submit - Error message displays     | Pass          |
+| Work ID field             | Duplicate ID used            | Form won't submit - Error message displays     | Pass          |
+| Name field                | Field left empty             | Form won't submit - Error message displays     | Pass          |
+| Save button               | Hover                        | Change text & background colour                | Pass          |
+| Save button               | Click with satisfactory form | Form submits - analyst is added correctly      | Pass          |
+| Redirect to analysts page | Post add                     | User is returned to the analysts page          | Pass          |
+| Success message           | Post add                     | Message confirming sucessfull add appears      | Pass          |
+| Success message fade      | Post add                     | Success message fades after 3 seconds          | Pass          |
+| Cancel button             | Hover                        | Change text & background colour                | Pass          |
+| Cancel button             | Click                        | Redirects to analysts page with no changes     | Pass          |
+
+- Note 7:
+Initial testing showed work_id was missing from the update analyst form. This was fixed by adding 'work_id' to the fields list in the UpdateAnalyst view.
+
+</details>
+
+<details>
+
+<summary>Test Pages</summary>
+
+| Feature                | Action                       | Expected Result                                | Pass/Fail |
+|------------------------|------------------------------|------------------------------------------------|-----------|
+| Test list              | Display                      | Displays test list correctly                   | Pass      |
+| Test list              | Hover                        | Change background colour                       | Pass      |
+| Toggle Status button   | Display                      | Active = on, Inactive = off                    | Pass      |
+| Toggle Status button   | Hover                        | Change background colour                       | Pass      |
+| Toggle Status button   | Click                        | Status and icon is toggled                     | Pass      |
+| Success message        | Post Toggle                  | Message confirming sucessfull toggle appears   | Pass      |
+| Success message fade   | Post Toggle                  | Success message fades after 3 seconds          | Pass      |
+| Edit Test button       | Click                        | Redirects to update test page                  | Pass      |
+| Edit Test button       | Hover                        | Change text colour                             | Pass      |
+| Delete Test button     | Click                        | Redirects to delete test page                  | Pass      |
+| Delete Test button     | Hover                        | Change text colour                             | Pass      |
+| Add New Test button    | Click                        | Redirects to add test page                     | Pass      |
+| Add New Test button    | Hover                        | Change text & background colour                | Pass      |
+| Update Test                                                                                                        |
+| Name field             | Field left empty             | Form won't submit - Error message displays     | Pass      |
+| Name field             | Duplicate name used          | Form won't submit - Error message displays     | Pass      |
+| Save button            | Hover                        | Change text & background colour                | Pass      |
+| Save button            | Click with satisfactory form | Form submits - test is updated correctly       | Pass      |
+| Redirect to tests page | Post edit                    | User is returned to the tests page             | Pass      |
+| Success message        | Post edit                    | Message confirming sucessfull update appears   | Pass      |
+| Success message fade   | Post edit                    | Success message fades after 3 seconds          | Pass      |
+| Cancel button          | Hover                        | Change text & background colour                | Pass      |
+| Cancel button          | Click                        | Redirects to tests page with no changes        | Pass      |
+| Delete Test                                                                                                        |
+| Confirm message        | Display                      | Displays test name correctly                   | Pass      |
+| Delete button          | Hover                        | Change text & background colour                | Pass      |
+| Delete button          | Click                        | Form submits - test is deleted correctly       | Pass      |
+| Redirect to tests page | Post delete                  | User is returned to the tests page             | Pass      |
+| Success message        | Post delete                  | Message confirming sucessfull deletion appears | Pass      |
+| Success message fade   | Post delete                  | Success message fades after 3 seconds          | Pass      |
+| Cancel button          | Hover                        | Change text & background colour                | Pass      |
+| Cancel button          | Click                        | Redirects to tests page with no changes        | Pass      |
+| Add New Test                                                                                                       |
+| Name field             | Field left empty             | Form won't submit - Error message displays     | Pass      |
+| Name field             | Duplicate name used          | Form won't submit - Error message displays     | Pass      |
+| Save button            | Hover                        | Change text & background colour                | Pass      |
+| Save button            | Click with satisfactory form | Form submits - test is added correctly         | Pass      |
+| Redirect to tests page | Post add                     | User is returned to the tests page             | Pass      |
+| Success message        | Post add                     | Message confirming sucessfull add appears      | Pass      |
+| Success message fade   | Post add                     | Success message fades after 3 seconds          | Pass      |
+| Cancel button          | Hover                        | Change text & background colour                | Pass      |
+| Cancel button          | Click                        | Redirects to tests page with no changes        | Pass      |
+
+</details>
 
 [Table Of Contents](#table-of-contents)
 
