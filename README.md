@@ -13,6 +13,13 @@ The scheduler app allows the laboratory to schedule the workload by quickly and 
 ## Table of Contents
   * [User Experience (UX)](#user-experience-ux)
   * [Data Model](#data-model)
+  * [Agile Methodology](#agile-methodology)
+  * [Design](#design)
+  * [Features](#features)
+  * [Languages and Libraries](#languages-and-libraries)
+  * [Testing](#testing)
+  * [Deployment](#deployment)
+  * [Credits](#credits)
 
 ## User Experience (UX)
 
@@ -60,7 +67,22 @@ Lab Boss is a easy to use planning tool designed for use by a laboratory. There 
 
 ## Data Model
 
-Database Entity Relationship Diagram:
+Django’s Class-Based Generic Views  and Object-Oriented Programming princliples were used throughout this project.
+
+Custom models were generated for this project:
+
+Tracker app:
+- Materials
+- Batch
+
+Scheduler:
+- Analysts
+- Tests
+- Workload
+
+Django AllAuth was used for the user authentication system.
+
+The diagram below details the Database Entity Relationship Diagram:
 
 ![Datebase_ERD](readme_assets/database_erd.png)
 
@@ -78,9 +100,118 @@ The project board can be viewed [here](https://github.com/users/Porsil/projects/
 
 ## Design
 
+The site was designed to have a simple and professional look. The site was designed to have a clean and clinical look as the site would be used inside a laboratory setting.
+
+### Fonts
+
+Manrope was used as the font for the body of the site and Russo One was used for the headings. In case the fonts do not import into the website correctly, Sans Serif was used as the backup font.
+
+### Colour Scheme
+
+The colours for the site were taken from the logo using the Google Chrome Eye Dropper extension:
+
+![Colour Palette](readme_assets/colour_palette.png)
+
+### Imagery
+
+To keep the site looking professional, only one image was used on the pages that did not contain much text. The image used is of test tubes containing a blue liquid to keep in theme of the site.
+
+### Wireframes
+
+<details>
+
+<summary>Home</summary>
+
+![Home](readme_assets/home.pdf)
+
+</details>
+
+<details>
+
+<summary>Batch Tracker</summary>
+
+![Tracker](readme_assets/tracker.pdf)
+
+</details>
+
+<details>
+
+<summary>Scheduler</summary>
+
+![Scheduler](readme_assets/scheduler.pdf)
+
+</details>
+
+<details>
+
+<summary>Add Batch</summary>
+
+![Home](readme_assets/new_batch.pdf)
+
+</details>
+
+<details>
+
+<summary>Materials</summary>
+
+![Home](readme_assets/materials.pdf)
+
+</details>
+
+<details>
+
+<summary>Add/Edit Material</summary>
+
+![Home](readme_assets/new_material.pdf)
+
+</details>
+
+<details>
+
+<summary>Analysts</summary>
+
+![Home](readme_assets/analysts.pdf)
+
+</details>
+
+<details>
+
+<summary>Tests</summary>
+
+![Home](readme_assets/tests.pdf)
+
+</details>
+
+<details>
+
+<summary>Add/Edit Test</summary>
+
+![Home](readme_assets/new_test.pdf)
+
+</details>
+
+<details>
+
+<summary>Contact Us</summary>
+
+![Home](readme_assets/contact_us.pdf)
+
+</details>
+
+
+[Table Of Contents](#table-of-contents)
+
 ## Features
 
+
+
+[Table Of Contents](#table-of-contents)
+
 ## Languages and Libraries
+
+
+
+[Table Of Contents](#table-of-contents)
 
 ## Testing
 
@@ -90,4 +221,12 @@ Testing details and results can be found [here](/TESTING.md).
 
 ## Deployment
 
+
+
+[Table Of Contents](#table-of-contents)
+
 ## Credits
+
+
+
+[Table Of Contents](#table-of-contents)
