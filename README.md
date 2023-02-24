@@ -72,19 +72,19 @@ Django’s Class-Based Generic Views  and Object-Oriented Programming princliple
 Custom models were generated for this project:
 
 Tracker app:
-- Materials
-- Batch
+- The material model is used to create a custom list of the different materials or products the laboratory tests.
+- The batch model is used to create details of a specific batch that has been received in the laboratory for testing. It uses the material model as a foreign key as a particular batch can only have 1 material.
 
 Scheduler:
-- Analysts
-- Tests
-- Workload
+- The analyst model is used to create a custom list of analyst who perform testing in the laboratory. The user model was not used as not all users would be performing testing e.g. managers.
+- The test model is used to create a custom list of testing that is performed in the laboratory.
+- The workload model used both the analyst and test model and foreign keys to produce workload cards. These are designed to inform the analysts what tests they are performing on a certain day. 
 
 Django AllAuth was used for the user authentication system.
 
 The diagram below details the Database Entity Relationship Diagram:
 
-![Datebase_ERD](readme_assets/database_erd.png)
+<img src="readme_assets/database_erd.png" width=497 height=553>
 
 [Table Of Contents](#table-of-contents)
 
@@ -122,7 +122,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Home</summary>
 
-![Home](readme_assets/home.pdf)
+![Home](readme_assets/home.png)
 
 </details>
 
@@ -130,7 +130,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Batch Tracker</summary>
 
-![Tracker](readme_assets/tracker.pdf)
+![Tracker](readme_assets/tracker.png)
 
 </details>
 
@@ -138,7 +138,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Scheduler</summary>
 
-![Scheduler](readme_assets/scheduler.pdf)
+![Scheduler](readme_assets/scheduler.png)
 
 </details>
 
@@ -146,7 +146,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Add Batch</summary>
 
-![Home](readme_assets/new_batch.pdf)
+![Home](readme_assets/new_batch.png)
 
 </details>
 
@@ -154,7 +154,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Materials</summary>
 
-![Home](readme_assets/materials.pdf)
+![Home](readme_assets/materials.png)
 
 </details>
 
@@ -162,7 +162,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Add/Edit Material</summary>
 
-![Home](readme_assets/new_material.pdf)
+![Home](readme_assets/new_material.png)
 
 </details>
 
@@ -170,7 +170,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Analysts</summary>
 
-![Home](readme_assets/analysts.pdf)
+![Home](readme_assets/analysts.png)
 
 </details>
 
@@ -178,7 +178,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Tests</summary>
 
-![Home](readme_assets/tests.pdf)
+![Home](readme_assets/tests.png)
 
 </details>
 
@@ -186,7 +186,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Add/Edit Test</summary>
 
-![Home](readme_assets/new_test.pdf)
+![Home](readme_assets/new_test.png)
 
 </details>
 
@@ -194,7 +194,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Contact Us</summary>
 
-![Home](readme_assets/contact_us.pdf)
+![Home](readme_assets/contact_us.png)
 
 </details>
 
@@ -209,7 +209,32 @@ To keep the site looking professional, only one image was used on the pages that
 
 ## Languages and Libraries
 
+### Languages Used
 
+- HTML
+- CSS
+- JavaScript
+- Python
+
+### Frameworks, Libraries & Programs Used
+
+- [Django](https://www.djangoproject.com/) was used as the main python framework.
+- [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html) was used to for account management.
+- [Django-filer](https://django-filter.readthedocs.io/en/stable/) was used to create the filters on the site.
+- [PostgreSQL](https://www.postgresql.org/) was used to host the database.
+- [Cloudinary](https://cloudinary.com/) used to host images and static files.
+- [Heroku](https://dashboard.heroku.com/login) was used to deploy the site.
+- [Gitpod](https://gitpod.io/) was used for version control and agile methodology.
+- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) was used as a frontend toolkit to aid in the sites styling and responsiveness.
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) was used to create the Django Forms.
+- [Google Fonts](https://fonts.google.com/) was used to import the fonts used on the site.
+- [Font Awesome](https://fontawesome.com/) was used for the approve, toggle, edit and delete icons used accross the site.
+- [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) was used through the project for inspecting and testing the site.
+- [Balsamiq](https://balsamiq.com/) was used to create the wireframe for the website.
+- [Lucidchart](https://www.lucidchart.com/pages/) was used to create the database entity relationship diagram.
+- Microsoft Word was used to create the logo image.
+- [Photoroom](https://www.photoroom.com/background-remover/) was used to remove the background from the logo image.
+- [Ezgif](https://ezgif.com) was used to convert images to webp format.
 
 [Table Of Contents](#table-of-contents)
 
@@ -227,6 +252,15 @@ Testing details and results can be found [here](/TESTING.md).
 
 ## Credits
 
-
+- The code to import the fonts was taken from [Google Fonts](https://fonts.google.com/).
+- The code to add the icons used was taken from [Font Awesome](https://fontawesome.com/).
+- The code to create the zebra stripes in the batch tracker table was adapred from [W3Schools](https://www.w3schools.com/html/html_table_styling.asp).
+- The code to change the date format used on the site was taken from this [Django Documentation](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date).
+- The following Geeks for Geeks sites were used to aid in creating all class based [Create Views](https://www.geeksforgeeks.org/createview-class-based-views-django/), [Update Views](https://www.geeksforgeeks.org/updateview-class-based-views-django/) and [Delete Views](https://www.geeksforgeeks.org/deleteview-class-based-views-django/).
+- The code to stop the footer overlaying with the page content was adapted from this [CodeHim page](https://www.codehim.com/bootstrap/bootstrap-5-footer-always-at-bottom/).
+- The code to create a message on the delete views was taken from this [Stackoverflow page](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown).
+- The code to allow filters and pagination to work together was taken from this [CaktusGroup page](https://www.caktusgroup.com/blog/2018/10/18/filtering-and-pagination-django/).
+- Various documentation sites were used throughout the project including [Django Docs](), [Django Filter Docs](), [Django Authentication](https://docs.djangoproject.com/en/4.1/topics/auth/default/), [Django Messages](https://docs.djangoproject.com/en/4.1/ref/contrib/messages/) and [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/).
+- Various code was taken from the [Code Institute - Blog Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog).
 
 [Table Of Contents](#table-of-contents)
