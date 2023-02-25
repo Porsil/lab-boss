@@ -49,7 +49,7 @@ class WorkloadList(
     model = Workload
     queryset = Workload.objects.filter(status='To Do').order_by('-test_date',
                                                                 'analyst')
-    template_name = 'scheduler.html'
+    template_name = 'scheduler/scheduler.html'
     paginate_by = 12
     permission_required = 'scheduler.view_workload'
     filterset_class = WorkloadFilter
@@ -76,7 +76,7 @@ class AllWorkloadList(
     """
     model = Workload
     queryset = Workload.objects.order_by('-test_date', 'analyst')
-    template_name = 'all_scheduler.html'
+    template_name = 'scheduler/all_scheduler.html'
     paginate_by = 12
     permission_required = 'scheduler.view_workload'
     filterset_class = AllWorkloadFilter
@@ -102,7 +102,7 @@ class AddWorkload(
     """
     model = Workload
     form_class = WorkloadForm
-    template_name = 'add_workload.html'
+    template_name = 'scheduler/add_workload.html'
     success_url = '/scheduler'
     permission_required = 'scheduler.add_workload'
     success_message = "Card created successfully"
@@ -119,7 +119,7 @@ class UpdateWorkload(
     """
     model = Workload
     form_class = WorkloadForm
-    template_name = 'update_workload.html'
+    template_name = 'scheduler/update_workload.html'
     success_url = '/scheduler'
     permission_required = 'scheduler.change_workload'
     success_message = "Card updated successfully"
@@ -134,7 +134,7 @@ class DeleteWorkload(
     Displays the page to confirm deletion of a workload card
     """
     model = Workload
-    template_name = 'delete_workload.html'
+    template_name = 'scheduler/delete_workload.html'
     success_url = '/scheduler'
     permission_required = 'scheduler.delete_workload'
     success_message = "Card deleted successfully"
@@ -159,7 +159,7 @@ class AllDeleteWorkload(
     Displays the page to confirm deletion of a workload card
     """
     model = Workload
-    template_name = 'all_delete_workload.html'
+    template_name = 'scheduler/all_delete_workload.html'
     success_url = '/all_scheduler'
     permission_required = 'scheduler.delete_workload'
     success_message = "Card deleted successfully"
@@ -231,7 +231,7 @@ class AnalystList(
     """
     model = Analyst
     queryset = Analyst.objects.order_by('work_id', 'status', 'name')
-    template_name = 'analysts.html'
+    template_name = 'data_management/analysts/analysts.html'
     paginate_by = 15
     permission_required = 'scheduler.view_analyst'
 
@@ -247,7 +247,7 @@ class AddAnalyst(
     """
     model = Analyst
     fields = ['work_id', 'name', 'status']
-    template_name = 'add_analyst.html'
+    template_name = 'data_management/analysts/add_analyst.html'
     success_url = '/analysts'
     permission_required = 'scheduler.add_analyst'
     success_message = "%(name)s added successfully"
@@ -264,7 +264,7 @@ class UpdateAnalyst(
     """
     model = Analyst
     fields = ['work_id', 'name', 'status']
-    template_name = 'update_analyst.html'
+    template_name = 'data_management/analysts/update_analyst.html'
     success_url = '/analysts'
     permission_required = 'scheduler.change_analyst'
     success_message = "%(name)s updated successfully"
@@ -279,7 +279,7 @@ class DeleteAnalyst(
     Displays the page to confirm deletion of an analyst
     """
     model = Analyst
-    template_name = 'delete_analyst.html'
+    template_name = 'data_management/analysts/delete_analyst.html'
     success_url = '/analysts'
     permission_required = 'scheduler.delete_analyst'
     success_message = "%(name)s deleted successfully"
@@ -331,7 +331,7 @@ class TestList(
     """
     model = Test
     queryset = Test.objects.order_by('status', 'name')
-    template_name = 'tests.html'
+    template_name = 'data_management/tests/tests.html'
     paginate_by = 15
     permission_required = 'scheduler.view_test'
 
@@ -347,7 +347,7 @@ class AddTest(
     """
     model = Test
     fields = ['name', 'status']
-    template_name = 'add_test.html'
+    template_name = 'data_management/tests/add_test.html'
     success_url = '/tests'
     permission_required = 'scheduler.add_test'
     success_message = "%(name)s added successfully"
@@ -364,7 +364,7 @@ class UpdateTest(
     """
     model = Test
     fields = ['name', 'status']
-    template_name = 'update_test.html'
+    template_name = 'data_management/tests/update_test.html'
     success_url = '/tests'
     permission_required = 'scheduler.change_test'
     success_message = "%(name)s updated successfully"
@@ -379,7 +379,7 @@ class DeleteTest(
     Displays the page to confirm deletion of an test
     """
     model = Test
-    template_name = 'delete_test.html'
+    template_name = 'data_management/tests/delete_test.html'
     success_url = '/tests'
     permission_required = 'scheduler.delete_test'
     success_message = "%(name)s deleted successfully"

@@ -65,7 +65,7 @@ class BatchList(
     model = Batch
     queryset = Batch.objects.filter(status='To Test').order_by(
         '-priority', 'booked_in', 'batch')
-    template_name = 'tracker.html'
+    template_name = 'tracker/tracker.html'
     paginate_by = 15
     permission_required = 'tracker.view_batch'
 
@@ -81,7 +81,7 @@ class PriorityBatchList(
     model = Batch
     queryset = Batch.objects.filter(priority='True').order_by(
         'booked_in', 'batch')
-    template_name = 'priority_tracker.html'
+    template_name = 'tracker/priority_tracker.html'
     paginate_by = 15
     permission_required = 'tracker.view_batch'
 
@@ -99,7 +99,7 @@ class AllBatchList(
     """
     model = Batch
     queryset = Batch.objects.order_by('batch')
-    template_name = 'all_tracker.html'
+    template_name = 'tracker/all_tracker.html'
     paginate_by = 15
     permission_required = 'tracker.view_batch'
     filterset_class = BatchFilter
@@ -116,7 +116,7 @@ class AddBatch(
     """
     model = Batch
     fields = ['priority', 'batch', 'material', 'comments', 'status']
-    template_name = 'add_batch.html'
+    template_name = 'tracker/add_batch.html'
     success_url = '/tracker'
     permission_required = 'tracker.add_batch'
     success_message = "%(batch)s added successfully"
@@ -133,7 +133,7 @@ class UpdateBatch(
     """
     model = Batch
     fields = ['priority', 'batch', 'material', 'comments', 'status']
-    template_name = 'update_batch.html'
+    template_name = 'tracker/update_batch.html'
     success_url = '/tracker'
     permission_required = 'tracker.change_batch'
     success_message = "%(batch)s updated successfully"
@@ -148,7 +148,7 @@ class DeleteBatch(
     Displays the page to confirm deletion of a batch
     """
     model = Batch
-    template_name = 'delete_batch.html'
+    template_name = 'tracker/delete_batch.html'
     success_url = '/tracker'
     permission_required = 'tracker.delete_batch'
     success_message = "%(batch)s deleted successfully"
@@ -220,7 +220,7 @@ class MaterialList(
     """
     model = Material
     queryset = Material.objects.order_by('status', 'name')
-    template_name = 'materials.html'
+    template_name = 'data_management/materials/materials.html'
     paginate_by = 15
     permission_required = 'tracker.view_material'
 
@@ -236,7 +236,7 @@ class AddMaterial(
     """
     model = Material
     fields = ['name', 'status']
-    template_name = 'add_material.html'
+    template_name = 'data_management/materials/add_material.html'
     success_url = '/materials'
     permission_required = 'tracker.add_material'
     success_message = "%(name)s added successfully"
@@ -253,7 +253,7 @@ class UpdateMaterial(
     """
     model = Material
     fields = ['name', 'status']
-    template_name = 'update_material.html'
+    template_name = 'data_management/materials/update_material.html'
     success_url = '/materials'
     permission_required = 'tracker.change_material'
     success_message = "%(name)s updated successfully"
@@ -268,7 +268,7 @@ class DeleteMaterial(
     Displays the page to confirm deletion of a material
     """
     model = Material
-    template_name = 'delete_material.html'
+    template_name = 'data_management/materials/delete_material.html'
     success_url = '/materials'
     permission_required = 'tracker.delete_material'
     success_message = "%(name)s deleted successfully"

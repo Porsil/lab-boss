@@ -15,6 +15,7 @@ The scheduler app allows the laboratory to schedule the workload by quickly and 
   * [Data Model](#data-model)
   * [Agile Methodology](#agile-methodology)
   * [Design](#design)
+  * [Security](#security)
   * [Features](#features)
   * [Languages and Libraries](#languages-and-libraries)
   * [Testing](#testing)
@@ -198,6 +199,27 @@ To keep the site looking professional, only one image was used on the pages that
 
 </details>
 
+[Table Of Contents](#table-of-contents)
+
+## Security
+
+### User Access and Authentication
+
+Two User group's were set up using the Django Administration Panel, Analyst and Senior Analyst, these groups were assigned permissions appropriate to the role.
+
+The site makes use of these Admin User Groups along with Django's Admin LoginRequiredMixin and PermissionRequiredMixin to ensure user's can only see and use features appropriate to their role.
+
+New user's are not able to see or access the site feature's until they have been assigned to a role by a senior analyst, and are informed of this upon registration.
+
+If the user attemps to access a feature not apropriate to their role, they are shown a HTTP 403 Forbidden Error.
+
+### Secret Keys
+
+To prevent unwanted connections the DATABASR_URL, SECRET_KEY and CLOUDINARY_URL are stored in the env.py, which is listed in the .gitignore file. This was done before the initial commit to GitHub.
+
+### Forms
+
+To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all forms in the site.
 
 [Table Of Contents](#table-of-contents)
 
