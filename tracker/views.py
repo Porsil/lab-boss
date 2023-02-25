@@ -9,16 +9,6 @@ from .models import Material, Batch
 from .filters import BatchFilter
 
 
-# Home Page
-
-
-class Home(generic.TemplateView):
-    """
-    Displays the home page
-    """
-    template_name = 'index.html'
-
-
 # Contact Us Page
 
 

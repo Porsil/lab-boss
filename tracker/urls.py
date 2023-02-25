@@ -1,12 +1,8 @@
 from . import views
 from django.urls import path
-from django_filters.views import FilterView
-from .models import Batch
-from .filters import BatchFilter
 
 
 urlpatterns = [
-     path('', views.Home.as_view(), name='home'),
      path('contact_us', views.ContactUs.as_view(), name='contact_us'),
      path('materials', views.MaterialList.as_view(), name='materials'),
      path('materials/add', views.AddMaterial.as_view(), name='add_material'),
