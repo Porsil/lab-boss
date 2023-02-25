@@ -268,7 +268,49 @@ Testing details and results can be found [here](/TESTING.md).
 
 ## Deployment
 
+To deploy this app to Heroku from its GitHub repository:
 
+### File setup prior to deployment:
+- Ensure all secret keys are stored in an env.py file and this is listed in the .gitignore file. Any keys that have been previously commited to GitHub should be changed for security purposes.
+- Ensure requirements.txt file is up to date by using 'pip3 freeze --local > requirements.txt' in the command terminal.
+- Ensure a Procfile is present and contains the code 'web: gunicorn labboss.wsgi'.
+- Ensure in settings.py DEBUG = False
+- Ensure the code is commited and pushed to GitHub.
+
+### Create a Heroku App:
+- Log in to [Heroku](https://dashboard.heroku.com/apps). If required, create an account.
+- Click the 'New' button in the top right and select 'Create new app' from the drop-down menu.
+- Enter a name for the app in the 'App name' field, this must be an unique and should be meaningful to the app's content.
+- Select your region in the 'Choose a region' field.
+- Click on the 'Create app' button.
+
+### Add Heroku Config Vars:
+- In Heroku click on the 'Settings' tab and scroll down to the 'Config Vars' section. Add the following Config Vars:
+  - CLOUDINARY_URL
+  - DATABASE_URL
+  - SECRET_KEY
+  - PORT: 8000
+
+### Deploy in Heroku
+- In Heroku click on the 'Deploy' tab and scroll down to the 'Deployment Method' section. Select 'GitHub' and confirm you wish to deploy using GitHub. Enter your GitHub password if prompted.
+- Scroll to the 'Connect to GitHub' section and search for your repository.
+- Click 'Connect' when found.
+- To deploy:
+  - Option 1 - To automatically redeploy your app every time you push changes to GitHub: In the 'Automatic deploys' section add the 'main' branch to 'Choose a branch to deploy' field and click 'Enable Automatic Deploys'.
+  - Option 2 - To manually deploy your site: In the 'Manual Deploy' section add the 'main' branch to 'Choose a branch to deploy' field and click 'Deploy Branch'.
+- The app is now live, click 'View' to view the deployed site.
+
+## Forking the repository
+- Open the [Lab Boss](https://github.com/Porsil/lab-boss) repository.
+- Click the 'Fork' button in the top right.
+- This creates a copy of the repository.
+
+## Cloning the repository
+- Open the [Lab Boss](https://github.com/Porsil/lab-boss) repository.
+- Click the green '<> Code' button. Select the prefered cloning option from the list then copy the link provided.
+- Change the current working directory to the location where you want the cloned directory.
+- Type 'git clone' and paste the URL you copied earlier.
+- Press 'Enter' to create your local clone.
 
 [Table Of Contents](#table-of-contents)
 
