@@ -1,4 +1,5 @@
 # Table of Contents
+- [User Story Testing](#user-story-testing)
 - [Validator Testing](#validator-testing)
   * [HTML](#html)
   * [CSS](#css)
@@ -8,6 +9,52 @@
 - [Browser and Device Testing](#browser-and-device-testing)
 - [Manual Testing](#manual-testing)
 - [Bugs](#bugs)
+
+# User Story Testing
+
+#### EPIC | User Admin
+- As a Site User I can create an account so I can use the site.
+  - Pass: Users can register using the Register button or link and create an account. A success message is given on successfull registration.
+- As a Site User I can log in or log out of my account so that I can keep my account secure.
+  - Pass: Users can login by using the Login button or link and logout using the logout link and confirming logout. A success message is given on successfull login or logout.
+- As a Site User I can only see any content without being logged in so that data is secure.
+  - Pass: Only users who are logged in and have been assigned to a user group can access the site content.
+- As a Site User I can only see any content after my account has been authorised by an admin user so that control is maintained over the data.
+  - Pass: Only users who are logged in and have been assigned to a user group can access the site content.
+- As a Site User I can only perform tasks appropriate to my role so that control is maintained over the data.
+  - Pass: User groups have been assigned to allow control of the data. Refer to the database ERD in the Data Model section of the [Readme file](/README.md).
+- As a Site User I receive success messages on completion of a task so that I am aware the changes I made were successful.
+  - Pass: Users received success messages for all actions that alter the database.
+
+#### EPIC | User Navigation
+- As a Site User I can intuitively navigate around the site so that I can find content and understand where I am on the site.
+- As a Site User I can view the contact information so that I can contact the site owner if required.
+
+#### EPIC | Batch Tracker Use
+- As a Site User I can see the batches that require testing so that the workload can be scheduled efficiently.
+- As a Site User I can see which batches are priority so that they can be scheduled accordingly.
+- As a Site User I can filter on fields for batches so that I can find a particular batch easily.
+- As a Site User I can add a new batch onto the site through an easy-to-use interface so that the laboratory workload is up to date.
+
+#### EPIC | Batch Tracker Management
+- As a Senior Analyst I can approve batches so that that the laboratory workload is up to date.
+- As a Senior Analyst I can edit or batches so that comments or changes can be made if required.
+- As a Senior Analyst I can add, edit or delete materials so that changes can be made when required.
+
+#### EPIC | Scheduler Use
+- As a Site User I can view my workload cards so that I understand my work activities.
+- As a Site User I can filter on fields for test_date, analyst or test so that I can find particular cards easily.
+- As a Site User I can complete workload cards so that I can record my work as complete.
+- As a Site User I can un-complete workload cards so that cards can be sent back to 'To Do' status if required.
+- As a Site User I can create a new workload card through an easy-to-use interface so that work can be assigned.
+- As a Site User I can edit testing cards so that the workload can be changed if required.
+
+#### EPIC | Scheduler Management
+- As a Senior Analyst I can delete testing cards so that the workload can be changed if required.
+- As a Senior Analyst I can view, add, edit or delete analysts so that changes can be made when required.
+- As a Senior Analyst I can add, edit or delete tests so that changes can be made when required.
+
+[Table Of Contents](#table-of-contents)
 
 # Validator Testing
 
@@ -216,7 +263,7 @@ The main issue reported for mobile devices was the font size of the logo attribu
 
 [Table Of Contents](#table-of-contents)
 
-## Browser and Device Testing
+# Browser and Device Testing
 
 The site was developed and continuously tested on a desktop using Google Chrome, including using the developer tools to check the responsiveness across multiple device sizes. 
 
@@ -226,7 +273,7 @@ No issues were noted.
 
 [Table Of Contents](#table-of-contents)
 
-## Manual Testing
+# Manual Testing
 
 <details>
 
@@ -775,47 +822,47 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 
 [Table Of Contents](#table-of-contents)
 
-## Bugs
+# Bugs
 
-### Fixed Bugs
+## Fixed Bugs
 
-#### CSS styles
+### CSS styles
 
 - The custom css styles were not being applied to the site. This was caused by the style.css file being located directly in the static folder instead of in a css folder and in settings.py STATICFILES_DIR was typed instead of STATICFILES_DIRS.
 
 - This issue was fixed by adding a css folder and moving styles.css to the css folder and correcting STATICFILES_DIR to STATICFILES_DIRS.
 
-#### Font Awesome icons
+### Font Awesome icons
 
 - The font awesome icons used would not display properly on the site.
 
 - This issue was fixed by changing the Django link to the font awesome kit code script in base.html.
 
-#### Footer
+### Footer
 
 - The footer content would overlay the page content when the screen size was made shorter.
 
 - This issue was fixed by adapting the code from this [CodeHim](https://www.codehim.com/bootstrap/bootstrap-5-footer-always-at-bottom/) page
 
-#### Success Messages
+### Success Messages
 
 - The success_message for the Delete Views would not work as for the Add & Update Views.
 
 - This issue was fixed by using the code from the following [stackoverflow](https://stackoverflow.com/questions/24822509/success-message-in-deleteview-not-shown) page
 
-#### Map
+### Map
 
 - The map would work in the development site but would not work on the live site. The console logged an error that /static/js/maps.js could not be found.
 
 - This issue was fixed by adding the script directly to the contact_us.html page. A more suitable fixed could not be found in the timeframe available.
 
-#### Filtering and Pagination
+### Filtering and Pagination
 
 - When filters and pagination were used on the same page, the pagination and/or the filters would not work at the same time. When they did both work, selecting a new page removed the filters applied.
 
 - This issue was fixed by using the code from this [caktus group](https://www.caktusgroup.com/blog/2018/10/18/filtering-and-pagination-django/) page
 
-#### Home Page and Success URLs
+### Home Page and Success URLs
 
 - When values were added for the tracker and scheduler paths in labboss/urls.py to ensure there are no url conflicts in the future, the home page and success URLs loaded with a 404 error.
 
@@ -823,6 +870,6 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 
 [Table Of Contents](#table-of-contents)
 
-### Unfixed Bugs
+## Unfixed Bugs
 
 There are no known unfixed bug.

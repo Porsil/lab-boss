@@ -318,7 +318,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>User Account Pages</summary>
 
-- Django AllAuth and Crispy Forms were used to create the account login and register forms.
+- Django AllAuth was used to create the account login and register forms.
 - When the user clicks Logout they are asked if they are sure they want to Signout incase the logout link was pressed in error.
 - Success messages provide feedback to the user on successfull login or logout.
   - Login Page:
@@ -339,7 +339,48 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Batch Tracker</summary>
 
+- The Batch Tracker allows the laboratory to track the batches received by the laboratory. This allows the user's to see what batches require testing, if they are a priority and the due date for approval, helping to plan workload so batches can be approved before their due date and ensure all batches have been approved.
+- The Batch Tracker contains 3 sections:
+  - Priority batches to test
+  - Batches under test
+  - All batches
+- The priority batches page contains a table to view all the batches marked as priority with the status under test and is available to users from both the analyst and senior analyst groups.
 
+![Priority Tracker](readme_assets/priority_tracker.png)
+
+- The batches under test page contains a table to view all the batches with the status under test and is available to view for users from both the analyst and senior analyst groups. The analyst view is shown below.
+
+![Tracker - Analyst](readme_assets/tracker_analyst.png)
+
+- From the batches under test page a new batch can be added by both user groups by clicking the Add New Batch button at the bottom of the page, this opens the Add New Batch form.
+
+![Add batch](readme_assets/add_batch.png) 
+
+- In the batches under test page, users from the senior analyst group have additional view options to change the batch status, edit a batch or delete a batch. The batch status can be changed from To Test to Approved by clicking on the tick icon in the Status column.
+
+![Tracker - Senior](readme_assets/tracker_senior.png)
+
+- From the batches under test page a batch can be edited by users from the senior analyst group by clcking the pencil icon in the Edit column, this opens the Edit Batch form. 
+
+![Edit Batch](readme_assets/edit_batch.png)
+
+- From the batches under test page a batch can be deleted by users from the senior analyst group by clicking the cross icon in the delete column, this opens a confirmation page to prevent accidental deletion.
+
+![Delete Batch](readme_assets/delete_batch.png)
+
+- The all batches page contains a list of all batches, regardless of status and is available to view for users from both the analyst and senior analyst groups. The analyst view is shown below.
+
+![All Tracker - Analyst](readme_assets/all_tracker_analyst.png)
+
+- In the all batches page, users from the senior analyst group have an additional view option to toggle the batch status. The batch status can be toggled betwwen To Test and Approved by clicking on the toggle icon in the Status column. This allows batches that have been approved in error to be changed back to a To Test status.
+
+![All Tracker - Senior](readme_assets/all_tracker_senior.png)
+
+- The all batches page contains filter options that are available to users from both the analyst and senior analyst groups. This allows the user to search the table for specific criteria.
+
+![All Tracker - Filter](readme_assets/all_tracker_filter.png)
+
+- A success message is displayed on successful approval, add, edit, delete or toggle of a batch.
 
 </details>
 
@@ -347,7 +388,51 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Workload Scheduler</summary>
 
+- The Scheduler allows the laboratory to orgainse the laboratory workload. In this section of the site cards are created that assign an analyst to an analytical test on a specific day. This allows analysts to easily see what work is required of them, and once the testing is complete, the card can be set to completed to acknowledge the completion of the work.
+- The Scheduler contains 2 sections:
+  - Cards to test
+  - All cards
+- The cards to test page contains all the cards with the status To Do and is available to view for users from both the analyst and senior analyst groups. Cards are marked as complete by clicking the Complete button on the card. The analyst view is shown below.
 
+![Cards - Analyst](readme_assets/scheduler_analyst.png)
+
+- From the cards to test page a new card can be added by both user groups by clicking the Add New Card button at the bottom of the page, this opens the Add New Card form.
+
+![Add Card](readme_assets/add_card.png)
+
+- From the cards to test page a card can be edited by both user groups by clcking the pencil icon in the top left corner of the card, this opens the Edit Card form. 
+
+![Edit Card](readme_assets/edit_card.png)
+
+- In the cards to test page, users from the senior analyst group have additional view options to delete a card.
+
+![Cards - Senior](readme_assets/scheduler_senior.png)
+
+- From the cards to test page a batch can be deleted by users from the senior analyst group by clicking the cross icon in the top right corner of the card, this opens a confirmation page to prevent accidental deletion.
+
+![Delete Card](readme_assets/delete_card.png)
+
+- The card to test page contains filter options that are available to users from both the analyst and senior analyst groups. This allows the user to search the cards for specific criteria.
+
+![Cards - Filter](readme_assets/scheduler_filter.png)
+
+- The all cards page contains a list of all cards, regardless of status and is available to view for users from both the analyst and senior analyst groups. The cards with a status of Completed have the text crossed through to make it easier to distinguish between the two statuses. The analyst view is shown below.
+
+![All Cards - Analyst](readme_assets/all_scheduler_analyst.png)
+
+- In the all cards page, users from the senior analyst group have additional view options to delete a card.
+
+![All Cards - Senior](readme_assets/all_scheduler_senior.png)
+
+- From the all cards page a batch can be deleted by users from the senior analyst group by clicking the cross icon in the top right corner of the card, this opens a confirmation page to prevent accidental deletion.
+
+![Delete Card](readme_assets/delete_card.png)
+
+- The all cards page contains filter options that are available to users from both the analyst and senior analyst groups. This allows the user to search the cards for specific criteria.
+
+![All Cards - Filter](readme_assets/all_scheduler_filter.png)
+
+- A success message is displayed on successful completion, add, edit, delete or toggle of a card.
 
 </details>
 
@@ -374,6 +459,8 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ![Delete Material](readme_assets/delete_material.png)
 
+- A success message is displayed on successful toggle, add, edit or delete of a material.
+
 </details>
 
 <details>
@@ -399,6 +486,8 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ![Delete Analyst](readme_assets/delete_analyst.png)
 
+- A success message is displayed on successful toggle, add, edit or delete of an analyst.
+
 </details>
 
 <details>
@@ -423,6 +512,8 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 - A test can be deleted by clicking the cross icon in the delete column, this opens a confirmation page to prevent accidental deletion.
 
 ![Delete Test](readme_assets/delete_test.png)
+
+- A success message is displayed on successful toggle, add, edit or delete of a test.
 
 </details>
 
@@ -540,3 +631,7 @@ To deploy this app to Heroku from its GitHub repository:
 - Various code was taken from the [Code Institute - Blog Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog).
 
 [Table Of Contents](#table-of-contents)
+
+## Acknowledgements
+
+My Mentor Narender Singh for their knowledge and feedback.
