@@ -107,7 +107,7 @@ class AddBatch(
     model = Batch
     fields = ['priority', 'batch', 'material', 'comments', 'status']
     template_name = 'tracker/add_batch.html'
-    success_url = '/tracker'
+    success_url = '/tracker/tracker'
     permission_required = 'tracker.add_batch'
     success_message = "%(batch)s added successfully"
 
@@ -124,7 +124,7 @@ class UpdateBatch(
     model = Batch
     fields = ['priority', 'batch', 'material', 'comments', 'status']
     template_name = 'tracker/update_batch.html'
-    success_url = '/tracker'
+    success_url = '/tracker/tracker'
     permission_required = 'tracker.change_batch'
     success_message = "%(batch)s updated successfully"
 
@@ -139,7 +139,7 @@ class DeleteBatch(
     """
     model = Batch
     template_name = 'tracker/delete_batch.html'
-    success_url = '/tracker'
+    success_url = '/tracker/tracker'
     permission_required = 'tracker.delete_batch'
     success_message = "%(batch)s deleted successfully"
 
@@ -227,7 +227,7 @@ class AddMaterial(
     model = Material
     fields = ['name', 'status']
     template_name = 'data_management/materials/add_material.html'
-    success_url = '/materials'
+    success_url = '/tracker/materials'
     permission_required = 'tracker.add_material'
     success_message = "%(name)s added successfully"
 
@@ -244,7 +244,7 @@ class UpdateMaterial(
     model = Material
     fields = ['name', 'status']
     template_name = 'data_management/materials/update_material.html'
-    success_url = '/materials'
+    success_url = '/tracker/materials'
     permission_required = 'tracker.change_material'
     success_message = "%(name)s updated successfully"
 
@@ -259,7 +259,7 @@ class DeleteMaterial(
     """
     model = Material
     template_name = 'data_management/materials/delete_material.html'
-    success_url = '/materials'
+    success_url = '/tracker/materials'
     permission_required = 'tracker.delete_material'
     success_message = "%(name)s deleted successfully"
 

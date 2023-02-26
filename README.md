@@ -1,5 +1,7 @@
 # <h1 align="center">**LAB BOSS**</h1>
 
+![Responsive Mockup](readme_assets/responsiveness.png)
+
 ## Introduction
 
 Lab Boss is a laboratory planning tool and can be used by any laboratory team to make managing the workload easy and stress free. Lab Boss contains two apps, a batch tracker app and a scheduler app.
@@ -85,7 +87,7 @@ Django AllAuth was used for the user authentication system.
 
 The diagram below details the Database Entity Relationship Diagram:
 
-<img src="readme_assets/database_erd.png" width=497 height=553>
+![Database ERD](readme_assets/database_erd.png)
 
 [Table Of Contents](#table-of-contents)
 

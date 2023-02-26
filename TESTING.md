@@ -815,6 +815,12 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 
 - This issue was fixed by using the code from this [caktus group](https://www.caktusgroup.com/blog/2018/10/18/filtering-and-pagination-django/) page
 
+#### Home Page and Success URLs
+
+- When values were added for the tracker and scheduler paths in labboss/urls.py to ensure there are no url conflicts in the future, the home page and success URLs loaded with a 404 error.
+
+- This issue was fixed by updating the success URLs and creating a views.py file in the labboss folder and moving the homepage View to this file. The home page url path was then moved from tracker/urls.py to labboss/urls.py. 
+
 [Table Of Contents](#table-of-contents)
 
 ### Unfixed Bugs
