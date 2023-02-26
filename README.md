@@ -99,6 +99,26 @@ The project board was also used to track development tasks and backlog issues (P
 
 The project board can be viewed [here](https://github.com/users/Porsil/projects/6)
 
+### Product Backlog Issues
+
+<details>
+
+<summary>Priority Field</summary>
+
+- The priority checkbox field on the add batch and edit batch forms is not central. This issue is cosmetic only and does not impact the use of the site. This PBI was not completed due to time constraints.
+
+![Priority Field](readme_assets/priority_entry.png)
+
+</details>
+
+<details>
+
+<summary>My Cards</summary>
+
+- The original scheduler plan was to have an link that when clicked would display just the user's cards. This was not implemented due to time constraints. User's can easily find their cards by using the filter options on both scheduler pages. 
+
+</details>
+
 [Table Of Contents](#table-of-contents)
 
 ## Design
@@ -227,7 +247,77 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ## Features
 
+<details>
 
+<summary>Header</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Footer</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Home Page</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Batch Tracker</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Workload Scheduler</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Materials</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Analysts</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Tests</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Contact Us</summary>
+
+
+
+</details>
 
 [Table Of Contents](#table-of-contents)
 
