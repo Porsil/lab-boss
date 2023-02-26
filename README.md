@@ -145,7 +145,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Home</summary>
 
-![Home](readme_assets/home.png)
+![Home](readme_assets/wf_home.png)
 
 </details>
 
@@ -153,7 +153,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Batch Tracker</summary>
 
-![Tracker](readme_assets/tracker.png)
+![Tracker](readme_assets/wf_tracker.png)
 
 </details>
 
@@ -161,7 +161,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Scheduler</summary>
 
-![Scheduler](readme_assets/scheduler.png)
+![Scheduler](readme_assets/wf_scheduler.png)
 
 </details>
 
@@ -169,7 +169,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Add Batch</summary>
 
-![Home](readme_assets/new_batch.png)
+![Home](readme_assets/wf_new_batch.png)
 
 </details>
 
@@ -177,7 +177,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Materials</summary>
 
-![Home](readme_assets/materials.png)
+![Home](readme_assets/wf_materials.png)
 
 </details>
 
@@ -185,7 +185,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Add/Edit Material</summary>
 
-![Home](readme_assets/new_material.png)
+![Home](readme_assets/wf_new_material.png)
 
 </details>
 
@@ -193,7 +193,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Analysts</summary>
 
-![Home](readme_assets/analysts.png)
+![Home](readme_assets/wf_analysts.png)
 
 </details>
 
@@ -201,7 +201,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Tests</summary>
 
-![Home](readme_assets/tests.png)
+![Home](readme_assets/wf_tests.png)
 
 </details>
 
@@ -209,7 +209,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Add/Edit Test</summary>
 
-![Home](readme_assets/new_test.png)
+![Home](readme_assets/wf_new_test.png)
 
 </details>
 
@@ -217,7 +217,7 @@ To keep the site looking professional, only one image was used on the pages that
 
 <summary>Contact Us</summary>
 
-![Home](readme_assets/contact_us.png)
+![Home](readme_assets/wf_contact_us.png)
 
 </details>
 
@@ -251,7 +251,37 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Header</summary>
 
+### Logo
 
+- A custom logo was created for the site. It was created by me by using Micrsoft Word to add the app name to this hexagon from [Freepik](https://www.freepik.com/free-vector/polygonal-hexagon-logo_1112748.htm#page=2&query=hexagon&position=31&from_view=search&track=sph). The background was then removed from the image using [Photoroom](https://www.photoroom.com/background-remover/).
+- The logo is positioned in the top left of the header on all site pages, and serves as a link back to the home page.
+
+![Logo](readme_assets/logo.png)
+
+### Navigation Bar
+
+- The navigation bar is visible on all site pages and provides easy links to other areas of the site.
+- When a link is hovered over the text colour changes to provide a visual cue to the user.
+- When the screen size is reduced the navigation bar collapses into a hamburger menu:
+
+![Hamburger](readme_assets/header_hamburger.png)
+
+- The navigation bar visible to the user is dependant on the user's status, so only links to pages they have access to are listed:
+  - When the user is logged out, they have the options to Login or Register:
+
+  ![Header - Logged out](readme_assets/header_logged_out.png)
+
+  - When a user is logged in that has not had their account authorised yet, they only have the option to Logout:
+
+  ![Header - New User](readme_assets/header_new.png)
+
+  - When a user belonging to the analyst group is logged in, they have the options to visit the Batch Tracker page, Scheduler page or Logout:
+
+  ![Header - Analyst](readme_assets/header_analyst.png)
+
+  - When a user belonging to the senior analyst group is logged in, they have the options to visit the Batch Tracker page, Scheduler page or Logout. A dropdown menu is also available to visit the Data Management pages of Materials page, Analsysts page, Tests page or the Admin panel:
+
+  ![Header - Senior](readme_assets/header_senior.png)
 
 </details>
 
@@ -259,7 +289,9 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Footer</summary>
 
+- The footer contains a link to the contact us page. As the site is degined for professional use, social media links have not been added.
 
+![Footer](readme_assets/footer.png)
 
 </details>
 
@@ -267,8 +299,40 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Home Page</summary>
 
+- The home page serves as a central hub containing and contains options for the user dependant of their status:
+  - When the user is logged out, they have the options to Login or Register:
 
+  ![Home - Logged out](readme_assets/home_logout.png)
 
+  - When a user is logged in that has not had their account authorised yet, they are informed of why they cannot access the site yet:
+
+  ![Home - New user](readme_assets/home_new.png)
+
+  - When a user belonging to eiher the analyst or senior analyst group is logged in, they have the options to visit the Batch Tracker page or the Scheduler page:
+
+  ![Home - Logged in](readme_assets/home_login.png)
+
+</details>
+
+<details>
+
+<summary>User Account Pages</summary>
+
+- Django AllAuth and Crispy Forms were used to create the account login and register forms.
+- When the user clicks Logout they are asked if they are sure they want to Signout incase the logout link was pressed in error.
+- Success messages provide feedback to the user on successfull login or logout.
+  - Login Page:
+
+  ![Login](readme_assets/login.png)
+
+  - Register Page:
+
+  ![Register](readme_assets/register.png)
+
+  - Logout Confirmation Page:
+
+  ![Logout](readme_assets/logout.png)
+  
 </details>
 
 <details>
@@ -291,7 +355,24 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Materials</summary>
 
+- The materials page is part of the Data Management of the site content and can only be accessed by a user belonging to the Senior Analyst group.
+- This page displays all the materials that a batch received into the laboratory could be.
+- The table is paginated after 15 rows.
+- The status of a material can be toggled by clicking the toggle switch in the Status column.
 
+![Materials List](readme_assets/materials.png)
+
+- A new material can be added by clicking the Add New Material button at the bottom of the page, this opens the Add New Material form.
+
+![Add Material](readme_assets/add_material.png)
+
+- A material can be edited by clcking the pencil icon in the Edit column, this opens the Edit Material form.
+
+![Edit Material](readme_assets/edit_material.png)
+
+- A material can be deleted by clicking the cross icon in the delete column, this opens a confirmation page to prevent accidental deletion.
+
+![Delete Material](readme_assets/delete_material.png)
 
 </details>
 
@@ -299,7 +380,24 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Analysts</summary>
 
+- The analysts page is part of the Data Management of the site content and can only be accessed by a user belonging to the Senior Analyst group.
+- This page displays all the analysts that perform analytical testing in the laboratory.
+- The table is paginated after 15 rows.
+- The status of an analyst can be toggled by clicking the toggle switch in the Status column.
 
+![Analyst List](readme_assets/analysts.png)
+
+- A new analsyt can be added by clicking the Add New Analyst button at the bottom of the page, this opens the Add New Analyst form.
+
+![Add Analyst](readme_assets/add_analyst.png)
+
+- An analyst can be edited by clcking the pencil icon in the Edit column, this opens the Edit Analyst form.
+
+![Edit Analyst](readme_assets/edit_analyst.png)
+
+- An analyst can be deleted by clicking the cross icon in the delete column, this opens a confirmation page to prevent accidental deletion.
+
+![Delete Analyst](readme_assets/delete_analyst.png)
 
 </details>
 
@@ -307,7 +405,24 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Tests</summary>
 
+- The tests page is part of the Data Management of the site content and can only be accessed by a user belonging to the Senior Analyst group.
+- This page displays all the analytical tests that are performed in the laboratory.
+- The table is paginated after 15 rows.
+- The status of a test can be toggled by clicking the toggle switch in the Status column.
 
+![Test List](readme_assets/tests.png)
+
+- A new test can be added by clicking the Add New Test button at the bottom of the page, this opens the Add New Test form.
+
+![Add Test](readme_assets/add_test.png)
+
+- A test can be edited by clcking the pencil icon in the Edit column, this opens the Edit Test form.
+
+![Edit Test](readme_assets/edit_test.png)
+
+- A test can be deleted by clicking the cross icon in the delete column, this opens a confirmation page to prevent accidental deletion.
+
+![Delete Test](readme_assets/delete_test.png)
 
 </details>
 
@@ -315,7 +430,10 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Contact Us</summary>
 
+- The contact us page provides user's with the information on how to contact Lab Boss.
+- The user can easily return to the Home page with the Home button.
 
+![Contact Us](readme_assets/contact_us.png)
 
 </details>
 
@@ -346,9 +464,11 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 - [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) was used through the project for inspecting and testing the site.
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframe for the website.
 - [Lucidchart](https://www.lucidchart.com/pages/) was used to create the database entity relationship diagram.
+- The logo was created by adapting this [Freepik](https://www.freepik.com/free-vector/polygonal-hexagon-logo_1112748.htm#page=2&query=hexagon&position=31&from_view=search&track=sph) image. 
 - Microsoft Word was used to create the logo image.
 - [Photoroom](https://www.photoroom.com/background-remover/) was used to remove the background from the logo image.
 - [Ezgif](https://ezgif.com) was used to convert images to webp format.
+- [Am I Responsive](https://ui.dev/amiresponsive) was used to create the site mock-up image.
 
 [Table Of Contents](#table-of-contents)
 
