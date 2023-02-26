@@ -231,7 +231,7 @@ class AnalystList(
     """
     model = Analyst
     queryset = Analyst.objects.order_by('work_id', 'status', 'name')
-    template_name = '/scheduler/analysts.html'
+    template_name = 'data_management/analysts/analysts.html'
     paginate_by = 15
     permission_required = 'scheduler.view_analyst'
 
@@ -331,7 +331,7 @@ class TestList(
     """
     model = Test
     queryset = Test.objects.order_by('status', 'name')
-    template_name = '/scheduler/tests.html'
+    template_name = 'data_management/analysts/tests.html'
     paginate_by = 15
     permission_required = 'scheduler.view_test'
 
