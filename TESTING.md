@@ -28,31 +28,49 @@
 
 #### EPIC | User Navigation
 - As a Site User I can intuitively navigate around the site so that I can find content and understand where I am on the site.
+  - Pass: The navigation bar only contains what the user has access to and can be used to move around the site easily.
 - As a Site User I can view the contact information so that I can contact the site owner if required.
+  - Pass: The contact us page is always avilable from the footer and contains the contact information.
 
 #### EPIC | Batch Tracker Use
 - As a Site User I can see the batches that require testing so that the workload can be scheduled efficiently.
+  - Pass: The batches that require testing are visable on the Batch To Test page of the Batch Tracker.
 - As a Site User I can see which batches are priority so that they can be scheduled accordingly.
+  - Pass: Priority batches are listed first on the Batches to Test page and the Priority Batch page contains a list of just the priority batches.
 - As a Site User I can filter on fields for batches so that I can find a particular batch easily.
+  - Pass: The All Batches page contains a filter search form that allows the user to search the page for specific criteria.
 - As a Site User I can add a new batch onto the site through an easy-to-use interface so that the laboratory workload is up to date.
+  - Pass: New batches can be added easily by clicking the Add New Batch button on the Batches to Test page.
 
 #### EPIC | Batch Tracker Management
 - As a Senior Analyst I can approve batches so that that the laboratory workload is up to date.
+  - Pass: Users assigned to the Senior Analyst group are able to approve a batch by clicking the tick icon in the Status column.
 - As a Senior Analyst I can edit or batches so that comments or changes can be made if required.
+  - Pass: Users assigned to the Senior Analyst group are able to edit a batch by clicking the pencil icon in the Edit column.
 - As a Senior Analyst I can add, edit or delete materials so that changes can be made when required.
+  - Pass: Users assigned to the Senior Analyst group are able to access the Materials page where they can add, edit or delete a material.
 
 #### EPIC | Scheduler Use
 - As a Site User I can view my workload cards so that I understand my work activities.
+  - Pass: Users can view workload cards can be viewed in both Scheduler pages.
 - As a Site User I can filter on fields for test_date, analyst or test so that I can find particular cards easily.
+  - Pass: Both scheduler pages have a filter search form that allows the user to search the page for specific criteria.
 - As a Site User I can complete workload cards so that I can record my work as complete.
+  - Pass: Users can complete workload cards by pressing the Complete button on the card.
 - As a Site User I can un-complete workload cards so that cards can be sent back to 'To Do' status if required.
+  - Pass: Users assigned to the Senior Analyst group can toggle the cards status from the All Cards page.
 - As a Site User I can create a new workload card through an easy-to-use interface so that work can be assigned.
+  - Pass: Users can create a new card by pressing the Add New Card button from the Cards to Test page.
 - As a Site User I can edit testing cards so that the workload can be changed if required.
+  - Pass: Users can edit a card by clicking on the pencil icon in the top left corner of the card.
 
 #### EPIC | Scheduler Management
 - As a Senior Analyst I can delete testing cards so that the workload can be changed if required.
+  - Pass: Users assigned to the Senior Analyst group can delete cards by clicking the cross in the top right corner of the card from both scheduler pages.
 - As a Senior Analyst I can view, add, edit or delete analysts so that changes can be made when required.
+  - Pass: Users assigned to the Senior Analyst group are able to access the Analysts page where they can add, edit or delete an analyst.
 - As a Senior Analyst I can add, edit or delete tests so that changes can be made when required.
+  - Pass: Users assigned to the Senior Analyst group are able to access the Tests page where they can add, edit or delete a test.
 
 [Table Of Contents](#table-of-contents)
 

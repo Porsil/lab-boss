@@ -115,7 +115,7 @@ The project board can be viewed [here](https://github.com/users/Porsil/projects/
 
 <summary>My Cards</summary>
 
-- The original scheduler plan was to have an link that when clicked would display just the user's cards. This was not implemented due to time constraints. User's can easily find their cards by using the filter options on both scheduler pages. 
+- The original scheduler plan was to have an link that when clicked would display just the users cards. This was not implemented due to time constraints. User's can easily find their cards by using the filter options on both scheduler pages. 
 
 </details>
 
@@ -525,6 +525,31 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 - The user can easily return to the Home page with the Home button.
 
 ![Contact Us](readme_assets/contact_us.png)
+
+</details>
+
+<details>
+
+<summary>Future Features</summary>
+
+- Complete the Product Backlog Issue of a My Cards link where a third page would be available to users that when clicked would display just the users cards.
+
+- Materials field for due date time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </details>
 
