@@ -1,6 +1,6 @@
 # <h1 align="center">**LAB BOSS**</h1>
 
-![Responsive Mockup](readme_assets/responsiveness.png)
+![Responsive Mock-up](readme_assets/responsiveness.png)
 
 ## Introduction
 
@@ -26,7 +26,7 @@ The scheduler app allows the laboratory to schedule the workload by quickly and 
 
 ## User Experience (UX)
 
-Lab Boss is a easy to use planning tool designed for use by a laboratory. There are two apps, a tracking tool that tracks batches through the laboratory and a scheduling tool that allows workload to be assigned to the team.
+Lab Boss is an easy to use planning tool designed for use by a laboratory. There are two apps, a tracking tool that tracks batches through the laboratory and a scheduling tool that allows workload to be assigned to the team.
 
 ### User Stories
 
@@ -70,7 +70,7 @@ Lab Boss is a easy to use planning tool designed for use by a laboratory. There 
 
 ## Data Model
 
-Django’s Class-Based Generic Views  and Object-Oriented Programming princliples were used throughout this project.
+Django’s Class-Based Generic Views and Object-Oriented Programming principles were used throughout this project.
 
 Custom models were generated for this project:
 
@@ -115,7 +115,7 @@ The project board can be viewed [here](https://github.com/users/Porsil/projects/
 
 <summary>My Cards</summary>
 
-- The original scheduler plan was to have an link that when clicked would display just the users cards. This was not implemented due to time constraints. User's can easily find their cards by using the filter options on both scheduler pages. 
+- The original scheduler plan was to have a link that when clicked would display just the users cards. This was not implemented due to time constraints. Users can easily find their cards by using the filter options on both scheduler pages. 
 
 </details>
 
@@ -227,13 +227,13 @@ To keep the site looking professional, only one image was used on the pages that
 
 ### User Access and Authentication
 
-Two User group's were set up using the Django Administration Panel, Analyst and Senior Analyst, these groups were assigned permissions appropriate to the role.
+Two User groups were set up using the Django Administration Panel, Analyst and Senior Analyst, these groups were assigned permissions appropriate to the role.
 
-The site makes use of these Admin User Groups along with Django's Admin LoginRequiredMixin and PermissionRequiredMixin to ensure user's can only see and use features appropriate to their role.
+The site makes use of these Admin User Groups along with Django's Admin LoginRequiredMixin and PermissionRequiredMixin to ensure users can only see and use features appropriate to their role.
 
-New user's are not able to see or access the site feature's until they have been assigned to a role by a senior analyst, and are informed of this upon registration.
+New users are not able to see or access the site feature's until they have been assigned to a role by a senior analyst, and are informed of this upon registration.
 
-If the user attemps to access a feature not apropriate to their role, they are shown a HTTP 403 Forbidden Error.
+If the user attempts to access a feature not appropriate to their role, they are shown a HTTP 403 Forbidden Error.
 
 ### Secret Keys
 
@@ -251,14 +251,10 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Header</summary>
 
-### Logo
-
-- A custom logo was created for the site. It was created by me by using Micrsoft Word to add the app name to this hexagon from [Freepik](https://www.freepik.com/free-vector/polygonal-hexagon-logo_1112748.htm#page=2&query=hexagon&position=31&from_view=search&track=sph). The background was then removed from the image using [Photoroom](https://www.photoroom.com/background-remover/).
+- A custom logo was created for the site. It was created by me by using Microsoft Word to add the app name to this hexagon from [Freepik](https://www.freepik.com/free-vector/polygonal-hexagon-logo_1112748.htm#page=2&query=hexagon&position=31&from_view=search&track=sph). The background was then removed from the image using [Photoroom](https://www.photoroom.com/background-remover/).
 - The logo is positioned in the top left of the header on all site pages, and serves as a link back to the home page.
 
 ![Logo](readme_assets/logo.png)
-
-### Navigation Bar
 
 - The navigation bar is visible on all site pages and provides easy links to other areas of the site.
 - When a link is hovered over the text colour changes to provide a visual cue to the user.
@@ -266,7 +262,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ![Hamburger](readme_assets/header_hamburger.png)
 
-- The navigation bar visible to the user is dependant on the user's status, so only links to pages they have access to are listed:
+- The navigation bar visible to the user is dependent on the user's status, so only links to pages they have access to are listed:
   - When the user is logged out, they have the options to Login or Register:
 
   ![Header - Logged out](readme_assets/header_logged_out.png)
@@ -279,7 +275,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
   ![Header - Analyst](readme_assets/header_analyst.png)
 
-  - When a user belonging to the senior analyst group is logged in, they have the options to visit the Batch Tracker page, Scheduler page or Logout. A dropdown menu is also available to visit the Data Management pages of Materials page, Analsysts page, Tests page or the Admin panel:
+  - When a user belonging to the senior analyst group is logged in, they have the options to visit the Batch Tracker page, Scheduler page or Logout. A dropdown menu is also available to visit the Data Management pages of Materials page, Analysts page, Tests page or the Admin panel:
 
   ![Header - Senior](readme_assets/header_senior.png)
 
@@ -289,7 +285,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Footer</summary>
 
-- The footer contains a link to the contact us page. As the site is degined for professional use, social media links have not been added.
+- The footer contains a link to the contact us page. As the site is designed for professional use, social media links have not been added.
 
 ![Footer](readme_assets/footer.png)
 
@@ -308,7 +304,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
   ![Home - New user](readme_assets/home_new.png)
 
-  - When a user belonging to eiher the analyst or senior analyst group is logged in, they have the options to visit the Batch Tracker page or the Scheduler page:
+  - When a user belonging to either the analyst or senior analyst group is logged in, they have the options to visit the Batch Tracker page or the Scheduler page:
 
   ![Home - Logged in](readme_assets/home_login.png)
 
@@ -319,8 +315,8 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 <summary>User Account Pages</summary>
 
 - Django AllAuth was used to create the account login and register forms.
-- When the user clicks Logout they are asked if they are sure they want to Signout incase the logout link was pressed in error.
-- Success messages provide feedback to the user on successfull login or logout.
+- When the user clicks Logout they are asked if they are sure they want to Signout in case the logout link was pressed in error.
+- Success messages provide feedback to the user on successful login or logout.
   - Login Page:
 
   ![Login](readme_assets/login.png)
@@ -339,7 +335,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Batch Tracker</summary>
 
-- The Batch Tracker allows the laboratory to track the batches received by the laboratory. This allows the user's to see what batches require testing, if they are a priority and the due date for approval, helping to plan workload so batches can be approved before their due date and ensure all batches have been approved.
+- The Batch Tracker allows the laboratory to track the batches received by the laboratory. This allows the users to see what batches require testing, if they are a priority and the due date for approval, helping to plan workload so batches can be approved before their due date and ensure all batches have been approved.
 - The Batch Tracker contains 3 sections:
   - Priority batches to test
   - Batches under test
@@ -360,7 +356,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ![Tracker - Senior](readme_assets/tracker_senior.png)
 
-- From the batches under test page a batch can be edited by users from the senior analyst group by clcking the pencil icon in the Edit column, this opens the Edit Batch form. 
+- From the batches under test page a batch can be edited by users from the senior analyst group by clicking the pencil icon in the Edit column, this opens the Edit Batch form. 
 
 ![Edit Batch](readme_assets/edit_batch.png)
 
@@ -372,7 +368,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ![All Tracker - Analyst](readme_assets/all_tracker_analyst.png)
 
-- In the all batches page, users from the senior analyst group have an additional view option to toggle the batch status. The batch status can be toggled betwwen To Test and Approved by clicking on the toggle icon in the Status column. This allows batches that have been approved in error to be changed back to a To Test status.
+- In the all batches page, users from the senior analyst group have an additional view option to toggle the batch status. The batch status can be toggled between To Test and Approved by clicking on the toggle icon in the Status column. This allows batches that have been approved in error to be changed back to a To Test status.
 
 ![All Tracker - Senior](readme_assets/all_tracker_senior.png)
 
@@ -388,7 +384,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Workload Scheduler</summary>
 
-- The Scheduler allows the laboratory to orgainse the laboratory workload. In this section of the site cards are created that assign an analyst to an analytical test on a specific day. This allows analysts to easily see what work is required of them, and once the testing is complete, the card can be set to completed to acknowledge the completion of the work.
+- The Scheduler allows the laboratory to organise the laboratory workload. In this section of the site cards are created that assign an analyst to an analytical test on a specific day. This allows analysts to easily see what work is required of them, and once the testing is complete, the card can be set to completed to acknowledge the completion of the work.
 - The Scheduler contains 2 sections:
   - Cards to test
   - All cards
@@ -400,7 +396,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ![Add Card](readme_assets/add_card.png)
 
-- From the cards to test page a card can be edited by both user groups by clcking the pencil icon in the top left corner of the card, this opens the Edit Card form. 
+- From the cards to test page a card can be edited by both user groups by clicking the pencil icon in the top left corner of the card, this opens the Edit Card form. 
 
 ![Edit Card](readme_assets/edit_card.png)
 
@@ -451,7 +447,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ![Add Material](readme_assets/add_material.png)
 
-- A material can be edited by clcking the pencil icon in the Edit column, this opens the Edit Material form.
+- A material can be edited by clicking the pencil icon in the Edit column, this opens the Edit Material form.
 
 ![Edit Material](readme_assets/edit_material.png)
 
@@ -474,11 +470,11 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ![Analyst List](readme_assets/analysts.png)
 
-- A new analsyt can be added by clicking the Add New Analyst button at the bottom of the page, this opens the Add New Analyst form.
+- A new analyst can be added by clicking the Add New Analyst button at the bottom of the page, this opens the Add New Analyst form.
 
 ![Add Analyst](readme_assets/add_analyst.png)
 
-- An analyst can be edited by clcking the pencil icon in the Edit column, this opens the Edit Analyst form.
+- An analyst can be edited by clicking the pencil icon in the Edit column, this opens the Edit Analyst form.
 
 ![Edit Analyst](readme_assets/edit_analyst.png)
 
@@ -505,7 +501,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 ![Add Test](readme_assets/add_test.png)
 
-- A test can be edited by clcking the pencil icon in the Edit column, this opens the Edit Test form.
+- A test can be edited by clicking the pencil icon in the Edit column, this opens the Edit Test form.
 
 ![Edit Test](readme_assets/edit_test.png)
 
@@ -521,7 +517,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Contact Us</summary>
 
-- The contact us page provides user's with the information on how to contact Lab Boss.
+- The contact us page provides users with the information on how to contact Lab Boss.
 - The user can easily return to the Home page with the Home button.
 
 ![Contact Us](readme_assets/contact_us.png)
@@ -532,24 +528,25 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 
 <summary>Future Features</summary>
 
-- Complete the Product Backlog Issue of a My Cards link where a third page would be available to users that when clicked would display just the users cards.
+### My Cards
 
-- Materials field for due date time.
+- Complete the Product Backlog Issue of a My Cards link where a third page would be available to users on the Scheduler page which when clicked would display just the users cards.
 
+### Multiple Tests per Card
 
+- A useful feature that could be added would to have more than one test assigned to one analyst on a given day, in case a test does not take a whole day to perform, and the workload card to contain all tests assigned to the analyst on the specified day.
 
+### Different Batch Lead Times
 
+- To allow for Materials to have a different lead time to each other, a field could be added to the Materials model so the user could add the material lead time to each material. This could then be a foreign_key field in the Batch model to calculate the approval date based on the material lead time.
 
+### Batches On Hold
 
+- A feature could be added to the tracker where a batch can be flagged as on hold, to easily show users that the batch is being held by an issue or investigation.
 
+### Metrics
 
-
-
-
-
-
-
-
+- A page could be added to the site to track laboratory metric, such as number of batches under test or percentage of batches approved on time.
 
 </details>
 
@@ -576,7 +573,7 @@ To prevent attack, Cross-Site Request Forgery (CSRF) tokens are used on all form
 - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) was used as a frontend toolkit to aid in the sites styling and responsiveness.
 - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) was used to create the Django Forms.
 - [Google Fonts](https://fonts.google.com/) was used to import the fonts used on the site.
-- [Font Awesome](https://fontawesome.com/) was used for the approve, toggle, edit and delete icons used accross the site.
+- [Font Awesome](https://fontawesome.com/) was used for the approve, toggle, edit and delete icons used across the site.
 - [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) was used through the project for inspecting and testing the site.
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframe for the website.
 - [Lucidchart](https://www.lucidchart.com/pages/) was used to create the database entity relationship diagram.
@@ -599,11 +596,11 @@ Testing details and results can be found [here](/TESTING.md).
 To deploy this app to Heroku from its GitHub repository:
 
 ### File setup prior to deployment:
-- Ensure all secret keys are stored in an env.py file and this is listed in the .gitignore file. Any keys that have been previously commited to GitHub should be changed for security purposes.
+- Ensure all secret keys are stored in an env.py file and this is listed in the .gitignore file. Any keys that have been previously committed to GitHub should be changed for security purposes.
 - Ensure requirements.txt file is up to date by using 'pip3 freeze --local > requirements.txt' in the command terminal.
 - Ensure a Procfile is present and contains the code 'web: gunicorn labboss.wsgi'.
 - Ensure in settings.py DEBUG = False
-- Ensure the code is commited and pushed to GitHub.
+- Ensure the code is committed and pushed to GitHub.
 
 ### Create a Heroku App:
 - Log in to [Heroku](https://dashboard.heroku.com/apps). If required, create an account.
@@ -635,7 +632,7 @@ To deploy this app to Heroku from its GitHub repository:
 
 ## Cloning the repository
 - Open the [Lab Boss](https://github.com/Porsil/lab-boss) repository.
-- Click the green '<> Code' button. Select the prefered cloning option from the list then copy the link provided.
+- Click the green '<> Code' button. Select the preferred cloning option from the list then copy the link provided.
 - Change the current working directory to the location where you want the cloned directory.
 - Type 'git clone' and paste the URL you copied earlier.
 - Press 'Enter' to create your local clone.
@@ -646,7 +643,7 @@ To deploy this app to Heroku from its GitHub repository:
 
 - The code to import the fonts was taken from [Google Fonts](https://fonts.google.com/).
 - The code to add the icons used was taken from [Font Awesome](https://fontawesome.com/).
-- The code to create the zebra stripes in the batch tracker table was adapred from [W3Schools](https://www.w3schools.com/html/html_table_styling.asp).
+- The code to create the zebra stripes in the batch tracker table was adapted from [W3Schools](https://www.w3schools.com/html/html_table_styling.asp).
 - The code to change the date format used on the site was taken from this [Django Documentation](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date).
 - The following Geeks for Geeks sites were used to aid in creating all class based [Create Views](https://www.geeksforgeeks.org/createview-class-based-views-django/), [Update Views](https://www.geeksforgeeks.org/updateview-class-based-views-django/) and [Delete Views](https://www.geeksforgeeks.org/deleteview-class-based-views-django/).
 - The code to stop the footer overlaying with the page content was adapted from this [CodeHim page](https://www.codehim.com/bootstrap/bootstrap-5-footer-always-at-bottom/).

@@ -83,9 +83,6 @@ class AllBatchList(
             ):
     """
     Displays all batches.
-    FilteredListView & filterset_class added from
-    https://www.caktusgroup.com/blog/2018/10/18/
-    filtering-and-pagination-django/
     """
     model = Batch
     queryset = Batch.objects.order_by('batch')

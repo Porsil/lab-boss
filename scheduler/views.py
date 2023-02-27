@@ -42,9 +42,6 @@ class WorkloadList(
             ):
     """
     Displays the workload cards that have a status of To Do
-    FilteredListView & filterset_class added from
-    https://www.caktusgroup.com/blog/2018/10/18/
-    filtering-and-pagination-django/
     """
     model = Workload
     queryset = Workload.objects.filter(status='To Do').order_by('-test_date',
@@ -70,9 +67,6 @@ class AllWorkloadList(
             ):
     """
     Displays all workload cards
-    FilteredListView & filterset_class added from
-    https://www.caktusgroup.com/blog/2018/10/18/
-    filtering-and-pagination-django/
     """
     model = Workload
     queryset = Workload.objects.order_by('-test_date', 'analyst')

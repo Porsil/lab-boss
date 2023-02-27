@@ -14,9 +14,9 @@
 
 #### EPIC | User Admin
 - As a Site User I can create an account so I can use the site.
-  - Pass: Users can register using the Register button or link and create an account. A success message is given on successfull registration.
+  - Pass: Users can register using the Register button or link and create an account. A success message is given on successful registration.
 - As a Site User I can log in or log out of my account so that I can keep my account secure.
-  - Pass: Users can login by using the Login button or link and logout using the logout link and confirming logout. A success message is given on successfull login or logout.
+  - Pass: Users can login by using the Login button or link and logout using the logout link and confirming logout. A success message is given on successful login or logout.
 - As a Site User I can only see any content without being logged in so that data is secure.
   - Pass: Only users who are logged in and have been assigned to a user group can access the site content.
 - As a Site User I can only see any content after my account has been authorised by an admin user so that control is maintained over the data.
@@ -30,11 +30,11 @@
 - As a Site User I can intuitively navigate around the site so that I can find content and understand where I am on the site.
   - Pass: The navigation bar only contains what the user has access to and can be used to move around the site easily.
 - As a Site User I can view the contact information so that I can contact the site owner if required.
-  - Pass: The contact us page is always avilable from the footer and contains the contact information.
+  - Pass: The contact us page is always available from the footer and contains the contact information.
 
 #### EPIC | Batch Tracker Use
 - As a Site User I can see the batches that require testing so that the workload can be scheduled efficiently.
-  - Pass: The batches that require testing are visable on the Batch To Test page of the Batch Tracker.
+  - Pass: The batches that require testing are visible on the Batch To Test page of the Batch Tracker.
 - As a Site User I can see which batches are priority so that they can be scheduled accordingly.
   - Pass: Priority batches are listed first on the Batches to Test page and the Priority Batch page contains a list of just the priority batches.
 - As a Site User I can filter on fields for batches so that I can find a particular batch easily.
@@ -231,9 +231,9 @@ After the updates given above the following scores were given:
 | delete_test         | 98           | 98            | 100             | 100  |
 
 - Note 6:
-The Lightouse best practies score was lower for the contact us page due to the map pin. This was ignored as the map was generated using an API.
+The Lighthouse best practise score was lower for the contact us page due to the map pin. This was ignored as the map was generated using an API.
 
-![Lightouse Map](readme_assets/map_lighthouse.png)
+![Lighthouse Map](readme_assets/map_lighthouse.png)
 
 </details>
 
@@ -241,7 +241,7 @@ The Lightouse best practies score was lower for the contact us page due to the m
 
 <summary>Lighthouse Mobile Report</summary>
 
-Due to the site being desiged for use in a laboratory, it is unlikely to be used on a mobile device. The mobile report was performed as site has been designed to be responsive so the browser size can be shrunk if desired.
+Due to the site being practise for use in a laboratory, it is unlikely to be used on a mobile device. The mobile report was performed as site has been designed to be responsive so the browser size can be shrunk if desired.
 
 The main issue reported for mobile devices was the font size of the logo attribute text and the copyright text in the footer are too small. This issue was not addressed due to these not being an integral part of the sites usage.
 
@@ -378,7 +378,7 @@ No issues were noted.
 | Password fields             | Different passwords used                  | Form won't submit - Error message displays            | Pass      |
 | Register button             | Click with satisfactory form              | Form submits - New user is registered to the site     | Pass      |
 | Redirect to home page       | Post registration                         | User is taken to the home page                        | Pass      |
-| Success message             | Post registration                         | Message confirming sucessfull signin appears          | Pass      |
+| Success message             | Post registration                         | Message confirming successful login appears           | Pass      |
 | Success message fade        | Post registration                         | Success message fades after 3 seconds                 | Pass      |
 | User requires authorisation | Post registration                         | User is informed their account requires authorisation | Pass      |
 | Site access is restricted   | Post registration                         | User cannot access the site without authorisation     | Pass      |
@@ -389,11 +389,11 @@ No issues were noted.
 | Password field              | Field left empty                          | Form won't submit - Error message displays            | Pass      |
 | Login button                | Click with satisfactory form              | Form submits - User is logged into site               | Pass      |
 | Redirect to home page       | Post login                                | User is taken to the home page                        | Pass      |
-| Success message             | Post login                                | Message confirming sucessfull signin appears          | Pass      |
+| Success message             | Post login                                | Message confirming successful login appears           | Pass      |
 | Success message fade        | Post login                                | Success message fades after 3 seconds                 | Pass      |
 | Log Out                                                                                                                                     |
 | Signout button              | Click                                     | Redirects to home page and user is logged out         | Pass      |
-| Success message             | Post Signout                              | Message confirming sucessfull signout appears         | Pass      |
+| Success message             | Post Signout                              | Message confirming successful signout appears         | Pass      |
 | Success message fade        | Post Signout                              | Success message fades after 3 seconds                 | Pass      |
 | Cancel button               | Click                                     | Redirects to home page and user remains logged in     | Pass      |
 
@@ -446,7 +446,7 @@ No issues were noted.
 | Toggle Status button       | Display                      | Active = on, Inactive = off                    | Pass      |
 | Toggle Status button       | Hover                        | Change background colour                       | Pass      |
 | Toggle Status button       | Click                        | Status and icon is toggled                     | Pass      |
-| Success message            | Post Toggle                  | Message confirming sucessfull toggle appears   | Pass      |
+| Success message            | Post Toggle                  | Message confirming successful toggle appears   | Pass      |
 | Success message fade       | Post Toggle                  | Success message fades after 3 seconds          | Pass      |
 | Edit Material button       | Click                        | Redirects to update material page              | Pass      |
 | Edit Material button       | Hover                        | Change text colour                             | Pass      |
@@ -461,7 +461,7 @@ No issues were noted.
 | Save button                | Hover                        | Change text & background colour                | Pass      |
 | Save button                | Click with satisfactory form | Form submits - material is updated correctly   | Pass      |
 | Redirect to materials page | Post edit                    | User is returned to the materials page         | Pass      |
-| Success message            | Post edit                    | Message confirming sucessfull update appears   | Pass      |
+| Success message            | Post edit                    | Message confirming successful update appears   | Pass      |
 | Success message fade       | Post edit                    | Success message fades after 3 seconds          | Pass      |
 | Cancel button              | Hover                        | Change text & background colour                | Pass      |
 | Cancel button              | Click                        | Redirects to materials page with no changes    | Pass      |
@@ -471,7 +471,7 @@ No issues were noted.
 | Delete button              | Hover                        | Change text & background colour                | Pass      |
 | Delete button              | Click                        | Form submits - material is deleted correctly   | Pass      |
 | Redirect to materials page | Post delete                  | User is returned to the materials page         | Pass      |
-| Success message            | Post delete                  | Message confirming sucessfull deletion appears | Pass      |
+| Success message            | Post delete                  | Message confirming successful deletion appears | Pass      |
 | Success message fade       | Post delete                  | Success message fades after 3 seconds          | Pass      |
 | Cancel button              | Hover                        | Change text & background colour                | Pass      |
 | Cancel button              | Click                        | Redirects to materials page with no changes    | Pass      |
@@ -482,7 +482,7 @@ No issues were noted.
 | Save button                | Hover                        | Change text & background colour                | Pass      |
 | Save button                | Click with satisfactory form | Form submits - material is added correctly     | Pass      |
 | Redirect to materials page | Post add                     | User is returned to the materials page         | Pass      |
-| Success message            | Post add                     | Message confirming sucessfull add appears      | Pass      |
+| Success message            | Post add                     | Message confirming successful add appears      | Pass      |
 | Success message fade       | Post add                     | Success message fades after 3 seconds          | Pass      |
 | Cancel button              | Hover                        | Change text & background colour                | Pass      |
 | Cancel button              | Click                        | Redirects to materials page with no changes    | Pass      |
@@ -501,7 +501,7 @@ No issues were noted.
 | Toggle Status button      | Display                      | Active = on, Inactive = off                    | Pass          |
 | Toggle Status button      | Hover                        | Change background colour                       | Pass          |
 | Toggle Status button      | Click                        | Status and icon is toggled                     | Pass          |
-| Success message           | Post Toggle                  | Message confirming sucessfull toggle appears   | Pass          |
+| Success message           | Post Toggle                  | Message confirming successful toggle appears   | Pass          |
 | Success message fade      | Post Toggle                  | Success message fades after 3 seconds          | Pass          |
 | Edit Analyst button       | Click                        | Redirects to update analyst page               | Pass          |
 | Edit Analyst button       | Hover                        | Change text colour                             | Pass          |
@@ -517,7 +517,7 @@ No issues were noted.
 | Save button               | Hover                        | Change text & background colour                | Pass          |
 | Save button               | Click with satisfactory form | Form submits - analyst is updated correctly    | Pass          |
 | Redirect to analysts page | Post edit                    | User is returned to the analysts page          | Pass          |
-| Success message           | Post edit                    | Message confirming sucessfull update appears   | Pass          |
+| Success message           | Post edit                    | Message confirming successful update appears   | Pass          |
 | Success message fade      | Post edit                    | Success message fades after 3 seconds          | Pass          |
 | Cancel button             | Hover                        | Change text & background colour                | Pass          |
 | Cancel button             | Click                        | Redirects to analysts page with no changes     | Pass          |
@@ -526,8 +526,8 @@ No issues were noted.
 | Confirm message           | Display                      | Displays analyst name correctly                | Pass          |
 | Delete button             | Hover                        | Change text & background colour                | Pass          |
 | Delete button             | Click                        | Form submits - analyst is deleted correctly    | Pass          |
-| Redirect to analysts page | Post delete                  | User is returned to theanalysts page           | Pass          |
-| Success message           | Post delete                  | Message confirming sucessfull deletion appears | Pass          |
+| Redirect to analysts page | Post delete                  | User is returned to the analysts page          | Pass          |
+| Success message           | Post delete                  | Message confirming successful deletion appears | Pass          |
 | Success message fade      | Post delete                  | Success message fades after 3 seconds          | Pass          |
 | Cancel button             | Hover                        | Change text & background colour                | Pass          |
 | Cancel button             | Click                        | Redirects to analysts page with no changes     | Pass          |
@@ -539,7 +539,7 @@ No issues were noted.
 | Save button               | Hover                        | Change text & background colour                | Pass          |
 | Save button               | Click with satisfactory form | Form submits - analyst is added correctly      | Pass          |
 | Redirect to analysts page | Post add                     | User is returned to the analysts page          | Pass          |
-| Success message           | Post add                     | Message confirming sucessfull add appears      | Pass          |
+| Success message           | Post add                     | Message confirming successful add appears      | Pass          |
 | Success message fade      | Post add                     | Success message fades after 3 seconds          | Pass          |
 | Cancel button             | Hover                        | Change text & background colour                | Pass          |
 | Cancel button             | Click                        | Redirects to analysts page with no changes     | Pass          |
@@ -561,7 +561,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Toggle Status button   | Display                      | Active = on, Inactive = off                    | Pass      |
 | Toggle Status button   | Hover                        | Change background colour                       | Pass      |
 | Toggle Status button   | Click                        | Status and icon is toggled                     | Pass      |
-| Success message        | Post Toggle                  | Message confirming sucessfull toggle appears   | Pass      |
+| Success message        | Post Toggle                  | Message confirming successful toggle appears   | Pass      |
 | Success message fade   | Post Toggle                  | Success message fades after 3 seconds          | Pass      |
 | Edit Test button       | Click                        | Redirects to update test page                  | Pass      |
 | Edit Test button       | Hover                        | Change text colour                             | Pass      |
@@ -576,7 +576,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Save button            | Hover                        | Change text & background colour                | Pass      |
 | Save button            | Click with satisfactory form | Form submits - test is updated correctly       | Pass      |
 | Redirect to tests page | Post edit                    | User is returned to the tests page             | Pass      |
-| Success message        | Post edit                    | Message confirming sucessfull update appears   | Pass      |
+| Success message        | Post edit                    | Message confirming successful update appears   | Pass      |
 | Success message fade   | Post edit                    | Success message fades after 3 seconds          | Pass      |
 | Cancel button          | Hover                        | Change text & background colour                | Pass      |
 | Cancel button          | Click                        | Redirects to tests page with no changes        | Pass      |
@@ -586,7 +586,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Delete button          | Hover                        | Change text & background colour                | Pass      |
 | Delete button          | Click                        | Form submits - test is deleted correctly       | Pass      |
 | Redirect to tests page | Post delete                  | User is returned to the tests page             | Pass      |
-| Success message        | Post delete                  | Message confirming sucessfull deletion appears | Pass      |
+| Success message        | Post delete                  | Message confirming successful deletion appears | Pass      |
 | Success message fade   | Post delete                  | Success message fades after 3 seconds          | Pass      |
 | Cancel button          | Hover                        | Change text & background colour                | Pass      |
 | Cancel button          | Click                        | Redirects to tests page with no changes        | Pass      |
@@ -597,7 +597,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Save button            | Hover                        | Change text & background colour                | Pass      |
 | Save button            | Click with satisfactory form | Form submits - test is added correctly         | Pass      |
 | Redirect to tests page | Post add                     | User is returned to the tests page             | Pass      |
-| Success message        | Post add                     | Message confirming sucessfull add appears      | Pass      |
+| Success message        | Post add                     | Message confirming successful add appears      | Pass      |
 | Success message fade   | Post add                     | Success message fades after 3 seconds          | Pass      |
 | Cancel button          | Hover                        | Change text & background colour                | Pass      |
 | Cancel button          | Click                        | Redirects to tests page with no changes        | Pass      |
@@ -623,7 +623,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Approve batch button      | Display                      | Not available to analyst role                   | Pass      |
 | Approve batch button      | Hover                        | Change text colour                              | Pass      |
 | Approve batch button      | Click                        | batch status is changed to approved             | Pass      |
-| Success message           | Post Approve                 | Message confirming sucessfull approval appears  | Pass      |
+| Success message           | Post Approve                 | Message confirming successful approval appears  | Pass      |
 | Success message fade      | Post Approve                 | Success message fades after 3 seconds           | Pass      |
 | Edit batch button         | Display                      | Not available to analyst role                   | Pass      |
 | Edit batch button         | Hover                        | Change text colour                              | Pass      |
@@ -644,7 +644,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Save button               | Hover                        | Change text & background colour                 | Pass      |
 | Save button               | Click with satisfactory form | Form submits - batch is updated correctly       | Pass      |
 | Redirect to tracker page  | Post edit                    | User is returned to the batch tracker page      | Pass      |
-| Success message           | Post edit                    | Message confirming sucessfull update appears    | Pass      |
+| Success message           | Post edit                    | Message confirming successful update appears    | Pass      |
 | Success message fade      | Post edit                    | Success message fades after 3 seconds           | Pass      |
 | Cancel button             | Hover                        | Change text & background colour                 | Pass      |
 | Cancel button             | Click                        | Redirects to batch tracker page with no changes | Pass      |
@@ -654,7 +654,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Delete button             | Hover                        | Change text & background colour                 | Pass      |
 | Delete button             | Click                        | Form submits - batch is deleted correctly       | Pass      |
 | Redirect to tracker page  | Post delete                  | User is returned to the batch tracker page      | Pass      |
-| Success message           | Post delete                  | Message confirming sucessfull deletion appears  | Pass      |
+| Success message           | Post delete                  | Message confirming successful deletion appears  | Pass      |
 | Success message fade      | Post delete                  | Success message fades after 3 seconds           | Pass      |
 | Cancel button             | Hover                        | Change text & background colour                 | Pass      |
 | Cancel button             | Click                        | Redirects to batch tracker page with no changes | Pass      |
@@ -666,7 +666,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Save button               | Hover                        | Change text & background colour                 | Pass      |
 | Save button               | Click with satisfactory form | Form submits - batch is added correctly         | Pass      |
 | Redirect to tracker page  | Post add                     | User is returned to the batch tracker page      | Pass      |
-| Success message           | Post add                     | Message confirming sucessfull add appears       | Pass      |
+| Success message           | Post add                     | Message confirming successful add appears       | Pass      |
 | Success message fade      | Post add                     | Success message fades after 3 seconds           | Pass      |
 | Cancel button             | Hover                        | Change text & background colour                 | Pass      |
 | Cancel button             | Click                        | Redirects to batch tracker page with no changes | Pass      |
@@ -719,7 +719,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Toggle Status button  | Display          | Approved = on, To Test = off                 | Pass      |
 | Toggle Status button  | Hover            | Change background colour                     | Pass      |
 | Toggle Status button  | Click            | Status and icon is toggled                   | Pass      |
-| Success message       | Post Toggle      | Message confirming sucessfull toggle appears | Pass      |
+| Success message       | Post Toggle      | Message confirming successful toggle appears | Pass      |
 | Success message fade  | Post Toggle      | Success message fades after 3 seconds        | Pass      |
 | Pagination buttons    | Display          | Displays the correct number of pages         | Pass      |
 | Pagination buttons    | Hover            | Change text colour                           | Pass      |
@@ -751,7 +751,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Delete card button         | Click                        | Redirects to delete card  page                 | Pass      |
 | Complete card button       | Hover                        | Change text & background colour                | Pass      |
 | Complete card button       | Click                        | Card status is changed to completed            | Pass      |
-| Success message            | Post Approve                 | Message confirming sucessfull approval appears | Pass      |
+| Success message            | Post Approve                 | Message confirming successful approval appears | Pass      |
 | Success message fade       | Post Approve                 | Success message fades after 3 seconds          | Pass      |
 | Add New Card button        | Hover                        | Change text & background colour                | Pass      |
 | Add New Card button        | Click                        | Redirects to add card page                     | Pass      |
@@ -766,7 +766,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Save button                | Hover                        | Change text & background colour                | Pass      |
 | Save button                | Click with satisfactory form | Form submits - card is updated correctly       | Pass      |
 | Redirect to scheduler page | Post edit                    | User is returned to the scheduler page         | Pass      |
-| Success message            | Post edit                    | Message confirming sucessfull update appears   | Pass      |
+| Success message            | Post edit                    | Message confirming successful update appears   | Pass      |
 | Success message fade       | Post edit                    | Success message fades after 3 seconds          | Pass      |
 | Cancel button              | Hover                        | Change text & background colour                | Pass      |
 | Cancel button              | Click                        | Redirects to scheduler page with no changes    | Pass      |
@@ -776,7 +776,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Delete button              | Hover                        | Change text & background colour                | Pass      |
 | Delete button              | Click                        | Form submits - card is deleted correctly       | Pass      |
 | Redirect to scheduler page | Post delete                  | User is returned to the scheduler page         | Pass      |
-| Success message            | Post delete                  | Message confirming sucessfull deletion appears | Pass      |
+| Success message            | Post delete                  | Message confirming successful deletion appears | Pass      |
 | Success message fade       | Post delete                  | Success message fades after 3 seconds          | Pass      |
 | Cancel button              | Hover                        | Change text & background colour                | Pass      |
 | Cancel button              | Click                        | Redirects to scheduler page with no changes    | Pass      |
@@ -788,7 +788,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Save button                | Hover                        | Change text & background colour                | Pass      |
 | Save button                | Click with satisfactory form | Form submits - card is updated correctly       | Pass      |
 | Redirect to scheduler page | Post edit                    | User is returned to the scheduler page         | Pass      |
-| Success message            | Post edit                    | Message confirming sucessfull update appears   | Pass      |
+| Success message            | Post edit                    | Message confirming successful update appears   | Pass      |
 | Success message fade       | Post edit                    | Success message fades after 3 seconds          | Pass      |
 | Cancel button              | Hover                        | Change text & background colour                | Pass      |
 | Cancel button              | Click                        | Redirects to scheduler page with no changes    | Pass      |
@@ -808,8 +808,8 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Cards to Test link         | Hover            | Change text colour                              | Pass      |
 | Cards to Test link         | Click            | Redirects to cards to test page                 | Pass      |
 | All Card list              | Display          | Displays card list correctly                    | Pass      |
-| To Do Cards                | Display          | Card text is no displayed with linethrough      | Pass      |
-| Completed Cards            | Display          | Card text is displayed faded with linethrough   | Pass      |
+| To Do Cards                | Display          | Card text is no displayed with line through     | Pass      |
+| Completed Cards            | Display          | Card text is displayed faded with line through  | Pass      |
 | Filter Cards Button        | Hover            | Change text & background colour                 | Pass      |
 | Filter Cards Button        | Click            | Opens filter options                            | Pass      |
 | Filter Cards Options       | Complete Form    | Cards filter correctly                          | Pass      |
@@ -819,7 +819,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Delete card button         | Click            | Redirects to delete card page                   | Pass      |
 | Toggle Status button       | Hover            | Change text & background colour                 | Pass      |
 | Toggle Status button       | Click            | Card status is changed                          | Pass      |
-| Success message            | Post Toggle      | Message confirming sucessfull approval appears  | Pass      |
+| Success message            | Post Toggle      | Message confirming successful approval appears  | Pass      |
 | Success message fade       | Post Toggle      | Success message fades after 3 seconds           | Pass      |
 | Pagination buttons         | Display          | Displays the correct number of pages            | Pass      |
 | Pagination buttons         | Hover            | Change text colour                              | Pass      |
@@ -830,7 +830,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 | Delete button              | Hover            | Change text & background colour                 | Pass      |
 | Delete button              | Click            | Form submits - card is deleted correctly        | Pass      |
 | Redirect to scheduler page | Post delete      | User is returned to the all scheduler page      | Pass      |
-| Success message            | Post delete      | Message confirming sucessfull deletion appears  | Pass      |
+| Success message            | Post delete      | Message confirming successful deletion appears  | Pass      |
 | Success message fade       | Post delete      | Success message fades after 3 seconds           | Pass      |
 | Cancel button              | Hover            | Change text & background colour                 | Pass      |
 | Cancel button              | Click            | Redirects to all scheduler page with no changes | Pass      |
@@ -884,7 +884,7 @@ Initial testing showed work_id was missing from the update analyst form. This wa
 
 - When values were added for the tracker and scheduler paths in labboss/urls.py to ensure there are no url conflicts in the future, the home page and success URLs loaded with a 404 error.
 
-- This issue was fixed by updating the success URLs and creating a views.py file in the labboss folder and moving the homepage View to this file. The home page url path was then moved from tracker/urls.py to labboss/urls.py. 
+- This issue was fixed by updating the success URLs and creating a views.py file in the labboss folder and moving the homepage View to this file. The home page YRL path was then moved from tracker/urls.py to labboss/urls.py. 
 
 [Table Of Contents](#table-of-contents)
 
